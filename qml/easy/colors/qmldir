@@ -1,3 +1,5 @@
 module easy.colors
 Globals 1.0 globals.js
 Units 1.0 units.js
+
+ColorUtils 1.0 utils.mjs
