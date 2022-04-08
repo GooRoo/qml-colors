@@ -1,5 +1,6 @@
 import QtQuick 2.15
 import QtTest 1.1
+import testUtils 1.0
 
 import easy.colors 1.0
 
