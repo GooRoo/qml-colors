@@ -8,6 +8,8 @@ Project {
 	AutotestRunner {
 		Depends { name: 'Qt.core'; versionAtLeast: '5.15' }
 
+		property string loggingRules: '*.debug=false'
+
 		builtByDefault: true
 
 		environment: {
@@ -37,6 +39,8 @@ Project {
 				env.push('DYLD_FRAMEWORK_PATH=' + Qt.core.libPath)
 				env.push('DYLD_LIBRARY_PATH=' + Qt.core.libPath)
 			}
+
+			env.push('QT_LOGGING_RULES=' + loggingRules)
 
 			return env
 		}
