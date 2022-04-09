@@ -27,3 +27,15 @@ export function absmod (n, r) {
 	}
 	return result
 }
+
+export function isQtColor (obj) {
+	const iface = [
+		'r', 'g', 'b', 'a',
+		'hsvHue', 'hsvSaturation', 'hsvValue',
+		'hslHue', 'hslSaturation', 'hslLightness',
+		'valid'
+	]
+
+	return typeof obj === 'object' &&
+		allOf(iface, prop => obj.hasOwnProperty(prop))
+}

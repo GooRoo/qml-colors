@@ -47,4 +47,14 @@ TestCase {
 
 		compare(absmod(-90, 360), 270) // useful with degrees
 	}
+
+	property string c1: '#8000ff'
+	property color c2: '#8000ff'
+	function test_isQtColor() {
+		const isQtColor = ColorUtils.isQtColor
+		verify( isQtColor(Qt.rgba(0.5, 0, 1, 1)))
+		verify( isQtColor(Qt.hsla(0.75, 1, 0.5, 1)))
+		verify(!isQtColor(c1))
+		verify( isQtColor(c2))
+	}
 }
