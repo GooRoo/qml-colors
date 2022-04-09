@@ -27,12 +27,14 @@ function checkArgsNumber (from, to, ...params) {
 		0
 	)
 
-	if (from > to)
-		[from, to] = [to, from]
+	if (from > to) {
+		;[from, to] = [to, from]
+	}
 
 	const fromTo = from !== to? `from ${from} to ${to}` : from
-	if (nonEmpty < from)
+	if (nonEmpty < from) {
 		throw new TypeError(`Insufficient number of arguments. The function takes ${fromTo}. You provided only ${nonEmpty}.`)
+	}
 }
 
 function checkTypes (type, typeStr, ...params) {
@@ -43,14 +45,16 @@ function checkTypes (type, typeStr, ...params) {
 			return typeof param == type
 		}
 	})
-	if (!valid)
+	if (!valid) {
 		throw new TypeError(`All parameters must be ${typeStr}`)
+	}
 }
 
 function checkRanges ([min, max], ...params) {
 	const valid = utils.allOf(params, param => param >= min && param <= max)
-	if (!valid)
+	if (!valid) {
 		throw new RangeError(`All parameters must be within [${min}; ${max}] range`)
+	}
 }
 
 function rgba32 (_, r, g, b, a = 0xFF) {
@@ -120,8 +124,9 @@ function qolor(strings, ...params) {
 	}
 
 	// if called as a function directly
-	if (typeof strings === 'string')
+	if (typeof strings === 'string') {
 		strings = [strings]
+	}
 	// else if (typeof strings === 'object') {
 	// 	return Color.copyObject(strings)
 	// }
@@ -135,10 +140,11 @@ function qolor(strings, ...params) {
 	}
 
 	try {
-		if (params.length > 3)
+		if (params.length > 3) {
 			return argb32(strings, ...params)
-		else
+		} else {
 			return rgba32(strings, ...params)
+		}
 	} catch (error) { console.debug(error) }
 }
 
