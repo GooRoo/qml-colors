@@ -11,6 +11,11 @@ function registerGlobalFunctions(...functions) {
 }
 
 registerGlobalFunctions.call(this,
+	Tags.color,
+	[Tags.color, 'c'],
+	Tags.qolor,
+	[Tags.qolor, 'q'],
+
 	Tags.argb,
 	Tags.argb32,
 	[Tags.hsla, 'hsl'],

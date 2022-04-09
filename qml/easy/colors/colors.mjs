@@ -111,7 +111,7 @@ export class Color {
 	}
 
 	toString () {
-		return this.qtColor.toString()
+		return typeof this.qtColor !== 'undefined'? this.qtColor.toString() : this.qtColor
 	}
 
 	valueOf () {
