@@ -7,13 +7,6 @@ import easy.colors 1.0
 TestCase {
 	name: 'Tags'
 
-	property color violet: '#8000ff'
-	property color halfViolet: '#808000ff'
-	property color indigo: '#4B0082'
-	property color yellow: '#FFFF00'
-	property color lightslategray: '#778899'
-	property color halfLightslategray: '#66778899'
-
 	function test_argb() {
 		compare(argb`${1}${0.5}${0}${1}`, '#8000ff')
 		compare(argb`${0.5}${0.5}${0}${1}`, '#808000ff')
