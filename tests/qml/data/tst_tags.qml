@@ -28,7 +28,7 @@ TestCase {
 		try { argb`${'1'}${0.5}${null}${1}` }
 		catch (error) {
 			verify(error instanceof TypeError)
-			compare(error.message, 'All parameters must be numbers')
+			compare(error.message, 'All parameters must be numbers.')
 			exc = true
 		}
 		verify(exc); exc = false
@@ -37,7 +37,7 @@ TestCase {
 		try { argb`${2}${0.5}${0}${1}` }
 		catch (error) {
 			verify(error instanceof RangeError)
-			compare(error.message, 'All parameters must be within [0; 1] range')
+			compare(error.message, 'All parameters must be within [0; 1] range.')
 			exc = true
 		}
 		verify(exc); exc = false
@@ -64,7 +64,7 @@ TestCase {
 		try { argb32`${'255'}${128}${null}${255}` }
 		catch (error) {
 			verify(error instanceof TypeError)
-			compare(error.message, 'All parameters must be integers')
+			compare(error.message, 'All parameters must be integers.')
 			exc = true
 		}
 		verify(exc); exc = false
@@ -73,14 +73,14 @@ TestCase {
 		try { argb32`${256}${128}${0}${255}` }
 		catch (error) {
 			verify(error instanceof RangeError)
-			compare(error.message, 'All parameters must be within [0; 255] range')
+			compare(error.message, 'All parameters must be within [0; 255] range.')
 			exc = true
 		}
 		verify(exc); exc = false
 		try { argb32`${255}${-128}${0}${255}` }
 		catch (error) {
 			verify(error instanceof RangeError)
-			compare(error.message, 'All parameters must be within [0; 255] range')
+			compare(error.message, 'All parameters must be within [0; 255] range.')
 			exc = true
 		}
 		verify(exc); exc = false
@@ -111,7 +111,7 @@ TestCase {
 		try { hsla`${0.75}${1}${null}${1}` }
 		catch (error) {
 			verify(error instanceof TypeError)
-			compare(error.message, 'All parameters must be numbers')
+			compare(error.message, 'All parameters must be numbers.')
 			exc = true
 		}
 		verify(exc); exc = false
@@ -120,7 +120,7 @@ TestCase {
 		try { hsla`${2}${0.5}${0}${1}` }
 		catch (error) {
 			verify(error instanceof RangeError)
-			compare(error.message, 'All parameters must be within [0; 1] range')
+			compare(error.message, 'All parameters must be within [0; 1] range.')
 			exc = true
 		}
 		verify(exc); exc = false
@@ -151,7 +151,7 @@ TestCase {
 		try { hsva`${0.75}${1}${null}${1}` }
 		catch (error) {
 			verify(error instanceof TypeError)
-			compare(error.message, 'All parameters must be numbers')
+			compare(error.message, 'All parameters must be numbers.')
 			exc = true
 		}
 		verify(exc); exc = false
@@ -160,7 +160,7 @@ TestCase {
 		try { hsva`${2}${0.5}${0}${1}` }
 		catch (error) {
 			verify(error instanceof RangeError)
-			compare(error.message, 'All parameters must be within [0; 1] range')
+			compare(error.message, 'All parameters must be within [0; 1] range.')
 			exc = true
 		}
 		verify(exc); exc = false
@@ -191,7 +191,7 @@ TestCase {
 		try { hwba`${0.75}${0}${null}${0}` }
 		catch (error) {
 			verify(error instanceof TypeError)
-			compare(error.message, 'All parameters must be numbers')
+			compare(error.message, 'All parameters must be numbers.')
 			exc = true
 		}
 		verify(exc); exc = false
@@ -200,7 +200,7 @@ TestCase {
 		try { hwba`${2}${0.5}${0}${1}` }
 		catch (error) {
 			verify(error instanceof RangeError)
-			compare(error.message, 'All parameters must be within [0; 1] range')
+			compare(error.message, 'All parameters must be within [0; 1] range.')
 			exc = true
 		}
 		verify(exc); exc = false
@@ -231,7 +231,7 @@ TestCase {
 		try { rgba`${0.5}${0}${null}${1}` }
 		catch (error) {
 			verify(error instanceof TypeError)
-			compare(error.message, 'All parameters must be numbers')
+			compare(error.message, 'All parameters must be numbers.')
 			exc = true
 		}
 		verify(exc); exc = false
@@ -240,7 +240,7 @@ TestCase {
 		try { rgba`${2}${0.5}${0}${1}` }
 		catch (error) {
 			verify(error instanceof RangeError)
-			compare(error.message, 'All parameters must be within [0; 1] range')
+			compare(error.message, 'All parameters must be within [0; 1] range.')
 			exc = true
 		}
 		verify(exc); exc = false
@@ -271,7 +271,7 @@ TestCase {
 		try { rgba32`${'255'}${128}${null}${255}` }
 		catch (error) {
 			verify(error instanceof TypeError)
-			compare(error.message, 'All parameters must be integers')
+			compare(error.message, 'All parameters must be integers.')
 			exc = true
 		}
 		verify(exc); exc = false
@@ -280,14 +280,14 @@ TestCase {
 		try { rgba32`${256}${128}${0}${255}` }
 		catch (error) {
 			verify(error instanceof RangeError)
-			compare(error.message, 'All parameters must be within [0; 255] range')
+			compare(error.message, 'All parameters must be within [0; 255] range.')
 			exc = true
 		}
 		verify(exc); exc = false
 		try { rgba32`${255}${-128}${0}${255}` }
 		catch (error) {
 			verify(error instanceof RangeError)
-			compare(error.message, 'All parameters must be within [0; 255] range')
+			compare(error.message, 'All parameters must be within [0; 255] range.')
 			exc = true
 		}
 		verify(exc); exc = false

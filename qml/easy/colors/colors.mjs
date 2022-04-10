@@ -22,27 +22,29 @@ export {
 import ColorNames from './color-names.mjs'
 import * as utils from './utils.mjs'
 
-export class Color {
-	static fromString(str) {
-		function hexStringToReal(hex) {
-			if (typeof hex !== 'string') {
-				throw new TypeError('The input argument must be of string type.')
-			}
-
-			let hh
-			switch (hex.length) {
-				case 1:
-					hh = hex.repeat(2)
-					break
-				case 2:
-					hh = hex
-					break
-				default:
-					throw new RangeError('The input must be either 1 or 2 hex-digit(s).')
-			}
-			return Number(`0x${hh}`) / 255
+export class Qolor {
+	static hexStringToReal(hex) {
+		if (typeof hex !== 'string') {
+			throw new TypeError('The input argument must be of string type.')
+		} else if (!hex.match(/^[\dA-Fa-f]{1,2}$/)) {
+			throw new RangeError('The input must be either 1 or 2 hex-digit(s).')
 		}
 
+		let hh
+		switch (hex.length) {
+			case 1:
+				hh = hex.repeat(2)
+				break
+			case 2:
+				hh = hex
+				break
+			default:
+				throw new Error('This should never happen.')
+		}
+		return Number(`0x${hh}`) / 255
+	}
+
+	static fromString(str) {
 		if (str.startsWith('#')) {
 			switch (str.length) {
 				case 1 + 3:
@@ -51,10 +53,10 @@ export class Color {
 					let [_, a, r, g, b] = str.match(re1)
 					a = a ?? 'f'
 					return Qt.rgba(
-						hexStringToReal(r),
-						hexStringToReal(g),
-						hexStringToReal(b),
-						hexStringToReal(a)
+						Qolor.hexStringToReal(r),
+						Qolor.hexStringToReal(g),
+						Qolor.hexStringToReal(b),
+						Qolor.hexStringToReal(a)
 					)
 
 				case 1 + 6:
@@ -63,15 +65,14 @@ export class Color {
 					let [__, aa, rr, gg, bb] = str.match(re2)
 					aa = aa ?? 'ff'
 					return Qt.rgba(
-						hexStringToReal(rr),
-						hexStringToReal(gg),
-						hexStringToReal(bb),
-						hexStringToReal(aa)
+						Qolor.hexStringToReal(rr),
+						Qolor.hexStringToReal(gg),
+						Qolor.hexStringToReal(bb),
+						Qolor.hexStringToReal(aa)
 					)
 
 				default:
 					throw new TypeError('The color must be one of the following: #rgb, #argb, #rrggbb, #aarrggbb.')
-					break;
 			}
 		} else {
 			if (str in ColorNames) {
@@ -82,29 +83,25 @@ export class Color {
 		}
 	}
 
-	static copyObject(c) {
-		if (typeof c === 'undefined' || typeof c === 'null') {
+	static copy(c) {
+		if (typeof c === 'undefined' || c === null) {
 			return c
 		} else if (typeof c === 'string') {
-			return Color.fromString(c)
+			return Qolor.fromString(c)
 		} else if (typeof c === 'object') {
-			const iface = [
-				'r', 'g', 'b', 'a',
-				'hsvHue', 'hsvSaturation', 'hsvValue',
-				'hslHue', 'hslSaturation', 'hslLightness',
-				'valid'
-			]
-
 			// check if valid and match against interface
-			if (c.valid && utils.allOf(iface, prop => c.hasOwnProperty(prop))) {
+			if (utils.isQtColor(c) && c.valid) {
 				return Qt.rgba(c.r, c.g, c.b, c.a)  // new copy
 			} else {
-				throw new Error('Invalid color')
+				throw new TypeError('Invalid color.')
 			}
 		} else {
-			throw new TypeError("Can't create a color object from the argument")
+			throw new TypeError("Can't create a color object from the argument.")
 		}
 	}
+}
+
+export class Color {
 
 	constructor (qtColor) {
 		this.qtColor = qtColor
@@ -233,7 +230,7 @@ export class Color {
 			this.whiteness = utils.clamp(this.whiteness + w)
 			this.blackness = utils.clamp(this.blackness + b)
 		} else {
-			throw new Error("You can't mix RGB, HSL, HSV, and HWB adjustments. Use only one of them")
+			throw new TypeError("You can't mix RGB, HSL, HSV, and HWB adjustments. Use only one of them.")
 		}
 
 		return this
@@ -289,7 +286,7 @@ export class Color {
 			this.whiteness = w ?? whiteness ?? this.whiteness
 			this.blackness = b ?? blackness ?? this.blackness
 		} else {
-			throw new Error("You can't mix RGB, HSL, HSV, and HWB settings. Use only one of them")
+			throw new TypeError("You can't mix RGB, HSL, HSV, and HWB settings. Use only one of them.")
 		}
 
 		return this
@@ -342,7 +339,7 @@ export class Color {
 
 	mix (color2, weight = 0.5) {
 		const c1 = this
-		const c2 = Color.copyObject(color2)
+		const c2 = Qolor.copy(color2)
 
 		const w = 2 * weight - 1
 		const a = c1.a - c2.a
@@ -430,7 +427,7 @@ export class Color {
 			if (w) this.whiteness = utils.clamp(this.whiteness + scaledOffset(this.whiteness, w))
 			if (b) this.blackness = utils.clamp(this.blackness + scaledOffset(this.blackness, b))
 		} else {
-			throw new Error("You can't mix RGB, HSL, HSV, and HWB scalings. Use only one of them")
+			throw new TypeError("You can't mix RGB, HSL, HSV, and HWB scalings. Use only one of them.")
 		}
 
 		return this
@@ -447,7 +444,7 @@ function adjustHue(c, degrees) {
 }
 
 function alpha(color) {
-	let c = Color.copyObject(color)
+	let c = Qolor.copy(color)
 	return c.a
 }
 
@@ -456,7 +453,7 @@ function blackness(c) {
 }
 
 function blue(color) {
-	let c = Color.copyObject(color)
+	let c = Qolor.copy(color)
 	return c.b
 }
 
@@ -465,19 +462,19 @@ function change(c) {
 }
 
 function complement(color) {
-	let c = Color.copyObject(color)
+	let c = Qolor.copy(color)
 	c.hslHue = utils.absmod(c.hslHue - 0.5, 1.0)
 	return c
 }
 
 function darken(color, amount = 0.25) {
-	let c = Color.copyObject(color)
+	let c = Qolor.copy(color)
 	c.hslLightness = utils.clamp(c.hslLightness - amount)
 	return c
 }
 
 function desaturate(color, amount = 0.25) {
-	let c = Color.copyObject(color)
+	let c = Qolor.copy(color)
 	c.hslSaturation = utils.clamp(c.hslSaturation - amount)
 	return c
 }
@@ -487,12 +484,12 @@ function grayscale(c) {
 }
 
 function green(color) {
-	let c = Color.copyObject(color)
+	let c = Qolor.copy(color)
 	return c.g
 }
 
 function hue(color) {
-	let c = Color.copyObject(color)
+	let c = Qolor.copy(color)
 	return c.hslHue
 }
 
@@ -501,7 +498,7 @@ function hwb(hue, whiteness, blackness, alpha) {
 }
 
 function invert(color, weight = 1.0) {
-	let c = Color.copyObject(color)
+	let c = Qolor.copy(color)
 	c.r = 1.0 - c.r
 	c.g = 1.0 - c.g
 	c.b = 1.0 - c.b
@@ -509,19 +506,19 @@ function invert(color, weight = 1.0) {
 }
 
 function lighten(color, amount = 0.25) {
-	let c = Color.copyObject(color)
+	let c = Qolor.copy(color)
 	c.hslLightness = utils.clamp(c.hslLightness + amount)
 	return c
 }
 
 function lightness(color) {
-	let c = Color.copyObject(color)
+	let c = Qolor.copy(color)
 	return c.hslLightness
 }
 
 function mix(color1, color2, weight = 0.5) {
-	const c1 = Color.copyObject(color1)
-	const c2 = Color.copyObject(color2)
+	const c1 = Qolor.copy(color1)
+	const c2 = Qolor.copy(color2)
 
 	const w = 2 * weight - 1
 	const a = c1.a - c2.a
@@ -538,24 +535,24 @@ function mix(color1, color2, weight = 0.5) {
 }
 
 function opacify(color, amount = 0.25) {
-	let c = Color.copyObject(color)
+	let c = Qolor.copy(color)
 	c.a = utils.clamp(c.a + amount)
 	return c
 }
 
 function red(color) {
-	let c = Color.copyObject(color)
+	let c = Qolor.copy(color)
 	return c.r
 }
 
 function saturate(color, amount = 0.25) {
-	let c = Color.copyObject(color)
+	let c = Qolor.copy(color)
 	c.hslSaturation = utils.clamp(c.hslSaturation + amount)
 	return c
 }
 
 function saturation(color) {
-	let c = Color.copyObject(color)
+	let c = Qolor.copy(color)
 	return c.hslSaturation
 }
 
@@ -564,7 +561,7 @@ function scale(c) {
 }
 
 function transparentize(color, amount = 0.25) {
-	let c = Color.copyObject(color)
+	let c = Qolor.copy(color)
 	c.a = utils.clamp(c.a - amount)
 	return c
 }

@@ -19,7 +19,7 @@ export {
 }
 
 import * as utils from './utils.mjs'
-import { Color } from './colors.mjs'
+import { Color, Qolor } from './colors.mjs'
 
 function checkArgsNumber (from, to, ...params) {
 	const nonEmpty = params.reduce(
@@ -46,14 +46,14 @@ function checkTypes (type, typeStr, ...params) {
 		}
 	})
 	if (!valid) {
-		throw new TypeError(`All parameters must be ${typeStr}`)
+		throw new TypeError(`All parameters must be ${typeStr}.`)
 	}
 }
 
 function checkRanges ([min, max], ...params) {
 	const valid = utils.allOf(params, param => param >= min && param <= max)
 	if (!valid) {
-		throw new RangeError(`All parameters must be within [${min}; ${max}] range`)
+		throw new RangeError(`All parameters must be within [${min}; ${max}] range.`)
 	}
 }
 
@@ -133,7 +133,7 @@ function qolor(strings, ...params) {
 
 	const evaluatedString = zipConcat(strings, [...params, ''])
 	try {
-		return Color.fromString(evaluatedString)
+		return Qolor.fromString(evaluatedString)
 	} catch (error) {
 		console.debug(`Matching by string '${evaluatedString}' failed with the error:`, error)
 		console.debug('Trying to construct the color as RGBA32')
