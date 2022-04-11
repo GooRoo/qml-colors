@@ -361,6 +361,10 @@ class Color {
 		return cc
 	}
 
+	greyscale () {
+		return this.grayscale()
+	}
+
 	invert (weight = 1.0) {
 		let cc = this.copy()
 		cc.r = 1.0 - cc.r
