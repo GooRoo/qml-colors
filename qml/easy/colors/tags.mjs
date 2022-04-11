@@ -59,7 +59,7 @@ function checkRanges ([min, max], ...params) {
 
 function rgba32 (_, r, g, b, a = 0xFF) {
 	checkArgsNumber(3, 4, r, g, b)
-	checkTypes(Number.isInteger, 'integers', r, g, b, a)
+	checkTypes('number', 'integers', r, g, b, a)
 	checkRanges([0, 255], r, g, b, a)
 	return Qt.rgba(
 		r / 0xFF,
@@ -71,7 +71,7 @@ function rgba32 (_, r, g, b, a = 0xFF) {
 
 function argb32 (_, a, r, g, b) {
 	checkArgsNumber(4, 4, a, r, g, b)
-	checkTypes(Number.isInteger, 'integers', a, r, g, b)
+	checkTypes('number', 'integers', a, r, g, b)
 	checkRanges([0, 255], a, r, g, b)
 	return Qt.rgba(
 		r / 0xFF,
