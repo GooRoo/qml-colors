@@ -1,28 +1,28 @@
 export {
-	alpha,
-	blue,
+	adjust,
+	adjustHue,
+	change,
 	complement,
 	darken,
 	desaturate,
-	green,
-	hue,
+	grayscale as greyscale,
+	grayscale,
 	invert,
 	lighten,
-	lightness,
 	mix,
 	opacify as fadeIn,
 	opacify,
-	red,
 	saturate,
-	saturation,
+	scale,
 	transparentize as fadeOut,
 	transparentize,
 }
+export { Qolor, Color }
 
 import ColorNames from './color-names.mjs'
 import * as utils from './utils.mjs'
 
-export class Qolor {
+class Qolor {
 	static hexStringToReal(hex) {
 		if (typeof hex !== 'string') {
 			throw new TypeError('The input argument must be of string type.')
@@ -101,10 +101,21 @@ export class Qolor {
 	}
 }
 
-export class Color {
-
+class Color {
 	constructor (qtColor) {
 		this.qtColor = qtColor
+	}
+
+	copy () {
+		return new Color(Qolor.copy(this.qtColor))
+	}
+
+	static createCopy(c) {
+		if (c instanceof Color) {
+			return c.copy()
+		} else {
+			return new Color(Qolor.copy(c))
+		}
 	}
 
 	toString () {
@@ -134,10 +145,21 @@ export class Color {
 	get blue () { return this.qtColor.b }
 	set blue (blue) { this.qtColor.b = blue }
 
+	get color () { return this.qtColor }
+
 	get g () { return this.green }
 	set g (green) { this.green = green }
 	get green () { return this.qtColor.g }
 	set green (green) { this.qtColor.g = green }
+
+	get hslHue () { return this.hue }
+	set hslHue (hue) { this.hue = hue }
+
+	get hslSaturation () { return this.saturation }
+	set hslSaturation (saturation) { this.saturation = saturation }
+
+	get hslLightness () { return this.lightness }
+	set hslLightness (lightness) { this.lightness = lightness }
 
 	get hsvHue () { return this.hue }
 	set hsvHue (hue) { this.hue = hue }
@@ -151,11 +173,19 @@ export class Color {
 	get hue () { return this.qtColor.hslHue }
 	set hue (hue) { this.qtColor.hslHue = hue }
 
+	get hwbBlackness () { return this.blackness }
+	set hwbBlackness (blackness) { this.blackness = blackness }
+
 	get hwbHue () { return this.hue }
 	set hwbHue (hue) { this.hue = hue }
 
+	get hwbWhiteness () { return this.whiteness }
+	set hwbWhiteness (whiteness) { this.whiteness = whiteness }
+
 	get lightness () { return this.qtColor.hslLightness }
 	set lightness (lightness) { this.qtColor.hslLightness = lightness }
+
+	get qolor () { return this.color }
 
 	get r () { return this.red }
 	set r (red) { this.red = red }
@@ -165,10 +195,12 @@ export class Color {
 	get saturation () { return this.qtColor.hslSaturation }
 	set saturation (saturation) { this.qtColor.hslSaturation = saturation }
 
+	get valid () { return this.qtColor.valid }
+
 	get whiteness () { return (1 - this.hsvSaturation) * this.hsvValue }
 	set whiteness (whiteness) {
 		const w = whiteness
-		const b = blackness()
+		const b = this.blackness
 
 		this.hsvSaturation = 1 - w / (1 - b)
 		this.hsvValue = 1 - b
@@ -183,7 +215,9 @@ export class Color {
 			alpha = 0.0
 		} = change
 
-		this.alpha = utils.clamp(this.alpha + alpha)
+		let cc = this.copy()
+
+		cc.alpha = utils.clamp(cc.alpha + alpha)
 
 		if (rgb && !(hsl || hsv || hwb)) {
 			let {
@@ -193,9 +227,9 @@ export class Color {
 			r = r || red
 			g = g || green
 			b = b || blue
-			this.red = utils.clamp(this.red + r)
-			this.green = utils.clamp(this.green + g)
-			this.blue = utils.clamp(this.blue + b)
+			cc.red = utils.clamp(cc.red + r)
+			cc.green = utils.clamp(cc.green + g)
+			cc.blue = utils.clamp(cc.blue + b)
 		} else if (hsl && !(rgb || hsv || hwb)) {
 			let {
 				h = 0.0, s = 0.0, l = 0.0,
@@ -204,9 +238,9 @@ export class Color {
 			h = h || hue
 			s = s || saturation
 			l = l || lightness
-			this.hue = utils.absmod(this.hue + h, 1.0)
-			this.saturation = utils.clamp(this.saturation + s)
-			this.lightness = utils.clamp(this.lightness + l)
+			cc.hue = utils.absmod(cc.hue + h, 1.0)
+			cc.saturation = utils.clamp(cc.saturation + s)
+			cc.lightness = utils.clamp(cc.lightness + l)
 		} else if (hsv && !(rgb || hsl || hwb)) {
 			let {
 				h = 0.0, s = 0.0, v = 0.0,
@@ -215,9 +249,9 @@ export class Color {
 			h = h || hue
 			s = s || saturation
 			v = v || value
-			this.hsvHue = utils.absmod(this.hsvHue + h, 1.0)
-			this.hsvSaturation = utils.clamp(this.hsvSaturation + s)
-			this.hsvValue = utils.clamp(this.hsvValue + v)
+			cc.hsvHue = utils.absmod(cc.hsvHue + h, 1.0)
+			cc.hsvSaturation = utils.clamp(cc.hsvSaturation + s)
+			cc.hsvValue = utils.clamp(cc.hsvValue + v)
 		} else if (hwb && !(rgb || hsl || hsv)) {
 			let {
 				h = 0.0, w = 0.0, b = 0.0,
@@ -226,19 +260,20 @@ export class Color {
 			h = h || hue
 			w = w || whiteness
 			b = b || blackness
-			this.hue = utils.absmod(this.hue + h, 1.0)
-			this.whiteness = utils.clamp(this.whiteness + w)
-			this.blackness = utils.clamp(this.blackness + b)
+			cc.hue = utils.absmod(cc.hue + h, 1.0)
+			cc.whiteness = utils.clamp(cc.whiteness + w)
+			cc.blackness = utils.clamp(cc.blackness + b)
 		} else {
 			throw new TypeError("You can't mix RGB, HSL, HSV, and HWB adjustments. Use only one of them.")
 		}
 
-		return this
+		return cc
 	}
 
 	adjustHue (offset) {
-		this.hue = utils.absmod(this.hue + offset, 1.0)
-		return this
+		let cc = this.copy()
+		cc.hue = utils.absmod(cc.hue + offset, 1.0)
+		return cc
 	}
 
 	change (change) {
@@ -250,65 +285,66 @@ export class Color {
 			alpha = null
 		} = change
 
+		let cc = this.copy()
+
 		if (alpha)
-			this.alpha = alpha
+			cc.alpha = alpha
 
 		if (rgb && !(hsl || hsv || hwb)) {
 			let {
 				r = null, g = null, b = null,
 				red = null, green = null, blue = null
 			} = rgb
-			this.red = r ?? red ?? this.red
-			this.green = g ?? green ?? this.green
-			this.blue = b ?? blue ?? this.blue
+			cc.red = r ?? red ?? cc.red
+			cc.green = g ?? green ?? cc.green
+			cc.blue = b ?? blue ?? cc.blue
 		} else if (hsl && !(rgb || hsv || hwb)) {
 			let {
 				h = null, s = null, l = null,
 				hue = null, saturation = null, lightness = null
 			} = hsl
-			this.hue = h ?? hue ?? this.hue
-			this.saturation = s ?? saturation ?? this.saturation
-			this.lightness = l ?? lightness ?? this.lightness
+			cc.hue = h ?? hue ?? cc.hue
+			cc.saturation = s ?? saturation ?? cc.saturation
+			cc.lightness = l ?? lightness ?? cc.lightness
 		} else if (hsv && !(rgb || hsl || hwb)) {
 			let {
 				h = null, s = null, v = null,
 				hue = null, saturation = null, value = null
 			} = hsv
-			this.hsvHue = h ?? hue ?? this.hsvHue
-			this.hsvSaturation = s ?? saturation ?? this.hsvSaturation
-			this.hsvValue = v ?? value ?? this.hsvValue
+			cc.hsvHue = h ?? hue ?? cc.hsvHue
+			cc.hsvSaturation = s ?? saturation ?? cc.hsvSaturation
+			cc.hsvValue = v ?? value ?? cc.hsvValue
 		} else if (hwb && !(rgb || hsl || hsv)) {
 			let {
 				h = null, w = null, b = null,
 				hue = null, whiteness = null, blackness = null
 			} = hwb
-			this.hue = h ?? hue ?? this.hue
-			this.whiteness = w ?? whiteness ?? this.whiteness
-			this.blackness = b ?? blackness ?? this.blackness
+			cc.hue = h ?? hue ?? cc.hue
+			cc.whiteness = w ?? whiteness ?? cc.whiteness
+			cc.blackness = b ?? blackness ?? cc.blackness
 		} else {
 			throw new TypeError("You can't mix RGB, HSL, HSV, and HWB settings. Use only one of them.")
 		}
 
-		return this
+		return cc
 	}
 
 	complement () {
-		this.hue = utils.absmod(this.hue - 0.5, 1.0)
-		return this
-	}
-
-	copy () {
-		return new Color(Qt.rgba(this.qtColor.r, this.qtColor.g, this.qtColor.b, this.qtColor.a))
+		let cc = this.copy()
+		cc.hue = utils.absmod(cc.hue - 0.5, 1.0)
+		return cc
 	}
 
 	darken (amount = 0.25) {
-		this.lightness = utils.clamp(this.lightness - amount)
-		return this
+		let cc = this.copy()
+		cc.lightness = utils.clamp(cc.lightness - amount)
+		return cc
 	}
 
 	desaturate (amount = 0.25) {
-		this.saturation = utils.clamp(this.saturation - amount)
-		return this
+		let cc = this.copy()
+		cc.saturation = utils.clamp(cc.saturation - amount)
+		return cc
 	}
 
 	fadeIn (amount = 0.25) {
@@ -320,26 +356,28 @@ export class Color {
 	}
 
 	grayscale () {
-		this.saturation = 0.0
-		return this
+		let cc = this.copy()
+		cc.saturation = 0.0
+		return cc
 	}
 
 	invert (weight = 1.0) {
-		let c = this.copy()
-		c.r = 1.0 - c.r
-		c.g = 1.0 - c.g
-		c.b = 1.0 - c.b
-		return this.mix(c.qtColor, 1.0 - weight) // TODO: @GooRoo - should be this.mix(c, weight) in future
+		let cc = this.copy()
+		cc.r = 1.0 - cc.r
+		cc.g = 1.0 - cc.g
+		cc.b = 1.0 - cc.b
+		return cc.mix(this.qtColor, weight)
 	}
 
 	lighten (amount = 0.25) {
-		this.lightness = utils.clamp(this.lightness + amount)
-		return this
+		let cc = this.copy()
+		cc.lightness = utils.clamp(cc.lightness + amount)
+		return cc
 	}
 
 	mix (color2, weight = 0.5) {
 		const c1 = this
-		const c2 = Qolor.copy(color2)
+		const c2 = Color.createCopy(color2)
 
 		const w = 2 * weight - 1
 		const a = c1.a - c2.a
@@ -347,23 +385,24 @@ export class Color {
 		const w1 = ((w * a === -1 ? w : (w + a) / (1 + w * a)) + 1) / 2.0
 		const w2 = 1 - w1
 
-		this.qtColor = Qt.rgba(
+		return new Color(Qt.rgba(
 			w1 * c1.r + w2 * c2.r,
 			w1 * c1.g + w2 * c2.g,
 			w1 * c1.b + w2 * c2.b,
 			c1.a * weight + c2.a * (1 - weight)
-		)
-		return this
+		))
 	}
 
 	opacify (amount = 0.25) {
-		this.a = utils.clamp(this.a + amount)
-		return this
+		let cc = this.copy()
+		cc.a = utils.clamp(cc.a + amount)
+		return cc
 	}
 
 	saturate (amount = 0.25) {
-		this.saturation = utils.clamp(this.saturation + amount)
-		return this
+		let cc = this.copy()
+		cc.saturation = utils.clamp(cc.saturation + amount)
+		return cc
 	}
 
 	scale (change) {
@@ -379,8 +418,10 @@ export class Color {
 			alpha = 0.0
 		} = change
 
+		let cc = this.copy()
+
 		if (alpha)
-			this.alpha = utils.clamp(this.alpha + scaledOffset(this.alpha, alpha))
+			cc.alpha = utils.clamp(cc.alpha + scaledOffset(cc.alpha, alpha))
 
 		if (rgb && !(hsl || hsv || hwb)) {
 			let {
@@ -390,9 +431,9 @@ export class Color {
 			r = r || red
 			g = g || green
 			b = b || blue
-			if (r) this.red = utils.clamp(this.red + scaledOffset(this.red, r))
-			if (g) this.green = utils.clamp(this.green + scaledOffset(this.green, g))
-			if (b) this.blue = utils.clamp(this.blue + scaledOffset(this.blue, b))
+			if (r) cc.red = utils.clamp(cc.red + scaledOffset(cc.red, r))
+			if (g) cc.green = utils.clamp(cc.green + scaledOffset(cc.green, g))
+			if (b) cc.blue = utils.clamp(cc.blue + scaledOffset(cc.blue, b))
 		} else if (hsl && !(rgb || hsv || hwb)) {
 			let {
 				h = 0.0, s = 0.0, l = 0.0,
@@ -401,9 +442,9 @@ export class Color {
 			h = h || hue
 			s = s || saturation
 			l = l || lightness
-			if (h) this.hue = utils.clamp(this.hue + scaledOffset(this.hue, h))
-			if (s) this.saturation = utils.clamp(this.saturation + scaledOffset(this.saturation, s))
-			if (l) this.lightness = utils.clamp(this.lightness + scaledOffset(this.lightness, l))
+			if (h) cc.hue = utils.clamp(cc.hue + scaledOffset(cc.hue, h))
+			if (s) cc.saturation = utils.clamp(cc.saturation + scaledOffset(cc.saturation, s))
+			if (l) cc.lightness = utils.clamp(cc.lightness + scaledOffset(cc.lightness, l))
 		} else if (hsv && !(rgb || hsl || hwb)) {
 			let {
 				h = 0.0, s = 0.0, v = 0.0,
@@ -412,9 +453,9 @@ export class Color {
 			h = h || hue
 			s = s || saturation
 			v = v || value
-			if (h) this.hsvHue = utils.clamp(this.hsvHue + scaledOffset(this.hsvHue, h))
-			if (s) this.hsvSaturation = utils.clamp(this.hsvSaturation + scaledOffset(this.hsvSaturation, s))
-			if (v) this.hsvValue = utils.clamp(this.hsvValue + scaledOffset(this.hsvValue, v))
+			if (h) cc.hsvHue = utils.clamp(cc.hsvHue + scaledOffset(cc.hsvHue, h))
+			if (s) cc.hsvSaturation = utils.clamp(cc.hsvSaturation + scaledOffset(cc.hsvSaturation, s))
+			if (v) cc.hsvValue = utils.clamp(cc.hsvValue + scaledOffset(cc.hsvValue, v))
 		} else if (hwb && !(rgb || hsl || hsv)) {
 			let {
 				h = 0.0, w = 0.0, b = 0.0,
@@ -423,149 +464,75 @@ export class Color {
 			h = h || hue
 			w = w || whiteness
 			b = b || blackness
-			if (h) this.hue = utils.clamp(this.hue + scaledOffset(this.hue, h))
-			if (w) this.whiteness = utils.clamp(this.whiteness + scaledOffset(this.whiteness, w))
-			if (b) this.blackness = utils.clamp(this.blackness + scaledOffset(this.blackness, b))
+			if (h) cc.hue = utils.clamp(cc.hue + scaledOffset(cc.hue, h))
+			if (w) cc.whiteness = utils.clamp(cc.whiteness + scaledOffset(cc.whiteness, w))
+			if (b) cc.blackness = utils.clamp(cc.blackness + scaledOffset(cc.blackness, b))
 		} else {
 			throw new TypeError("You can't mix RGB, HSL, HSV, and HWB scalings. Use only one of them.")
 		}
 
-		return this
+		return cc
 	}
 
 	transparentize (amount = 0.25) {
-		this.a = utils.clamp(this.a - amount)
-		return this
+		let cc = this.copy()
+		cc.a = utils.clamp(cc.a - amount)
+		return cc
 	}
 }
 
-function adjustHue(c, degrees) {
-
+function adjust (color, change) {
+	return new Color(color).adjust(change)
 }
 
-function alpha(color) {
-	let c = Qolor.copy(color)
-	return c.a
+function adjustHue (color, offset) {
+	return new Color(color).adjustHue(offset)
 }
 
-function blackness(c) {
-
+function change (color, change) {
+	return new Color(color).change(change)
 }
 
-function blue(color) {
-	let c = Qolor.copy(color)
-	return c.b
+function complement (color) {
+	return new Color(color).complement()
 }
 
-function change(c) {
-
+function darken (color, amount = 0.25) {
+	return new Color(color).darken(amount)
 }
 
-function complement(color) {
-	let c = Qolor.copy(color)
-	c.hslHue = utils.absmod(c.hslHue - 0.5, 1.0)
-	return c
+function desaturate (color, amount = 0.25) {
+	return new Color(color).desaturate(amount)
 }
 
-function darken(color, amount = 0.25) {
-	let c = Qolor.copy(color)
-	c.hslLightness = utils.clamp(c.hslLightness - amount)
-	return c
+function grayscale (color) {
+	return new Color(color).grayscale()
 }
 
-function desaturate(color, amount = 0.25) {
-	let c = Qolor.copy(color)
-	c.hslSaturation = utils.clamp(c.hslSaturation - amount)
-	return c
+function invert (color, weight = 1.0) {
+	return new Color(color).invert(weight)
 }
 
-function grayscale(c) {
-
+function lighten (color, amount = 0.25) {
+	return new Color(color).lighten(amount)
 }
 
-function green(color) {
-	let c = Qolor.copy(color)
-	return c.g
+function mix (color1, color2, weight = 0.5) {
+	return new Color(color1).mix(color2, weight)
 }
 
-function hue(color) {
-	let c = Qolor.copy(color)
-	return c.hslHue
+function opacify (color, amount = 0.25) {
+	return new Color(color).opacify(amount)
 }
 
-function hwb(hue, whiteness, blackness, alpha) {
-
+function saturate (color, amount = 0.25) {
+	return new Color(color).saturate(amount)
 }
 
-function invert(color, weight = 1.0) {
-	let c = Qolor.copy(color)
-	c.r = 1.0 - c.r
-	c.g = 1.0 - c.g
-	c.b = 1.0 - c.b
-	return mix(c, color, weight)
+function scale (color, change) {
+	return new Color(color).scale(change)
 }
 
-function lighten(color, amount = 0.25) {
-	let c = Qolor.copy(color)
-	c.hslLightness = utils.clamp(c.hslLightness + amount)
-	return c
-}
-
-function lightness(color) {
-	let c = Qolor.copy(color)
-	return c.hslLightness
-}
-
-function mix(color1, color2, weight = 0.5) {
-	const c1 = Qolor.copy(color1)
-	const c2 = Qolor.copy(color2)
-
-	const w = 2 * weight - 1
-	const a = c1.a - c2.a
-
-	const w1 = ((w * a === -1 ? w : (w + a) / (1 + w * a)) + 1) / 2.0
-	const w2 = 1 - w1
-
-	return Qt.rgba(
-		w1 * c1.r + w2 * c2.r,
-		w1 * c1.g + w2 * c2.g,
-		w1 * c1.b + w2 * c2.b,
-		c1.a * weight + c2.a * (1 - weight)
-	)
-}
-
-function opacify(color, amount = 0.25) {
-	let c = Qolor.copy(color)
-	c.a = utils.clamp(c.a + amount)
-	return c
-}
-
-function red(color) {
-	let c = Qolor.copy(color)
-	return c.r
-}
-
-function saturate(color, amount = 0.25) {
-	let c = Qolor.copy(color)
-	c.hslSaturation = utils.clamp(c.hslSaturation + amount)
-	return c
-}
-
-function saturation(color) {
-	let c = Qolor.copy(color)
-	return c.hslSaturation
-}
-
-function scale(c) {
-
-}
-
-function transparentize(color, amount = 0.25) {
-	let c = Qolor.copy(color)
-	c.a = utils.clamp(c.a - amount)
-	return c
-}
-
-function whiteness(c) {
-
+function transparentize (color, amount = 0.25) {
+	return new Color(color).transparentize(amount)
 }
