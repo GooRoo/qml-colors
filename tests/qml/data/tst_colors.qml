@@ -175,7 +175,214 @@ TestCase {
 			verify(exc); exc = false
 		}
 	}
-		}
-		verify(exc); exc = false
+
+	// readonly property var cc: new Colors.Color(Colors.Qolor.fromString('yellow'))
+	// property color c3: cc.color
+	// property color c4: cc.transparentize(0.5).color
+	// property color c5: cc.color
+	// function test_Color_inplace() {
+		// compare(c3, '#ffff00')
+		// console.warn(c3.color)
+		// compare(c4, '#80ffff00')
+		// console.warn(c`yellow`.transparentize(0.5))
+		// compare(c5, '#ffff00')
+		// cc.fadeIn()
+		// console.warn('------------------')
+		// console.warn(c5)
+		// console.warn('------------------')
+	// }
+	// onC5Changed: {
+	// 	console.warn('------------------')
+	// 	console.warn(c5)
+	// 	console.warn('------------------')
+	// }
+
+	function test_Color_adjust() {
+		compare(
+			c`#6b717f`.adjust({rgb: {r: +15 .int}}),
+			 '#7a717f'
+		)
+		compare(
+			c`#d2e1dd`.adjust({rgb: {red: -10 .int, blue: +10 .int}}),
+			 '#c8e1e7'
+		)
+		compare(
+			c`#998099`.adjust({
+				hsl: {lightness: -30 .percent},
+			    alpha: -40 .percent
+			}),
+			rgba32`r${71} g${57} b${71} a${0.6.byte}`.toString()
+		)
 	}
+
+	function test_Color_adjustHue() {
+		compare(
+			c`#6b717f`.adjustHue(+60 .deg),
+			 '#796b7f'
+		)
+		compare(
+			c`#d2e1dd`.adjustHue(-60['°']),
+			 '#d6e1d2'
+		)
+		compare(
+			c`#d2e1dd`.adjustHue(-780 .deg),  // 720 + 60
+			 '#d6e1d2'
+		)
+		compare(
+			c`#036`.adjustHue(+45 .deg),
+			 '#1a0066'
+		)
+		compare(
+			c`#036`.adjustHue(+405 .deg),  // 360 + 45
+			 '#1a0066'
+		)
+		compare(
+			c`#6b717f`.adjustHue(+60 .deg).hue,
+			c`#6b717f`.hue + 60 .deg
+		)
+	}
+
+	function test_Color_change() {
+		compare(
+			c`#6b717f`.change({rgb: {r: 100 .int}}),
+			 '#64717f'
+		)
+		compare(
+			c`#d2e1dd`.change({rgb: {red: 100 .int, blue: 50 .int}}),
+			 '#64e132'
+		)
+		compare(
+			c`#998099`.change({
+				hsl: {lightness: 30 .percent},
+			    alpha: 0.5
+			}),
+			rgba32`r${85} g${68} b${85} a${0.5 .byte}`.toString()
+		)
+	}
+
+	function test_Color_complement() {
+		compare(
+			c`#6b717f`.complement(),
+			 '#7f796b'
+		)
+		compare(
+			c`#d2e1dd`.complement(),
+			 '#e1d2d6'
+		)
+		compare(
+			c`#036`.complement(),
+			 '#663300'
+		)
+	}
+
+	function test_Color_darken() {
+		compare(
+			c`#b37399`.darken(20['%']),
+			 '#7c4465'
+		)
+		compare(
+			c`#f2ece4`.darken(40['%']),
+			 '#b08b5a'
+		)
+		compare(
+			c`#036`.darken(30['%']),
+			 '#000000'
+		)
+	}
+
+	function test_Color_desaturate() {
+		compare(
+			c`#036`.desaturate(20 .percent),
+			 '#0a335c'
+		)
+		compare(
+			c`#f2ece4`.desaturate(20 .percent),
+			 '#eeebe8'
+		)
+		compare(
+			c`#d2e1dd`.desaturate(30 .percent),
+			 '#dadada'
+		)
+	}
+
+	function test_Color_grayscale() {
+		compare(
+			c`#6b717f`.grayscale(),
+			 '#757575'
+		)
+		compare(
+			c`#d2e1dd`.grayscale(),
+			 '#dadada'
+		)
+		compare(
+			c`#036`.greyscale(),  // grayscale == greyscale
+			 '#333333'
+		)
+	}
+
+	function test_Color_invert() {
+		compare(
+			c`#b37399`.invert(),
+			 '#4c8c66'
+		)
+		compare(
+			c`black`.invert().color,
+			q`white`
+		)
+		compare(
+			c`#550e0c`.invert(20 .percent),
+			 `#663b3a`
+		)
+	}
+
+	function test_Color_lighten() {
+		compare(
+			c`#6b717f`.lighten(20 .percent),
+			 '#a1a5af'
+		)
+		compare(
+			c`#036`.lighten(60 .percent),
+			 '#99ccff'
+		)
+		compare(
+			c`#e1d7d2`.lighten(30 .percent),
+			 '#ffffff'
+		)
+	}
+
+	function test_Color_mix() {
+		compare(
+			c`#036`.mix(c`#d2e1dd`),
+			 '#698aa2'
+		)
+		compare(
+			c`#036`.mix(q`#d2e1dd`, 75 .percent),
+			 '#355f84'
+		)
+		compare(
+			c`#036`.mix('#d2e1dd', 25 .percent),
+			 '#9eb6bf'
+		)
+		compare(
+			c`${0.5.byte} ${242} ${236} ${228}`.mix(c`#6b717f`),
+			rgba32`${141} ${144} ${152} ${0.75.byte}`.toString()
+		)
+	}
+
+	function test_Color_opacify() {
+
+	}
+
+	function test_Color_saturate() {
+
+	}
+
+	function test_Color_scale() {
+
+	}
+
+	function test_Color_transparentize() {
+
+	}
+
 }
