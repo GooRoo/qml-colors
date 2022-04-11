@@ -12,6 +12,18 @@ Object.defineProperty(Number.prototype, '%', {
 	}
 })
 
+Object.defineProperty(Number.prototype, 'int', {
+	get: function () {
+		return this / 255
+	}
+})
+
+Object.defineProperty(Number.prototype, 'byte', {
+	get: function () {
+		return this * 255
+	}
+})
+
 Object.defineProperty(Number.prototype, 'deg', {
 	get: function () {
 		return (this % 360) / 360
