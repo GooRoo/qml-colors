@@ -246,13 +246,13 @@ TestCase {
 	}
 
 	function test_rgba32() {
-		compare(rgb32`${128}${0}${255}`, '#8000ff')
+		compare(rgb24`${128}${0}${255}`, '#8000ff')
 		compare(rgba32`${128}${0}${255}`, '#8000ff')
 		compare(rgba32`${128}${0}${255}${255}`, '#8000ff')
 		compare(rgba32`${128}${0}${255}${128}`, '#808000ff')
 
 		// string literal parts are ignored
-		compare(rgb32`r:${0x80} g:${0x00} b:${0xFF}`, '#8000ff')
+		compare(rgb24`r:${0x80} g:${0x00} b:${0xFF}`, '#8000ff')
 		compare(rgba32`r:${0x80} g:${0x00} b:${0xFF}`, '#8000ff')
 		compare(rgba32`r:${0x80} g:${0x00} b:${0xFF} a:${0xFF}`, '#8000ff')
 

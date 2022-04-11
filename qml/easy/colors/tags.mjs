@@ -14,7 +14,7 @@ export {
 	hwba,
 	rgba as rgb,
 	rgba,
-	rgba32 as rgb32,
+	rgba32 as rgb24,
 	rgba32,
 }
 

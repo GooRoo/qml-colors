@@ -25,7 +25,7 @@ registerGlobalFunctions.call(this,
 	[Tags.hwba, 'hwb'],
 	Tags.hwba,
 	[Tags.rgba, 'rgb'],
-	[Tags.rgba32, 'rgb32'],
+	[Tags.rgba32, 'rgb24'],
 	Tags.rgba,
 	Tags.rgba32
 )
