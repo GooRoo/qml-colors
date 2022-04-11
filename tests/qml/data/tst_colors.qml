@@ -31,8 +31,9 @@ TestCase {
 			verify(error instanceof TypeError)
 			compare(error.message, 'The input argument must be of string type.')
 			exc = true
+		} finally {
+			verify(exc); exc = false
 		}
-		verify(exc); exc = false
 
 		// incorrect length
 		try { hexStringToReal('abc') }
@@ -40,8 +41,9 @@ TestCase {
 			verify(error instanceof RangeError)
 			compare(error.message, 'The input must be either 1 or 2 hex-digit(s).')
 			exc = true
+		} finally {
+			verify(exc); exc = false
 		}
-		verify(exc); exc = false
 
 		// negative number
 		try { hexStringToReal('-1') }
@@ -49,8 +51,9 @@ TestCase {
 			verify(error instanceof RangeError)
 			compare(error.message, 'The input must be either 1 or 2 hex-digit(s).')
 			exc = true
+		} finally {
+			verify(exc); exc = false
 		}
-		verify(exc); exc = false
 	}
 
 	function test_Qolor_fromString() {
@@ -80,8 +83,9 @@ TestCase {
 			verify(error instanceof TypeError)
 			compare(error.message, 'Unknown color.')
 			exc = true
+		} finally {
+			verify(exc); exc = false
 		}
-		verify(exc); exc = false
 
 		// unknown color
 		try { fromString('#nightmoon') }
@@ -89,8 +93,9 @@ TestCase {
 			verify(error instanceof TypeError)
 			compare(error.message, 'The color must be one of the following: #rgb, #argb, #rrggbb, #aarrggbb.')
 			exc = true
+		} finally {
+			verify(exc); exc = false
 		}
-		verify(exc); exc = false
 
 		// invalid ARGB
 		try { fromString('#56789') }
@@ -98,8 +103,9 @@ TestCase {
 			verify(error instanceof TypeError)
 			compare(error.message, 'The color must be one of the following: #rgb, #argb, #rrggbb, #aarrggbb.')
 			exc = true
+		} finally {
+			verify(exc); exc = false
 		}
-		verify(exc); exc = false
 	}
 
 	property color c1
@@ -155,8 +161,9 @@ TestCase {
 			verify(error instanceof TypeError)
 			compare(error.message, 'Invalid color.')
 			exc = true
+		} finally {
+			verify(exc); exc = false
 		}
-		verify(exc); exc = false
 
 		// some wrong argument
 		try { copy(42) }
@@ -164,6 +171,10 @@ TestCase {
 			verify(error instanceof TypeError)
 			compare(error.message, "Can't create a color object from the argument.")
 			exc = true
+		} finally {
+			verify(exc); exc = false
+		}
+	}
 		}
 		verify(exc); exc = false
 	}

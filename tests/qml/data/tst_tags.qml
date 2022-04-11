@@ -20,8 +20,9 @@ TestCase {
 			verify(error instanceof TypeError)
 			compare(error.message, 'Insufficient number of arguments. The function takes 4. You provided only 3.')
 			exc = true
+		} finally {
+			verify(exc); exc = false
 		}
-		verify(exc); exc = false
 
 		// incorrect types
 		try { argb`${'1'}${0.5}${null}${1}` }
@@ -29,8 +30,9 @@ TestCase {
 			verify(error instanceof TypeError)
 			compare(error.message, 'All parameters must be numbers.')
 			exc = true
+		} finally {
+			verify(exc); exc = false
 		}
-		verify(exc); exc = false
 
 		// out of range
 		try { argb`${2}${0.5}${0}${1}` }
@@ -38,8 +40,9 @@ TestCase {
 			verify(error instanceof RangeError)
 			compare(error.message, 'All parameters must be within [0; 1] range.')
 			exc = true
+		} finally {
+			verify(exc); exc = false
 		}
-		verify(exc); exc = false
 	}
 
 	function test_argb32() {
@@ -56,8 +59,9 @@ TestCase {
 			verify(error instanceof TypeError)
 			compare(error.message, 'Insufficient number of arguments. The function takes 4. You provided only 3.')
 			exc = true
+		} finally {
+			verify(exc); exc = false
 		}
-		verify(exc); exc = false
 
 		// incorrect types
 		try { argb32`${'255'}${128}${null}${255}` }
@@ -65,8 +69,9 @@ TestCase {
 			verify(error instanceof TypeError)
 			compare(error.message, 'All parameters must be integers.')
 			exc = true
+		} finally {
+			verify(exc); exc = false
 		}
-		verify(exc); exc = false
 
 		// out of range
 		try { argb32`${256}${128}${0}${255}` }
@@ -74,15 +79,17 @@ TestCase {
 			verify(error instanceof RangeError)
 			compare(error.message, 'All parameters must be within [0; 255] range.')
 			exc = true
+		} finally {
+			verify(exc); exc = false
 		}
-		verify(exc); exc = false
 		try { argb32`${255}${-128}${0}${255}` }
 		catch (error) {
 			verify(error instanceof RangeError)
 			compare(error.message, 'All parameters must be within [0; 255] range.')
 			exc = true
+		} finally {
+			verify(exc); exc = false
 		}
-		verify(exc); exc = false
 	}
 
 	function test_hsla() {
@@ -103,8 +110,9 @@ TestCase {
 			verify(error instanceof TypeError)
 			compare(error.message, 'Insufficient number of arguments. The function takes from 3 to 4. You provided only 2.')
 			exc = true
+		} finally {
+			verify(exc); exc = false
 		}
-		verify(exc); exc = false
 
 		// incorrect types
 		try { hsla`${0.75}${1}${null}${1}` }
@@ -112,8 +120,9 @@ TestCase {
 			verify(error instanceof TypeError)
 			compare(error.message, 'All parameters must be numbers.')
 			exc = true
+		} finally {
+			verify(exc); exc = false
 		}
-		verify(exc); exc = false
 
 		// out of range
 		try { hsla`${2}${0.5}${0}${1}` }
@@ -121,8 +130,9 @@ TestCase {
 			verify(error instanceof RangeError)
 			compare(error.message, 'All parameters must be within [0; 1] range.')
 			exc = true
+		} finally {
+			verify(exc); exc = false
 		}
-		verify(exc); exc = false
 	}
 
 	function test_hsva() {
@@ -143,8 +153,9 @@ TestCase {
 			verify(error instanceof TypeError)
 			compare(error.message, 'Insufficient number of arguments. The function takes from 3 to 4. You provided only 2.')
 			exc = true
+		} finally {
+			verify(exc); exc = false
 		}
-		verify(exc); exc = false
 
 		// incorrect types
 		try { hsva`${0.75}${1}${null}${1}` }
@@ -152,8 +163,9 @@ TestCase {
 			verify(error instanceof TypeError)
 			compare(error.message, 'All parameters must be numbers.')
 			exc = true
+		} finally {
+			verify(exc); exc = false
 		}
-		verify(exc); exc = false
 
 		// out of range
 		try { hsva`${2}${0.5}${0}${1}` }
@@ -161,8 +173,9 @@ TestCase {
 			verify(error instanceof RangeError)
 			compare(error.message, 'All parameters must be within [0; 1] range.')
 			exc = true
+		} finally {
+			verify(exc); exc = false
 		}
-		verify(exc); exc = false
 	}
 
 	function test_hwba() {
@@ -183,8 +196,9 @@ TestCase {
 			verify(error instanceof TypeError)
 			compare(error.message, 'Insufficient number of arguments. The function takes from 3 to 4. You provided only 2.')
 			exc = true
+		} finally {
+			verify(exc); exc = false
 		}
-		verify(exc); exc = false
 
 		// incorrect types
 		try { hwba`${0.75}${0}${null}${0}` }
@@ -192,8 +206,9 @@ TestCase {
 			verify(error instanceof TypeError)
 			compare(error.message, 'All parameters must be numbers.')
 			exc = true
+		} finally {
+			verify(exc); exc = false
 		}
-		verify(exc); exc = false
 
 		// out of range
 		try { hwba`${2}${0.5}${0}${1}` }
@@ -201,8 +216,9 @@ TestCase {
 			verify(error instanceof RangeError)
 			compare(error.message, 'All parameters must be within [0; 1] range.')
 			exc = true
+		} finally {
+			verify(exc); exc = false
 		}
-		verify(exc); exc = false
 	}
 
 	function test_rgba() {
@@ -223,8 +239,9 @@ TestCase {
 			verify(error instanceof TypeError)
 			compare(error.message, 'Insufficient number of arguments. The function takes from 3 to 4. You provided only 2.')
 			exc = true
+		} finally {
+			verify(exc); exc = false
 		}
-		verify(exc); exc = false
 
 		// incorrect types
 		try { rgba`${0.5}${0}${null}${1}` }
@@ -232,8 +249,9 @@ TestCase {
 			verify(error instanceof TypeError)
 			compare(error.message, 'All parameters must be numbers.')
 			exc = true
+		} finally {
+			verify(exc); exc = false
 		}
-		verify(exc); exc = false
 
 		// out of range
 		try { rgba`${2}${0.5}${0}${1}` }
@@ -241,8 +259,9 @@ TestCase {
 			verify(error instanceof RangeError)
 			compare(error.message, 'All parameters must be within [0; 1] range.')
 			exc = true
+		} finally {
+			verify(exc); exc = false
 		}
-		verify(exc); exc = false
 	}
 
 	function test_rgba32() {
@@ -263,8 +282,9 @@ TestCase {
 			verify(error instanceof TypeError)
 			compare(error.message, 'Insufficient number of arguments. The function takes from 3 to 4. You provided only 2.')
 			exc = true
+		} finally {
+			verify(exc); exc = false
 		}
-		verify(exc); exc = false
 
 		// incorrect types
 		try { rgba32`${'255'}${128}${null}${255}` }
@@ -272,8 +292,9 @@ TestCase {
 			verify(error instanceof TypeError)
 			compare(error.message, 'All parameters must be integers.')
 			exc = true
+		} finally {
+			verify(exc); exc = false
 		}
-		verify(exc); exc = false
 
 		// out of range
 		try { rgba32`${256}${128}${0}${255}` }
@@ -281,15 +302,17 @@ TestCase {
 			verify(error instanceof RangeError)
 			compare(error.message, 'All parameters must be within [0; 255] range.')
 			exc = true
+		} finally {
+			verify(exc); exc = false
 		}
-		verify(exc); exc = false
 		try { rgba32`${255}${-128}${0}${255}` }
 		catch (error) {
 			verify(error instanceof RangeError)
 			compare(error.message, 'All parameters must be within [0; 255] range.')
 			exc = true
+		} finally {
+			verify(exc); exc = false
 		}
-		verify(exc); exc = false
 	}
 
 	function test_qolor () {
