@@ -58,15 +58,30 @@ function checkRanges ([min, max], ...params) {
 }
 
 function rgba32 (_, r, g, b, a = 0xFF) {
-	checkArgsNumber(3, 4, r, g, b)
-	checkTypes('number', 'integers', r, g, b, a)
-	checkRanges([0, 255], r, g, b, a)
-	return Qt.rgba(
-		r / 0xFF,
-		g / 0xFF,
-		b / 0xFF,
-		a / 0xFF
-	)
+	if (typeof _ === 'object' && _ instanceof Array) { // for rgba32`${128}${0}${255}${128}`
+		checkArgsNumber(3, 4, r, g, b)
+		checkTypes('number', 'integers', r, g, b, a)
+		checkRanges([0, 255], r, g, b, a)
+		return Qt.rgba(
+			r / 0xFF,
+			g / 0xFF,
+			b / 0xFF,
+			a / 0xFF
+			)
+	} else if (typeof _ === 'string' && !g && !b) {    // for rgba32('#8000ff', 128)
+		let [rgb, trueA] = [Qolor.fromString(_), r ?? a]
+		return Qt.rgba(
+			rgb.r,
+			rgb.g,
+			rgb.b,
+			trueA / 0xFF
+		)
+	} else if (typeof _ === 'object' && !g && !b) {    // for rgba32(q`#8000ff`, 128)
+		let [rgb, trueA] = [_, r ?? a]
+		return rgba([], rgb.r, rgb.g, rgb.b, trueA) // calling floating-point variant
+	} else {                                           // for rgba(128, 0, 255, 128)
+		return rgba32([], _, r, g, b ?? a) // recursive call
+	}
 }
 
 function argb32 (_, a, r, g, b) {
@@ -82,10 +97,20 @@ function argb32 (_, a, r, g, b) {
 }
 
 function rgba (_, r, g, b, a = 1.0) {
-	checkArgsNumber(3, 4, r, g, b)
-	checkTypes('number', 'numbers', r, g, b, a)
-	checkRanges([0.0, 1.0], r, g, b, a)
-	return Qt.rgba(r, g, b, a)
+	if (typeof _ === 'object' && _ instanceof Array) {  // for rgba`${0.5}${0}${1}${0.5}`
+		checkArgsNumber(3, 4, r, g, b)
+		checkTypes('number', 'numbers', r, g, b, a)
+		checkRanges([0.0, 1.0], r, g, b, a)
+		return Qt.rgba(r, g, b, a)
+	} else if (typeof _ === 'string' && !g && !b) {     // for rgba('#8000ff', 0.5)
+		let [rgb, trueA] = [Qolor.fromString(_), r ?? a]
+		return Qt.rgba(rgb.r, rgb.g, rgb.b, trueA)
+	} else if (typeof _ === 'object' && !g && !b) {     // for rgba(q`#8000ff`, 0.5)
+		let [rgb, trueA] = [_, r ?? a]
+		return rgba([], rgb.r, rgb.g, rgb.b, trueA)
+	} else {                                            // for rgba(0.5, 0, 1, 0.5)
+		return rgba([], _, r, g, b ?? a)
+	}
 }
 
 function argb (_, a, r, g, b) {
@@ -126,10 +151,9 @@ function qolor(strings, ...params) {
 	// if called as a function directly
 	if (typeof strings === 'string') {
 		strings = [strings]
+	} else if (typeof strings === 'object' && utils.isQtColor(strings)) {
+		return Qolor.copy(strings)
 	}
-	// else if (typeof strings === 'object') {
-	// 	return Color.copyObject(strings)
-	// }
 
 	const evaluatedString = zipConcat(strings, [...params, ''])
 	try {
@@ -149,7 +173,11 @@ function qolor(strings, ...params) {
 }
 
 function color(strings, ...params) {
-	return new Color(qolor(strings, ...params))
+	if (typeof strings === 'object' && strings instanceof Color) {
+		return Color.createCopy(strings)
+	} else {
+		return new Color(qolor(strings, ...params))
+	}
 }
 
 // console.error(color`red`)

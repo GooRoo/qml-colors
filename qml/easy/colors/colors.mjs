@@ -193,12 +193,18 @@ class Color {
 			hsl = null,
 			hsv = null,
 			hwb = null,
-			alpha = 0.0
+			alpha = 0.0,
+			a = 0.0
 		} = change
+		alpha = alpha || a
 
 		let cc = this.copy()
 
 		cc.alpha = utils.clamp(cc.alpha + alpha)
+
+		if (!rgb && !hsl && !hsv && !hwb) {
+			return cc
+		}
 
 		if (rgb && !(hsl || hsv || hwb)) {
 			let {
@@ -263,13 +269,20 @@ class Color {
 			hsl = null,
 			hsv = null,
 			hwb = null,
-			alpha = null
+			alpha = null,
+			a = null
 		} = change
+		alpha = alpha ?? a
 
 		let cc = this.copy()
 
-		if (alpha)
+		if (alpha) {
 			cc.alpha = alpha
+		}
+
+		if (!rgb && !hsl && !hsv && !hwb) {
+			return cc
+		}
 
 		if (rgb && !(hsl || hsv || hwb)) {
 			let {
@@ -390,6 +403,10 @@ class Color {
 		return cc
 	}
 
+	spin (offset) {
+		return this.adjustHue(offset)
+	}
+
 	scale (change) {
 		function scaledOffset(value, offset) {
 			return offset * (offset > 0? 1.0 - value : value)
@@ -400,13 +417,20 @@ class Color {
 			hsl = null,
 			hsv = null,
 			hwb = null,
-			alpha = 0.0
+			alpha = 0.0,
+			a = 0.0
 		} = change
+		alpha = alpha || a
 
 		let cc = this.copy()
 
-		if (alpha)
+		if (alpha) {
 			cc.alpha = utils.clamp(cc.alpha + scaledOffset(cc.alpha, alpha))
+		}
+
+		if (!rgb && !hsl && !hsv && !hwb) {
+			return cc
+		}
 
 		if (rgb && !(hsl || hsv || hwb)) {
 			let {
