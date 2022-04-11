@@ -1,6 +1,7 @@
 .pragma library
 
 .import 'tags.mjs' as Tags
+.import 'color-funcs.mjs' as Funcs
 
 function registerGlobalFunctions(...functions) {
 	for (const func of functions) {
@@ -28,4 +29,27 @@ registerGlobalFunctions.call(this,
 	[Tags.rgba32, 'rgb24'],
 	Tags.rgba,
 	Tags.rgba32
+)
+
+this.colors = {}
+
+registerGlobalFunctions.call(this.colors,
+	Funcs.adjust,
+	[Funcs.adjustHue, 'spin'],
+	Funcs.adjustHue,
+	Funcs.change,
+	Funcs.complement,
+	Funcs.darken,
+	Funcs.desaturate,
+	[Funcs.grayscale, 'greyscale'],
+	Funcs.grayscale,
+	Funcs.invert,
+	Funcs.lighten,
+	Funcs.mix,
+	[Funcs.opacify, 'fadeIn'],
+	Funcs.opacify,
+	Funcs.saturate,
+	Funcs.scale,
+	[Funcs.transparentize, 'fadeOut'],
+	Funcs.transparentize,
 )
