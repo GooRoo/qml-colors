@@ -4,19 +4,19 @@ repo_name: GooRoo/qml-colors
 edit_uri: "" #edit/main/docs/
 theme:
   name: material
+  logo: assets/qml-colors-logo_64.png
+  favicon: assets/qml-colors-logo_32.png
   icon:
     repo: fontawesome/brands/github
   palette:
     - scheme: slate
       media: "(prefers-color-scheme: dark)"
       accent: orange
-      primary: deep purple
       toggle:
         icon: material/weather-sunny
         name: Light mode
     - scheme: default
       media: "(prefers-color-scheme: light)"
-      primary: deep purple
       accent: orange
       toggle:
         icon: material/weather-night
@@ -59,3 +59,16 @@ markdown_extensions:
   - pymdownx.tasklist:
       custom_checkbox: true
   - pymdownx.tilde
+
+extra_css:
+  - stylesheets/extra.css
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+
+nav:
+  - Home: index.md
+  - Getting Started:
+    - Why?: getting-started/why.md
+    - Basic concepts: getting-started/basic-concepts.md

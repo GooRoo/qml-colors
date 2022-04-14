@@ -1,0 +1,11 @@
+:root {
+	--md-primary-fg-color: hsl(266, 80%, 19%);
+	--md-primary-fg-color--light: hsl(266, 100%, 60%);
+	--md-primary-fg-color--dark: hsl(266, 80%, 15%);
+}
+[data-md-color-scheme="default"] {
+	--md-typeset-a-color: hsl(266, 100%, 60%);
+}
+[data-md-color-scheme="slate"] {
+	--md-typeset-a-color: hsl(266, 80%, 70%);
+}
