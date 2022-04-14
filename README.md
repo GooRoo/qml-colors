@@ -37,19 +37,19 @@ in many various ways
 
 ```qml
 Rectangle {
-	color: rgba('indigo', 0.8)  // => #cc4b0082 (as ARGB)
+	color: rgba('indigo', 0.8)  // ⇒ #cc4b0082 (as ARGB)
 }
 ```
 
 ```qml
 Rectangle {
-	color: q`#036`  // => #003366
+	color: q`#036`  // ⇒ #003366
 }
 ```
 
 ```qml
 Rectangle {
-	color: q`r:${128} g:${0} b:${255}`  // => #8000ff
+	color: q`r:${128} g:${0} b:${255}`  // ⇒ #8000ff
 }
 ```
 
@@ -61,12 +61,12 @@ Item {
 		const c = q`yellow`       // It looks like a string, but it's an object!
 
 		// this is expected
-		console.log(q`yellow`)    // => #ffff00
+		console.log(q`yellow`)    // ⇒ #ffff00
 
 		// but let's try this
-		console.log(q`yellow`.r)  // => 1.0
-		console.log(q`yellow`.g)  // => 1.0
-		console.log(q`yellow`.b)  // => 0.0
+		console.log(q`yellow`.r)  // ⇒ 1.0
+		console.log(q`yellow`.g)  // ⇒ 1.0
+		console.log(q`yellow`.b)  // ⇒ 0.0
 	}
 }
 ```
@@ -75,12 +75,12 @@ Item {
 
 ```qml
 Rectangle {
-	color: c`#036`.adjustHue(+45['°'])   // => #1a0066
+	color: c`#036`.adjustHue(+45['°'])   // ⇒ #1a0066
 }
 ```
 ```qml
 Rectangle {
-	color: c`#036`.lighten(60 .percent)  // => #99ccff
+	color: c`#036`.lighten(60 .percent)  // ⇒ #99ccff
 }
 ```
 
@@ -88,17 +88,17 @@ Rectangle {
 
 ```qml
 Rectangle {
-	color: mix('#036', '#d2e1dd', 75['%'])  // => #355f84
+	color: mix('#036', '#d2e1dd', 75['%'])  // ⇒ #355f84
 }
 ```
 ```qml
 Rectangle {
-	color: scale('#d2e1dd', {hsl: {l: -10['%'], s: +10['%']}})  // => #b3d4cb
+	color: scale('#d2e1dd', {hsl: {l: -10['%'], s: +10['%']}})  // ⇒ #b3d4cb
 }
 ```
 ```qml
 Rectangle {
-	color: desaturate('#f2ece4', 20 .percent)  // => #eeebe8
+	color: desaturate('#f2ece4', 20 .percent)  // ⇒ #eeebe8
 }
 ```
 
@@ -112,7 +112,7 @@ Rectangle {
 			.desaturate(20 .percent)
 			.mix('red', 85 .percent)
 			.adjust({alpha: -30 .percent})
-			.color                          // => #b33cc341
+			.color                          // ⇒ #b33cc341
 }
 ```
 
@@ -122,11 +122,11 @@ Rectangle {
 Rectangle {
 	color: {
 		let newColor = c`darkorange`
-		console.log(newColor)  // => #ffa500
-		console.log(newColor.hue, newColor.saturation)  // => 0.108 1.0
+		console.log(newColor)  // ⇒ #ffa500
+		console.log(newColor.hue, newColor.saturation)  // ⇒ 0.108 1.0
 		newColor.hue = 20 .deg
 		newColor.saturation = 65 .percent
-		console.log(newColor)  // => #d2642d
+		console.log(newColor)  // ⇒ #d2642d
 		return newColor
 	}
 }

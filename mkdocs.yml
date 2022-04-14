@@ -72,3 +72,6 @@ nav:
   - Getting Started:
     - Why?: getting-started/why.md
     - Basic concepts: getting-started/basic-concepts.md
+  - Reference:
+    - Units: reference/units.md
+    - Tagged literals: reference/tagged-literals.md
