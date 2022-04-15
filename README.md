@@ -6,7 +6,7 @@
 
 ## Struggling with colors?
 
-Are you sick and tired of poorness of Qt Quick's `color` datatype as much as I am? Ever wanted to have a simpler way of doing simple color transformations in QML bindings like following?
+Are you sick and tired of poorness of Qt Quick's `color` datatype as much as I am? Ever wanted to have an easier way of doing simple color transformations in QML bindings like following?
 ```qml hl_lines="5"
 Rectangle { id: r1; color: 'red' }
 

@@ -1,3 +1,4 @@
+*[AFAIR]: As Far As I Remember
 *[JS]: JavaScript
 
 *[HSL]: hue, saturation, lightness

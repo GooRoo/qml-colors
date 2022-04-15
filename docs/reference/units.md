@@ -2,7 +2,7 @@
 
 Units are functions that transform a value from one interval to another and are made for pure convenience. You are free to not use them at all since they have no impact on the main library functionality.
 
-All units except `byte` return a [real value][normalized-interval] $n \in [0, 1]$. They also never check the boundaries, so the resulting value may be 
+All units except `byte` are intended to return a [real offset value][offset-interval] $r \in [-1, 1]$. But they never check the boundaries, so the resulting value may be out of bounds for the specified interval. This is done intentionally.
 
 ## Cautions
 
@@ -20,7 +20,7 @@ All units except `byte` return a [real value][normalized-interval] $n \in [0, 1]
 	```
 	however, you can't write like this because it leads to an interpreter error:
 	```js
-	1.unit
+	1.unit  // ⇒ SyntaxError: Invalid or unexpected token
 	```
 	**“What's the difference?”**  you might think. It's all with the dot.
 
@@ -66,33 +66,41 @@ All units except `byte` return a [real value][normalized-interval] $n \in [0, 1]
 	-90 ['°']  // ⇒ -0.25
 	 45 ['°']  // ⇒  0.125
 	```
-	Please, note that, if you use this unit on an argument which absolute value is greater than 360, it will be taken by module 360. For instance:
-	```js
-	450 .deg === 90['°'] === 0.25
-	```
+	??? info "Note on modulus"
+
+		If you use this unit with an argument which absolute value is greater than 360, it will be taken modulo 360 because, as we know from school, for angles the following applies:
+		$$
+		450° \equiv 90° \pmod{360}
+		$$
+		Example:
+		```js
+		450 .deg === 90['°'] === 0.25
+		```
 
 #### `int`
 
-:	This unit can be used to normalize individual components of RGB(A), HSL(A), HSV(A), or HWB(A) color models (such as _red, green, blue, lightness, blackness, alpha,_ etc.) from [integer value][integer-interval] $i\in [0, 255]$.
+:	This unit can be used to normalize individual components of RGB(A), HSL(A), HSV(A), or HWB(A) color models (such as _red, green, blue, lightness, blackness, alpha,_ etc.) from [integer offset][integer-interval] $s\in [-255, 255]$.
 	```js
 	   0 .int  // ⇒ 0.0
-	 255 .int  // ⇒ 1.0
+	-255 .int  // ⇒ -1.0
 	 191 .int  // ⇒ 0.75 (roughly)
 	0x7F .int  // ⇒ 0.5 (roughly)
 	```
 
 #### `byte`
 
-:	Transforms a [normalized value][normalized-interval] to [integer value][integer-interval].
+:	Transforms a [real offset][offset-interval] to [integer offset][integer-offset-interval].
 	```js
-	  1 .byte  // ⇒ 255
+	 -1 .byte  // ⇒ -255
 	0.5 .byte  // ⇒ 128
 	```
 	???+ warning
 
 		Note that it doesn't guarantee an integer result. So in fact, `#!js 0.5.byte` returns `#!js 127.5`. This is done intentionally to avoid rounding errors when dealing with color functions.
 
-[normalized-interval]: /getting-started/basic-concepts/#normalized-real-inteval
-[integer-interval]: /getting-started/basic-concepts/#integer-interval
+[normalized-interval]: /getting-started/basic-concepts/#normalized-real-interval-norm "Normalized real interval"
+[offset-interval]: /getting-started/basic-concepts/#normalized-real-offset-interval-offset "Normalized real offset inteval"
+[integer-interval]: /getting-started/basic-concepts/#integer-interval-8bit "Integer interval"
+[integer-offset-interval]: /getting-started/basic-concepts/#integer-offset-interval-9bit "Integer offset interval"
 
 ---8<--- "docs/abbreviations.md"

@@ -3,9 +3,22 @@
 	--md-primary-fg-color--light: hsl(266, 100%, 60%);
 	--md-primary-fg-color--dark: hsl(266, 80%, 15%);
 }
+
 [data-md-color-scheme="default"] {
 	--md-typeset-a-color: hsl(266, 100%, 60%);
 }
+
 [data-md-color-scheme="slate"] {
 	--md-typeset-a-color: hsl(266, 80%, 70%);
+}
+
+td > .color-cell {
+	width: 30px;
+	height: 30px;
+	border-radius: 15px;
+}
+
+th.color-name, td.color-name {
+	vertical-align: middle;
+	text-align: right !important;
 }
