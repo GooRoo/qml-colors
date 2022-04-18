@@ -294,6 +294,15 @@ TestCase {
 		)
 	}
 
+	function test_darken_and_lighten() {
+		const c1 = c`#8040a0`
+		let c2 = c1.copy()
+		for (let i = 0; i < 1000; i++) {
+			c2 = c2.darken(0.11).lighten(0.11)
+		}
+		compare(c1.toString(), c2.toString())
+	}
+
 	function test_Color_desaturate() {
 		compare(
 			c`#036`.desaturate(20 .percent),
@@ -311,6 +320,15 @@ TestCase {
 			c`#8000ff`.desaturate(),
 			 '#8020df'
 		)
+	}
+
+	function test_desaturate_and_saturate() {
+		const c1 = c`#8040a0`
+		let c2 = c1.copy()
+		for (let i = 0; i < 1000; i++) {
+			c2 = c2.desaturate(0.29).saturate(0.29)
+		}
+		compare(c1.toString(), c2.toString())
 	}
 
 	function test_Color_grayscale() {
@@ -398,6 +416,15 @@ TestCase {
 			c`#808000ff`.opacify(),
 			'#c08000ff'
 		)
+	}
+
+	function test_fade_in_and_out() {
+		const c1 = c`#8040a0`
+		let c2 = c1.copy()
+		for (let i = 0; i < 1000; i++) {
+			c2 = c2.fadeOut(0x80 / 30).fadeIn(0x80 / 30)
+		}
+		compare(c1.toString(), c2.toString())
 	}
 
 	function test_Color_saturate() {
