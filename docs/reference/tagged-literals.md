@@ -337,3 +337,5 @@ If you need to construct a color using a precise form, please, see [`argb`](#arg
 [color-name]: ../getting-started/basic-concepts.md#color-name
 [color-literal]: ../getting-started/basic-concepts.md#color-literal
 [notation]: ./index.md#notation "Notation"
+
+---8<--- "docs/abbreviations.md"

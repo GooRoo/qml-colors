@@ -78,3 +78,4 @@ nav:
     - Color names: reference/color-names.md
     - Units: reference/units.md
     - Tagged literals: reference/tagged-literals.md
+    - The Color class: reference/color.md

@@ -56,7 +56,9 @@ Variants: HWB, HWBA.
 
 ## Types
 
-#### color-name
+### Color types
+
+#### `color-name`
 
 :	It's a `string` that contains one of the [extended color keywords](https://www.w3.org/TR/css-color-3/#svg-color) from CSS.
 
@@ -64,7 +66,7 @@ Variants: HWB, HWBA.
 
 		---8<--- "docs/reference/color-names.html"
 
-#### color-literal
+#### `color-literal`
 
 :	A string in either form:
 
@@ -98,6 +100,94 @@ Variants: HWB, HWBA.
 #### The Color class (`color`)
 
 : 	my `Color`
+
+#### Any type of color (`any-color`)
+
+:	This is a union type that allows using any suitable way of constructing a color object.
+
+	Can be substituted with: [`color-name`](#color-name)|[`color-literal`](#color-literal)|[`qolor`](#qt-color-qolor)|[`color`](#the-color-class-color).
+
+### Auxiliary types
+
+#### `change-object`
+
+:	This type is used only as a parameter of a single method [`change`](../reference/color.md#change) and corresponding function.
+
+	Every individual component of this object is of type [`norm`](#normalized-real-interval-norm).
+
+	The default value of each component is `null` (i.e. no change). This makes every component – **optional!**
+
+	The object itself contains:
+
+	- `alpha` or `a`
+	- one of the following:
+		- {`rgb`: {`red`, `green`, `blue`}}<br/>or {`rgb`: {`r`, `g`, `b`}}
+		- {`hsl`: {`hue`, `saturation`, `lightness`}}<br/>or {`hsl`: {`h`, `s`, `l`}}
+		- {`hsv`: {`hue`, `saturation`, `value`}}<br/>or {`hsv`: {`h`, `s`, `v`}}
+		- {`hwb`: {`hue`, `whiteness`, `blackness`}}<br/>or {`hwb`: {`h`, `w`, `b`}}
+
+	???+ example "Valid examples"
+
+		```js
+		{alpha: 0.5, rgb: {r: 0.5, b: 1.0}}
+		```
+		```js
+		{hsl: {hue: 270 .deg, saturation: 100 .percent}}
+		```
+
+	???+ example "Invalid examples"
+
+		```js
+		// alpha is within rgb, but must be on the top level
+		{rgb: {r: 0.5, b: 1.0, a: 0.5}}
+		```
+		```js
+		{
+			// rgb and hsl can't be mixed within one object
+			rgb: {red: 128 .int, blue: 255 .int}
+			hsl: {hue: 270 .deg, saturation: 100 .percent}
+		}
+		```
+
+#### `offset-object`
+
+:	This type is used only as a parameter of two methods: [`adjust`](../reference/color.md#adjust) and [`scale`](../reference/color.md#scale) and corresponding functions.
+
+	Essentially, it's the same as [`change-object`](#change-object) but every individual component of this object is of type [`offset`](#normalized-real-offset-interval-offset) instead of `norm`.
+
+	The default value of each component is `0.0` (i.e. no change). This makes every component – **optional!**
+
+	The object itself contains:
+
+	- `alpha` or `a`
+	- one of the following:
+		- {`rgb`: {`red`, `green`, `blue`}}<br/>or {`rgb`: {`r`, `g`, `b`}}
+		- {`hsl`: {`hue`, `saturation`, `lightness`}}<br/>or {`hsl`: {`h`, `s`, `l`}}
+		- {`hsv`: {`hue`, `saturation`, `value`}}<br/>or {`hsv`: {`h`, `s`, `v`}}
+		- {`hwb`: {`hue`, `whiteness`, `blackness`}}<br/>or {`hwb`: {`h`, `w`, `b`}}
+
+	???+ example "Valid examples"
+
+		```js
+		{alpha: +0.5, rgb: {r: +0.3, b: -0.2}}
+		```
+		```js
+		{hsl: {hue: +30 .deg, saturation: -20 .percent}}
+		```
+
+	???+ example "Invalid examples"
+
+		```js
+		// alpha is within rgb, but must be on the top level
+		{rgb: {r: +0.5, b: -1.0, a: +0.5}}
+		```
+		```js
+		{
+			// rgb and hsl can't be mixed within one object
+			rgb: {red: +128 .int, blue: -128 .int}
+			hsl: {hue: -45 .deg, saturation: -15 .percent}
+		}
+		```
 
 ## Value ranges
 

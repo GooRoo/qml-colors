@@ -229,11 +229,11 @@ TestCase {
 			 '#d6e1d2'
 		)
 		compare(
-			c`#036`.adjustHue(+45 .deg),
+			c`#036`.spin(+45 .deg),
 			 '#1a0066'
 		)
 		compare(
-			c`#036`.adjustHue(+405 .deg),  // 360 + 45
+			c`#036`.spin(+405 .deg),  // 360 + 45
 			 '#1a0066'
 		)
 		compare(
@@ -254,7 +254,7 @@ TestCase {
 		compare(
 			c`#998099`.change({
 				hsl: {lightness: 30 .percent},
-			    alpha: 0.5
+				alpha: 0.5
 			}),
 			rgba32`r${85} g${68} b${85} a${0.5 .byte}`.toString()
 		)
@@ -288,6 +288,10 @@ TestCase {
 			c`#036`.darken(30['%']),
 			 '#000000'
 		)
+		compare(
+			c`#8000ff`.darken(),
+			 '#400080'
+		)
 	}
 
 	function test_Color_desaturate() {
@@ -302,6 +306,10 @@ TestCase {
 		compare(
 			c`#d2e1dd`.desaturate(30 .percent),
 			 '#dadada'
+		)
+		compare(
+			c`#8000ff`.desaturate(),
+			 '#8020df'
 		)
 	}
 
@@ -348,6 +356,10 @@ TestCase {
 			c`#e1d7d2`.lighten(30 .percent),
 			 '#ffffff'
 		)
+		compare(
+			c`#8000ff`.lighten(),
+			 '#c080ff'
+		)
 	}
 
 	function test_Color_mix() {
@@ -382,6 +394,10 @@ TestCase {
 			c(rgba('#036', 0.3)).opacify(70['%']).color,
 			q`#003366`
 		)
+		compare(
+			c`#808000ff`.opacify(),
+			'#c08000ff'
+		)
 	}
 
 	function test_Color_saturate() {
@@ -396,6 +412,10 @@ TestCase {
 		compare(
 			c`#0e4982`.saturate(30 .percent),
 			 '#004990'
+		)
+		compare(
+			c`#8020df`.saturate(),
+			 '#8000ff'
 		)
 	}
 
@@ -426,6 +446,10 @@ TestCase {
 		compare(
 			c(rgba('#036', 0.3)).transparentize(0.3).color,
 			rgba32(0, 51, 102, 0)
+		)
+		compare(
+			c`#8000ff`.transparentize().color,
+			'#bf8000ff'
 		)
 	}
 }

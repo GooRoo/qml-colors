@@ -31,3 +31,8 @@ th.color-name, td.color-color {
 th.color-hex, td.color-hex {
 	vertical-align: middle !important;
 }
+
+table.type-alias {
+	border-collapse: separate;
+	border-spacing: 5px 0;
+}
