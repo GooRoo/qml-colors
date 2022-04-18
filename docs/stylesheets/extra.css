@@ -44,11 +44,15 @@ table.type-alias {
 	touch-action: auto;
 }
 
-table.type-alias tr {
+table.type-alias > tr {
 	transition: background-color 125ms;
 }
 
-table.type-alias tr:hover {
+table.type-alias > tr:hover {
 	background-color: rgba(0, 0, 0, .035);
 	box-shadow: 0 .05rem 0 var(--md-default-bg-color) inset;
+}
+
+table.type-alias td {
+	font-size: .64rem;
 }
