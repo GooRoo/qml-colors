@@ -35,4 +35,20 @@ th.color-hex, td.color-hex {
 table.type-alias {
 	border-collapse: separate;
 	border-spacing: 5px 0;
+	background-color: var(--md-default-bg-color);
+	border: 0.05rem solid var(--md-typeset-table-color);
+	border-radius: 0.1rem;
+	display: inline-block;
+	max-width: 100%;
+	overflow: auto;
+	touch-action: auto;
+}
+
+table.type-alias tr {
+	transition: background-color 125ms;
+}
+
+table.type-alias tr:hover {
+	background-color: rgba(0, 0, 0, .035);
+	box-shadow: 0 .05rem 0 var(--md-default-bg-color) inset;
 }
