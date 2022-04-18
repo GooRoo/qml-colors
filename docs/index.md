@@ -1,6 +1,5 @@
 ---
 title: Home
-description: asdfasdf
 hide:
   - navigation
 ---

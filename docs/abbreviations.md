@@ -1,4 +1,5 @@
 *[AFAIR]: As Far As I Remember
+*[AKA]: Also Known As
 *[JS]: JavaScript
 
 *[HSL]: hue, saturation, lightness

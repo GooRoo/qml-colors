@@ -2,9 +2,63 @@
 
 Before I start explaining to you how to use the library, we need to agree on certain terminology.
 
+## Color models
+
+This library supports several color models described below.
+
+!!! info "Alpha-channel"
+
+	Each model may contain an additional optional alpha-channel that represents transparency (or, to be more precise, opacity). If so, the model's name contains the A letter as you'll see below.
+
+### RGB
+
+Represents a color as a combination of _**R**ed, **G**reen,_ and _**B**lue_ components.
+
+More details [on Wikipedia][rgb-wiki].
+
+Variants: RGB, ARGB, RGBA.
+
+### HSL
+
+It's an alternative representation of a color in [RGB color model](#rgb) that uses a combination of:
+
+* _**H**ue_ $\in [0°, 360°]$
+* _**S**aturation_ $\in [0\%, 100\%]$
+* _**L**ightness_ $\in [0\%, 100\%]$
+
+More details [on Wikipedia][hsl-hsv-wiki].
+
+Variants: HSL, HSLA.
+
+### HSV
+
+It's an alternative representation of a color in [RGB color model](#rgb) that uses a combination of:
+
+* _**H**ue_ $\in [0°, 360°]$
+* _**S**aturation_ $\in [0\%, 100\%]$
+* _**V**alue_ $\in [0\%, 100\%]$ (AKA brightness)
+
+More details [on Wikipedia][hsl-hsv-wiki].
+
+Variants: HSV, HSVA.
+
+### HWB
+
+It's an alternative representation of a color in [RGB color model](#rgb) that uses a combination of:
+
+* _**H**ue_ $\in [0°, 360°]$
+* _**W**hiteness_ $\in [0\%, 100\%]$
+* _**B**lackness_ $\in [0\%, 100\%]$
+
+More details [on Wikipedia][hwb-wiki].
+
+Variants: HWB, HWBA.
+
+## Types
+
 #### color-name
 
-:	One of the [extended color keywords](https://www.w3.org/TR/css-color-3/#svg-color) from CSS.
+:	It's a `string` that contains one of the [extended color keywords](https://www.w3.org/TR/css-color-3/#svg-color) from CSS.
 
 	??? example "List of all names"
 
@@ -37,11 +91,11 @@ Before I start explaining to you how to use the library, we need to agree on cer
 		'#c0ff79bf'  // ⇒ #c0ff79bf
 		```
 
-#### qolor
+#### Qt color (`qolor`)
 
-:	Qt Quick's `color`
+:	Qt Quick's [`color`](https://doc.qt.io/qt-5/qml-color.html) basic type.
 
-#### color
+#### The Color class (`color`)
 
 : 	my `Color`
 
@@ -75,8 +129,12 @@ For example, `#!js rgb24(128, 0, 255)`.
 $$
 s \in [-255, 255]
 $$
-AFAIR, there are no functions that work with this interval, however, you can use such values, for instance, together with [units](/reference/units/#int).
+AFAIR, there are no functions that work with this interval, however, you can use such values, for instance, together with [units](../reference/units.md#int).
 
 Example: `#!js {alpha: -128 .int}`.
 
 ---8<--- "docs/abbreviations.md"
+
+[hsl-hsv-wiki]: https://en.wikipedia.org/wiki/HSL_and_HSV
+[rgb-wiki]: https://en.wikipedia.org/wiki/RGB_color_model
+[hwb-wiki]: https://en.wikipedia.org/wiki/HWB_color_model

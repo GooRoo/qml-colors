@@ -98,9 +98,9 @@ All units except `byte` are intended to return a [real offset value][offset-inte
 
 		Note that it doesn't guarantee an integer result. So in fact, `#!js 0.5.byte` returns `#!js 127.5`. This is done intentionally to avoid rounding errors when dealing with color functions.
 
-[normalized-interval]: /getting-started/basic-concepts/#normalized-real-interval-norm "Normalized real interval"
-[offset-interval]: /getting-started/basic-concepts/#normalized-real-offset-interval-offset "Normalized real offset inteval"
-[integer-interval]: /getting-started/basic-concepts/#integer-interval-8bit "Integer interval"
-[integer-offset-interval]: /getting-started/basic-concepts/#integer-offset-interval-9bit "Integer offset interval"
+[normalized-interval]: ../getting-started/basic-concepts.md#normalized-real-interval-norm "Normalized real interval"
+[offset-interval]: ../getting-started/basic-concepts.md#normalized-real-offset-interval-offset "Normalized real offset inteval"
+[integer-interval]: ../getting-started/basic-concepts.md#integer-interval-8bit "Integer interval"
+[integer-offset-interval]: ../getting-started/basic-concepts.md#integer-offset-interval-9bit "Integer offset interval"
 
 ---8<--- "docs/abbreviations.md"

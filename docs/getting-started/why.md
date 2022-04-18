@@ -1,5 +1,9 @@
 # Why? a.k.a. Rationale
 
+!!! question "Not interested in reasons?"
+
+	Skip to the [next article](./basic-concepts.md).
+
 ## What does Qt offer?
 
 You may be wondering why we need an additional library to work with colors in QML. Does anyone really lack it? Also, Qt provides some functions, doesn't it? Aren't they enough?
