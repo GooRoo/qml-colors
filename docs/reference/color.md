@@ -5,7 +5,7 @@ Basically, the `Color` is just a thin wrapper around Qt Quick's [`color`][qolor]
 ## Properties
 
 | Category | Properties (and aliases)                                                                                                                                      |
-|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|---------:|---------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Common   | [`alpha`](#alpha) (or [`a`](#alpha)), [`color`](#color) (or [`qolor`](#color)), [`valid`](#valid)                                                             |
 | RGB      | [`red`](#red), [`green`](#green), [`blue`](#blue) (or just [`r`](#red), [`g`](#green), [`b`](#blue))                                                          |
 | HSL      | [`hue`](#hue), [`saturation`](#saturation), [`lightness`](#lightness)<br/>(or [`hslHue`](#hue), [`hslSaturation`](#saturation), [`hslLightness`](#lightness)) |
@@ -21,12 +21,18 @@ Basically, the `Color` is just a thin wrapper around Qt Quick's [`color`][qolor]
 		<tr><td style="text-align: right">Alias:</td><td>[`a`](#a)</td></tr>
 	</table>
 
+	Returns the _alpha_ channel of the color.
+
 #### `blackness`
 
 :	<table class="type-alias">
 		<tr><td style="text-align: right">Type:</td><td>[`norm`][norm]</td></tr>
 		<tr><td style="text-align: right">Alias:</td><td>`hwbBlackness`</td></tr>
 	</table>
+
+	Returns the [HWB][hwb-model] _blackness_ of the color.
+
+	**See also:** [`hue`](#hue), [`whiteness`](#whiteness).
 
 #### `blue`
 
@@ -35,12 +41,18 @@ Basically, the `Color` is just a thin wrapper around Qt Quick's [`color`][qolor]
 		<tr><td style="text-align: right">Alias:</td><td>[`b`](#b)</td></tr>
 	</table>
 
+	Returns the [RGB][rgb-model] _blue_ channel of the color.
+
+	**See also:** [`green`](#green), [`red`](#red).
+
 #### `color`
 
 :	<table class="type-alias">
 		<tr><td style="text-align: right">Type:</td><td>[`qolor`][qolor]</td></tr>
 		<tr><td style="text-align: right">Alias:</td><td>`qolor`</td></tr>
 	</table>
+
+	Returns the underlying [Qt Quick's `color`][qolor].
 
 #### `green`
 
@@ -49,12 +61,24 @@ Basically, the `Color` is just a thin wrapper around Qt Quick's [`color`][qolor]
 		<tr><td style="text-align: right">Alias:</td><td>[`g`](#g)</td></tr>
 	</table>
 
+	Returns the [RGB][rgb-model] _green_ channel of the color.
+
+	**See also:** [`blue`](#blue), [`red`](#red).
+
 #### `hue`
 
 :	<table class="type-alias">
 		<tr><td style="text-align: right">Type:</td><td>[`norm`][norm]</td></tr>
 		<tr><td style="text-align: right">Alias:</td><td>[`hslHue`](#hslhue), [`hsvHue`](#hsvhue), `hwbHue`</td></tr>
 	</table>
+
+	Returns the [HSL][hsl-model], [HSV][hsv-model], or [HWB][hwb-model] _hue_ of the color.
+
+	**See also:**
+
+	- HSL: [`lightness`](#lightness), [`saturation`](#saturation)
+	- HSV: [`hsvSaturation`](#hsvsaturation), [`hsvValue`](#hsvvalue)
+	- HWB: [`blackness`](#blackness), [`whiteness`](#whiteness)
 
 #### `lightness`
 
@@ -63,12 +87,20 @@ Basically, the `Color` is just a thin wrapper around Qt Quick's [`color`][qolor]
 		<tr><td style="text-align: right">Alias:</td><td>[`hslLightness`](#hsllightness)</td></tr>
 	</table>
 
+	Returns the [HSL][hsl-model] _lightness_ of the color.
+
+	**See also:** [`hue`](#hue), [`saturation`](#saturation).
+
 #### `red`
 
 :	<table class="type-alias">
 		<tr><td style="text-align: right">Type:</td><td>[`norm`][norm]</td></tr>
 		<tr><td style="text-align: right">Alias:</td><td>[`r`](#r)</td></tr>
 	</table>
+
+	Returns the [RGB][rgb-model] _red_ channel of the color.
+
+	**See also:** [`blue`](#blue), [`green`](#green).
 
 #### `saturation`
 
@@ -77,12 +109,22 @@ Basically, the `Color` is just a thin wrapper around Qt Quick's [`color`][qolor]
 		<tr><td style="text-align: right">Alias:</td><td>[`hslSaturation`](#hslsaturation)</td></tr>
 	</table>
 
+	Returns the [HSL][hsl-model] _saturation_ of the color.
+
+	For [HSV][hsv-model] _saturation_, **see** [`hsvSaturation`](#hsvsaturation).
+
+	**See also:** [`hue`](#hue), [`lightness`](#lightness).
+
 #### `whiteness`
 
 :	<table class="type-alias">
 		<tr><td style="text-align: right">Type:</td><td>[`norm`][norm]</td></tr>
 		<tr><td style="text-align: right">Alias:</td><td>`hwbWhiteness`</td></tr>
 	</table>
+
+	Returns the [HWB][hwb-model] _whiteness_ of the color.
+
+	**See also:** [`blackness`](#blackness), [`hue`](#hue).
 
 ### Inherited from Qt Quick's `color`
 
@@ -120,11 +162,21 @@ Basically, the `Color` is just a thin wrapper around Qt Quick's [`color`][qolor]
 		<tr><td style="text-align: right">Type:</td><td>[`norm`][norm]</td></tr>
 	</table>
 
+	Returns the [HSV][hsv-model] _saturation_ of the color.
+
+	For [HSL][hsl-model] _saturation_, **see** [`saturation`](#saturation).
+
+	**See also:** [`hsvHue`](#hue), [`hsvValue`](#hsvvalue).
+
 #### `hsvValue`
 
 :	<table class="type-alias">
 		<tr><td style="text-align: right">Type:</td><td>[`norm`][norm]</td></tr>
 	</table>
+
+	Returns the [HSV][hsv-model] _value_ of the color.
+
+	**See also:** [`hsvHue`](#hue), [`hsvSaturation`](#hsvsaturation).
 
 #### `r`
 
@@ -150,6 +202,15 @@ Basically, the `Color` is just a thin wrapper around Qt Quick's [`color`][qolor]
 		```
 
 ## Methods
+
+| Category      | Methods (and aliases)                                                                                                  |
+|--------------:|------------------------------------------------------------------------------------------------------------------------|
+| Multi-changes | [`adjust`](#adjust), [`change`](#change), [`scale`](#scale)                                                            |
+| Hue           | [`adjustHue`](#adjusthue) (or [`spin`](#adjusthue)), [`complement`](#complement)                                       |
+| Brightness    | [`darker`](#darken), [`lighten`](#lighten)                                                                             |
+| Saturation    | [`desaturate`](#desaturate), [`grayscale`](#grayscale) (or [`greyscale`](#grayscale)), [`saturate`](#saturate)         |
+| Opacity       | [`opacify`](#opacify) (or [`fadeIn`](#opacify)), [`transparentize`](#transparentize) (or [`fadeOut`](#transparentize)) |
+| Other         | [`invert`](#invert), [`mix`](#mix)                                                                                     |
 
 #### adjust
 
@@ -545,5 +606,10 @@ Basically, the `Color` is just a thin wrapper around Qt Quick's [`color`][qolor]
 [change-object]: ../getting-started/basic-concepts.md#change-object
 [percent]: ./units.md#or-percent "% (or percent)"
 [deg]: ./units.md#or-deg "° (or deg)"
+
+[rgb-model]: ../getting-started/basic-concepts.md#rgb
+[hsl-model]: ../getting-started/basic-concepts.md#hsl
+[hsv-model]: ../getting-started/basic-concepts.md#hsv
+[hwb-model]: ../getting-started/basic-concepts.md#hwb
 
 ---8<--- "docs/abbreviations.md"
