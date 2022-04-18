@@ -19,6 +19,15 @@ td > .color-cell {
 }
 
 th.color-name, td.color-name {
-	vertical-align: middle;
+	vertical-align: middle !important;
 	text-align: right !important;
+}
+
+th.color-name, td.color-color {
+	/* vertical-align: middle !important; */
+	text-align: center !important;
+}
+
+th.color-hex, td.color-hex {
+	vertical-align: middle !important;
 }

@@ -75,5 +75,6 @@ nav:
     - Basic concepts: getting-started/basic-concepts.md
   - Reference:
     - reference/index.md
+    - Color names: reference/color-names.md
     - Units: reference/units.md
     - Tagged literals: reference/tagged-literals.md
