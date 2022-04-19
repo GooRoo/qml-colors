@@ -230,13 +230,13 @@ Basically, the `Color` is just a thin wrapper around Qt Quick's [`color`][qolor]
 
 	**Examples:**
 	```js
-	c`#6b717f`.adjust({rgb: {r: +15 .int}})  // ⇒ #7a717f
+	cc`#6b717f`.adjust({rgb: {r: +15 .int}})  // ⇒ #7a717f
 	```
 	```js
-	c`#d2e1dd`.adjust({rgb: {red: -10 .int, blue: +10 .int}})  // ⇒ #c8e1e7
+	cc`#d2e1dd`.adjust({rgb: {red: -10 .int, blue: +10 .int}})  // ⇒ #c8e1e7
 	```
 	```js
-	c`#998099`.adjust({
+	cc`#998099`.adjust({
 		hsl: {lightness: -30 .percent},
 		alpha: -40 .percent
 	})  // ⇒ #99473947
@@ -256,15 +256,15 @@ Basically, the `Color` is just a thin wrapper around Qt Quick's [`color`][qolor]
 	**Examples:**
 	```js
 	// Hue 222° becomes 282°
-	c`#6b717f`.adjustHue(+60 .deg)  // ⇒ #796b7f
+	cc`#6b717f`.adjustHue(+60 .deg)  // ⇒ #796b7f
 	```
 	```js
 	// Hue 164° becomes 104°.
-	c`#d2e1dd`.spin(-60['°'])  // ⇒ #d6e1d2
+	cc`#d2e1dd`.spin(-60['°'])  // ⇒ #d6e1d2
 	```
 	```js
 	// Hue 210° becomes 255°
-	c`#036`.adjustHue(+45 .deg)  // ⇒ #1a0066
+	cc`#036`.adjustHue(+45 .deg)  // ⇒ #1a0066
 	```
 
 	**See also:** [`adjust`](#adjust), [`°`][deg].
@@ -285,13 +285,13 @@ Basically, the `Color` is just a thin wrapper around Qt Quick's [`color`][qolor]
 
 	**Examples:**
 	```js
-	c`#6b717f`.change({rgb: {r: 100 .int}})  // ⇒ #64717f
+	cc`#6b717f`.change({rgb: {r: 100 .int}})  // ⇒ #64717f
 	```
 	```js
-	c`#d2e1dd`.change({rgb: {red: 100 .int, blue: 50 .int}})  // ⇒ #64e132
+	cc`#d2e1dd`.change({rgb: {red: 100 .int, blue: 50 .int}})  // ⇒ #64e132
 	```
 	```js
-	c`#998099`.change({
+	cc`#998099`.change({
 		hsl: {lightness: 30 .percent},
 		alpha: 0.5
 	})  // ⇒ #80554455
@@ -312,15 +312,15 @@ Basically, the `Color` is just a thin wrapper around Qt Quick's [`color`][qolor]
 	**Examples:**
 	```js
 	// Hue 222° becomes 42°
-	c`#6b717f`.complement()  // ⇒ #7f796b
+	cc`#6b717f`.complement()  // ⇒ #7f796b
 	```
 	```js
 	// Hue 164° becomes 344°
-	c`#d2e1dd`.complement()  // ⇒ #e1d2d6
+	cc`#d2e1dd`.complement()  // ⇒ #e1d2d6
 	```
 	```js
 	// Hue 210° becomes 30°
-	c`#036`.complement()  // ⇒ #663300
+	cc`#036`.complement()  // ⇒ #663300
 	```
 
 	**See also:** [`adjust`](#adjust), [`adjustHue`](#adjusthue), [`invert`](#invert).
@@ -336,19 +336,19 @@ Basically, the `Color` is just a thin wrapper around Qt Quick's [`color`][qolor]
 	**Examples:**
 	```js
 	// Lightness 92% becomes 72%
-	c`#b37399`.darken(20['%'])  // ⇒ #7c4465
+	cc`#b37399`.darken(20['%'])  // ⇒ #7c4465
 	```
 	```js
 	// Lightness 85% becomes 45%
-	c`#f2ece4`.darken(40 .percent)  // ⇒ #b08b5a
+	cc`#f2ece4`.darken(40 .percent)  // ⇒ #b08b5a
 	```
 	```js
 	// Lightness 20% becomes 0%
-	c`#036`.darken(0.3)  // ⇒ #000000
+	cc`#036`.darken(0.3)  // ⇒ #000000
 	```
 	```js
 	// Lightness 50% becomes 25%
-	c`#8000ff`.darken()  // ⇒ #000000
+	cc`#8000ff`.darken()  // ⇒ #000000
 	```
 
 	**See also:** [`adjust`](#adjust), [`%`][percent].
@@ -364,19 +364,19 @@ Basically, the `Color` is just a thin wrapper around Qt Quick's [`color`][qolor]
 	**Examples:**
 	```js
 	// Saturation 100% becomes 80%
-	c`#036`.desaturate(20 .percent)  // ⇒ #0a335c
+	cc`#036`.desaturate(20 .percent)  // ⇒ #0a335c
 	```
 	```js
 	// Saturation 35% becomes 15%
-	c`#f2ece4`.desaturate(20 .percent)  // ⇒ #eeebe8
+	cc`#f2ece4`.desaturate(20 .percent)  // ⇒ #eeebe8
 	```
 	```js
 	// Saturation 20% becomes 0%
-	c`#d2e1dd`.desaturate(30 .percent)  // ⇒ #dadada
+	cc`#d2e1dd`.desaturate(30 .percent)  // ⇒ #dadada
 	```
 	```js
 	// Saturation 100% becomes 75%
-	c`#8000ff`.desaturate()  // ⇒ #8020df
+	cc`#8000ff`.desaturate()  // ⇒ #8020df
 	```
 
 	**See also:** [`adjust`](#adjust), [`%`][percent].
@@ -394,13 +394,13 @@ Basically, the `Color` is just a thin wrapper around Qt Quick's [`color`][qolor]
 
 	**Examples:**
 	```js
-	c`#6b717f`.grayscale()  // ⇒ #757575
+	cc`#6b717f`.grayscale()  // ⇒ #757575
 	```
 	```js
-	c`#d2e1dd`.grayscale()  // ⇒ #dadada
+	cc`#d2e1dd`.grayscale()  // ⇒ #dadada
 	```
 	```js
-	c`#036`.greyscale()  // ⇒ #333333
+	cc`#036`.greyscale()  // ⇒ #333333
 	```
 
 	**See also:** [`change`](#change).
@@ -417,13 +417,13 @@ Basically, the `Color` is just a thin wrapper around Qt Quick's [`color`][qolor]
 
 	**Examples:**
 	```js
-	c`#b37399`.invert()  // ⇒ #4c8c66
+	cc`#b37399`.invert()  // ⇒ #4c8c66
 	```
 	```js
-	c`black`.invert()  // ⇒ #ffffff
+	cc`black`.invert()  // ⇒ #ffffff
 	```
 	```js
-	c`#550e0c`.invert(20 .percent)  // ⇒ #663b3a
+	cc`#550e0cc`.invert(20 .percent)  // ⇒ #663b3a
 	```
 
 	**See also:** [`complement`](#complement), [`%`][percent].
@@ -439,19 +439,19 @@ Basically, the `Color` is just a thin wrapper around Qt Quick's [`color`][qolor]
 	**Examples:**
 	```js
 	// Lightness 46% becomes 66%
-	c`#6b717f`.lighten(20['%'])  // ⇒ #a1a5af
+	cc`#6b717f`.lighten(20['%'])  // ⇒ #a1a5af
 	```
 	```js
 	// Lightness 20% becomes 80%
-	c`#036`.lighten(60 .percent)  // ⇒ #99ccff
+	cc`#036`.lighten(60 .percent)  // ⇒ #99ccff
 	```
 	```js
 	// Lightness 85% becomes 100%
-	c`#e1d7d2`.lighten(0.3)  // ⇒ #ffffff
+	cc`#e1d7d2`.lighten(0.3)  // ⇒ #ffffff
 	```
 	```js
 	// Lightness 50% becomes 75%
-	c`#8000ff`.lighten()  // ⇒ #c080ff
+	cc`#8000ff`.lighten()  // ⇒ #c080ff
 	```
 
 	**See also:** [`adjust`](#adjust), [`%`][percent].
@@ -470,16 +470,16 @@ Basically, the `Color` is just a thin wrapper around Qt Quick's [`color`][qolor]
 
 	**Examples:**
 	```js
-	c`#036`.mix(c`#d2e1dd`)  // ⇒ #698aa2
+	cc`#036`.mix(cc`#d2e1dd`)  // ⇒ #698aa2
 	```
 	```js
-	c`#036`.mix(q`#d2e1dd`, 75 .percent)  // ⇒ #355f84
+	cc`#036`.mix(q`#d2e1dd`, 75 .percent)  // ⇒ #355f84
 	```
 	```js
-	c`#036`.mix('#d2e1dd', 25['%'])  // ⇒ #9eb6bf
+	cc`#036`.mix('#d2e1dd', 25['%'])  // ⇒ #9eb6bf
 	```
 	```js
-	c`${0.5.byte} ${242} ${236} ${228}`.mix(c`#6b717f`)  // ⇒ #8d9098
+	cc`${0.5.byte} ${242} ${236} ${228}`.mix(cc`#6b717f`)  // ⇒ #8d9098
 	```
 
 	**See also:** [`%`][percent].
@@ -495,16 +495,16 @@ Basically, the `Color` is just a thin wrapper around Qt Quick's [`color`][qolor]
 
 	**Examples:**
 	```js
-	c`#806b717f`.opacify(0.2)  // ⇒ #b36b717f
+	cc`#806b717f`.opacify(0.2)  // ⇒ #b36b717f
 	```
 	```js
-	c`#80e1d7d2`.fadeIn(40['%'])  // ⇒ #e6e1d7d2
+	cc`#80e1d7d2`.fadeIn(40['%'])  // ⇒ #e6e1d7d2
 	```
 	```js
-	c(rgba('#036', 0.3)).opacify(70['%'])  // ⇒ #003366
+	cc(rgba('#036', 0.3)).opacify(70['%'])  // ⇒ #003366
 	```
 	```js
-	c`#808000ff`.opacify()  // ⇒ #c08000ff
+	cc`#808000ff`.opacify()  // ⇒ #c08000ff
 	```
 
 	**See also:** [`adjust`](#adjust), [`%`][percent].
@@ -520,19 +520,19 @@ Basically, the `Color` is just a thin wrapper around Qt Quick's [`color`][qolor]
 	**Examples:**
 	```js
 	// Saturation 50% becomes 70%
-	c`#c69`.saturate(20 .percent)  // ⇒ #e05299
+	cc`#c69`.saturate(20 .percent)  // ⇒ #e05299
 	```
 	```js
 	// Saturation 35% becomes 85%
-	c`#f2ece4`.saturate(50['%'])  // ⇒ #fcedda
+	cc`#f2ece4`.saturate(50['%'])  // ⇒ #fcedda
 	```
 	```js
 	// Saturation 80% becomes 100%
-	c`#0e4982`.saturate(0.3)  // ⇒ #004990
+	cc`#0e4982`.saturate(0.3)  // ⇒ #004990
 	```
 	```js
 	// Saturation 75% becomes 100%
-	c`#8020df`.desaturate()  // ⇒ #8000ff
+	cc`#8020df`.desaturate()  // ⇒ #8000ff
 	```
 
 	**See also:** [`adjust`](#adjust), [`%`][percent].
@@ -556,10 +556,10 @@ Basically, the `Color` is just a thin wrapper around Qt Quick's [`color`][qolor]
 
 	**Examples:**
 	```js
-	c`#6b717f`.scale({rgb: {red: +15 .percent}})  // ⇒ #81717f
+	cc`#6b717f`.scale({rgb: {red: +15 .percent}})  // ⇒ #81717f
 	```
 	```js
-	c`#d2e1dd`.scale({
+	cc`#d2e1dd`.scale({
 		hsl: {
 			l: -10['%'],
 			s: +10['%']
@@ -567,7 +567,7 @@ Basically, the `Color` is just a thin wrapper around Qt Quick's [`color`][qolor]
 	})  // ⇒ #b3d4cb
 	```
 	```js
-	c`#998099`.scale({a: -40 .percent})  // ⇒ #99998099
+	cc`#998099`.scale({a: -40 .percent})  // ⇒ #99998099
 	```
 
 	**See also:** [`adjust`](#adjust), [`change`](#change), [`%`][percent], [`°`][deg].
@@ -582,16 +582,16 @@ Basically, the `Color` is just a thin wrapper around Qt Quick's [`color`][qolor]
 
 	**Examples:**
 	```js
-	c`#806b717f`.transparentize(20 .percent)  // ⇒ #4d6b717f
+	cc`#806b717f`.transparentize(20 .percent)  // ⇒ #4d6b717f
 	```
 	```js
-	c(rgba('#e1d7d2', 0.5)).fadeOut(40['%'])  // ⇒ #1ae1d7d2
+	cc(rgba('#e1d7d2', 0.5)).fadeOut(40['%'])  // ⇒ #1ae1d7d2
 	```
 	```js
-	c(rgba('#036', 0.3)).transparentize(0.3)  // ⇒ #00003366
+	cc(rgba('#036', 0.3)).transparentize(0.3)  // ⇒ #00003366
 	```
 	```js
-	c`#8000ff`.transparentize()  // ⇒ #bf8000ff
+	cc`#8000ff`.transparentize()  // ⇒ #bf8000ff
 	```
 
 	**See also:** [`adjust`](#adjust), [`%`][percent].

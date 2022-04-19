@@ -199,15 +199,15 @@ TestCase {
 
 	function test_Color_adjust() {
 		compare(
-			c`#6b717f`.adjust({rgb: {r: +15 .int}}),
+			cc`#6b717f`.adjust({rgb: {r: +15 .int}}),
 			 '#7a717f'
 		)
 		compare(
-			c`#d2e1dd`.adjust({rgb: {red: -10 .int, blue: +10 .int}}),
-			 '#c8e1e7'
+			cc`#d2e1dd`.adjust({rgb: {red: -10 .int, blue: +10 .int}}),
+			  '#c8e1e7'
 		)
 		compare(
-			c`#998099`.adjust({
+			cc`#998099`.adjust({
 				hsl: {lightness: -30 .percent},
 			    alpha: -40 .percent
 			}),
@@ -217,42 +217,42 @@ TestCase {
 
 	function test_Color_adjustHue() {
 		compare(
-			c`#6b717f`.adjustHue(+60 .deg),
-			 '#796b7f'
+			cc`#6b717f`.adjustHue(+60 .deg),
+			  '#796b7f'
 		)
 		compare(
-			c`#d2e1dd`.adjustHue(-60['°']),
-			 '#d6e1d2'
+			cc`#d2e1dd`.adjustHue(-60['°']),
+			  '#d6e1d2'
 		)
 		compare(
-			c`#d2e1dd`.adjustHue(-780 .deg),  // 720 + 60
-			 '#d6e1d2'
+			cc`#d2e1dd`.adjustHue(-780 .deg),  // 720 + 60
+			  '#d6e1d2'
 		)
 		compare(
-			c`#036`.spin(+45 .deg),
-			 '#1a0066'
+			cc`#036`.spin(+45 .deg),
+			  '#1a0066'
 		)
 		compare(
-			c`#036`.spin(+405 .deg),  // 360 + 45
-			 '#1a0066'
+			cc`#036`.spin(+405 .deg),  // 360 + 45
+			  '#1a0066'
 		)
 		compare(
-			c`#6b717f`.adjustHue(+60 .deg).hue,
-			c`#6b717f`.hue + 60 .deg
+			cc`#6b717f`.adjustHue(+60 .deg).hue,
+			cc`#6b717f`.hue + 60 .deg
 		)
 	}
 
 	function test_Color_change() {
 		compare(
-			c`#6b717f`.change({rgb: {r: 100 .int}}),
-			 '#64717f'
+			cc`#6b717f`.change({rgb: {r: 100 .int}}),
+			  '#64717f'
 		)
 		compare(
-			c`#d2e1dd`.change({rgb: {red: 100 .int, blue: 50 .int}}),
-			 '#64e132'
+			cc`#d2e1dd`.change({rgb: {red: 100 .int, blue: 50 .int}}),
+			  '#64e132'
 		)
 		compare(
-			c`#998099`.change({
+			cc`#998099`.change({
 				hsl: {lightness: 30 .percent},
 				alpha: 0.5
 			}),
@@ -262,40 +262,40 @@ TestCase {
 
 	function test_Color_complement() {
 		compare(
-			c`#6b717f`.complement(),
-			 '#7f796b'
+			cc`#6b717f`.complement(),
+			  '#7f796b'
 		)
 		compare(
-			c`#d2e1dd`.complement(),
-			 '#e1d2d6'
+			cc`#d2e1dd`.complement(),
+			  '#e1d2d6'
 		)
 		compare(
-			c`#036`.complement(),
-			 '#663300'
+			cc`#036`.complement(),
+			  '#663300'
 		)
 	}
 
 	function test_Color_darken() {
 		compare(
-			c`#b37399`.darken(20['%']),
-			 '#7c4465'
+			cc`#b37399`.darken(20['%']),
+			  '#7c4465'
 		)
 		compare(
-			c`#f2ece4`.darken(40['%']),
-			 '#b08b5a'
+			cc`#f2ece4`.darken(40['%']),
+			  '#b08b5a'
 		)
 		compare(
-			c`#036`.darken(30['%']),
-			 '#000000'
+			cc`#036`.darken(30['%']),
+			  '#000000'
 		)
 		compare(
-			c`#8000ff`.darken(),
-			 '#400080'
+			cc`#8000ff`.darken(),
+			  '#400080'
 		)
 	}
 
 	function test_darken_and_lighten() {
-		const c1 = c`#8040a0`
+		const c1 = cc`#8040a0`
 		let c2 = c1.copy()
 		for (let i = 0; i < 1000; i++) {
 			c2 = c2.darken(0.11).lighten(0.11)
@@ -305,25 +305,25 @@ TestCase {
 
 	function test_Color_desaturate() {
 		compare(
-			c`#036`.desaturate(20 .percent),
-			 '#0a335c'
+			cc`#036`.desaturate(20 .percent),
+			  '#0a335c'
 		)
 		compare(
-			c`#f2ece4`.desaturate(20 .percent),
-			 '#eeebe8'
+			cc`#f2ece4`.desaturate(20 .percent),
+			  '#eeebe8'
 		)
 		compare(
-			c`#d2e1dd`.desaturate(30 .percent),
-			 '#dadada'
+			cc`#d2e1dd`.desaturate(30 .percent),
+			  '#dadada'
 		)
 		compare(
-			c`#8000ff`.desaturate(),
-			 '#8020df'
+			cc`#8000ff`.desaturate(),
+			  '#8020df'
 		)
 	}
 
 	function test_desaturate_and_saturate() {
-		const c1 = c`#8040a0`
+		const c1 = cc`#8040a0`
 		let c2 = c1.copy()
 		for (let i = 0; i < 1000; i++) {
 			c2 = c2.desaturate(0.29).saturate(0.29)
@@ -333,93 +333,93 @@ TestCase {
 
 	function test_Color_grayscale() {
 		compare(
-			c`#6b717f`.grayscale(),
-			 '#757575'
+			cc`#6b717f`.grayscale(),
+			  '#757575'
 		)
 		compare(
-			c`#d2e1dd`.grayscale(),
-			 '#dadada'
+			cc`#d2e1dd`.grayscale(),
+			  '#dadada'
 		)
 		compare(
-			c`#036`.greyscale(),  // grayscale == greyscale
-			 '#333333'
+			cc`#036`.greyscale(),  // grayscale == greyscale
+			  '#333333'
 		)
 	}
 
 	function test_Color_invert() {
 		compare(
-			c`#b37399`.invert(),
-			 '#4c8c66'
+			cc`#b37399`.invert(),
+			  '#4c8c66'
 		)
 		compare(
-			c`black`.invert().color,
-			q`white`
+			cc`black`.invert().color,
+			 q`white`
 		)
 		compare(
-			c`#550e0c`.invert(20 .percent),
-			 `#663b3a`
+			cc`#550e0c`.invert(20 .percent),
+			  `#663b3a`
 		)
 	}
 
 	function test_Color_lighten() {
 		compare(
-			c`#6b717f`.lighten(20 .percent),
-			 '#a1a5af'
+			cc`#6b717f`.lighten(20 .percent),
+			  '#a1a5af'
 		)
 		compare(
-			c`#036`.lighten(60 .percent),
-			 '#99ccff'
+			cc`#036`.lighten(60 .percent),
+			  '#99ccff'
 		)
 		compare(
-			c`#e1d7d2`.lighten(30 .percent),
-			 '#ffffff'
+			cc`#e1d7d2`.lighten(30 .percent),
+			  '#ffffff'
 		)
 		compare(
-			c`#8000ff`.lighten(),
-			 '#c080ff'
+			cc`#8000ff`.lighten(),
+			  '#c080ff'
 		)
 	}
 
 	function test_Color_mix() {
 		compare(
-			c`#036`.mix(c`#d2e1dd`),
-			 '#698aa2'
+			cc`#036`.mix(cc`#d2e1dd`),
+			  '#698aa2'
 		)
 		compare(
-			c`#036`.mix(q`#d2e1dd`, 75 .percent),
-			 '#355f84'
+			cc`#036`.mix(q`#d2e1dd`, 75 .percent),
+			  '#355f84'
 		)
 		compare(
-			c`#036`.mix('#d2e1dd', 25 .percent),
-			 '#9eb6bf'
+			cc`#036`.mix('#d2e1dd', 25 .percent),
+			  '#9eb6bf'
 		)
 		compare(
-			c`${0.5.byte} ${242} ${236} ${228}`.mix(c`#6b717f`),
+			cc`${0.5.byte} ${242} ${236} ${228}`.mix(cc`#6b717f`),
 			rgba32`${141} ${144} ${152} ${0.75.byte}`.toString()
 		)
 	}
 
 	function test_Color_opacify() {
 		compare(
-			c`#806b717f`.opacify(0.2),
+			cc`#806b717f`.opacify(0.2),
 			rgba32`${107} ${113} ${127} ${0.7.byte}`.toString()
 		)
 		compare(
-			c`#80e1d7d2`.fadeIn(40['%']),
+			cc`#80e1d7d2`.fadeIn(40['%']),
 			rgba32`${225} ${215} ${210} ${90 .percent.byte}`.toString()
 		)
 		compare(
-			c(rgba('#036', 0.3)).opacify(70['%']).color,
+			cc(rgba('#036', 0.3)).opacify(70['%']).color,
 			q`#003366`
 		)
 		compare(
-			c`#808000ff`.opacify(),
-			'#c08000ff'
+			cc`#808000ff`.opacify(),
+			  '#c08000ff'
 		)
 	}
 
 	function test_fade_in_and_out() {
-		const c1 = c`#8040a0`
+		const c1 = cc`#8040a0`
 		let c2 = c1.copy()
 		for (let i = 0; i < 1000; i++) {
 			c2 = c2.fadeOut(0x80 / 30).fadeIn(0x80 / 30)
@@ -429,54 +429,54 @@ TestCase {
 
 	function test_Color_saturate() {
 		compare(
-			c`#c69`.saturate(20 .percent),
-			 '#e05299'
+			cc`#c69`.saturate(20 .percent),
+			  '#e05299'
 		)
 		compare(
-			c`#f2ece4`.saturate(50 .percent),
-			 '#fcedda'
+			cc`#f2ece4`.saturate(50 .percent),
+			  '#fcedda'
 		)
 		compare(
-			c`#0e4982`.saturate(30 .percent),
-			 '#004990'
+			cc`#0e4982`.saturate(30 .percent),
+			  '#004990'
 		)
 		compare(
-			c`#8020df`.saturate(),
-			 '#8000ff'
+			cc`#8020df`.saturate(),
+			  '#8000ff'
 		)
 	}
 
 	function test_Color_scale() {
 		compare(
-			c`#6b717f`.scale({rgb: {red: +15 .percent}}),
-			 '#81717f'
+			cc`#6b717f`.scale({rgb: {red: +15 .percent}}),
+			  '#81717f'
 		)
 		compare(
-			c`#d2e1dd`.scale({hsl: {l: -10['%'], s: +10['%']}}),
-			 '#b3d4cb'
+			cc`#d2e1dd`.scale({hsl: {l: -10['%'], s: +10['%']}}),
+			  '#b3d4cb'
 		)
 		compare(
-			c`#998099`.scale({a: -40 .percent}).color,
+			cc`#998099`.scale({a: -40 .percent}).color,
 			rgba('#998099', 0.6)
 		)
 	}
 
 	function test_Color_transparentize() {
 		compare(
-			c`#806b717f`.transparentize(0.2),
+			cc`#806b717f`.transparentize(0.2),
 			rgba32(107, 113, 127, 0.3.byte).toString()
 		)
 		compare(
-			c(rgba('#e1d7d2', 0.5)).fadeOut(0.4).color,
+			cc(rgba('#e1d7d2', 0.5)).fadeOut(0.4).color,
 			rgba32(225, 215, 210, 0.1.byte)
 		)
 		compare(
-			c(rgba('#036', 0.3)).transparentize(0.3).color,
+			cc(rgba('#036', 0.3)).transparentize(0.3).color,
 			rgba32(0, 51, 102, 0)
 		)
 		compare(
-			c`#8000ff`.transparentize().color,
-			'#bf8000ff'
+			cc`#8000ff`.transparentize().color,
+			  '#bf8000ff'
 		)
 	}
 }

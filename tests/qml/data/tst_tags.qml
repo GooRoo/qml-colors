@@ -419,24 +419,24 @@ TestCase {
 			blue: ${0xff}
 		`, '#808000ff')
 
-		compare(c`indigo`, '#4b0082')
-		compare(c`ye${'ll'}ow`, '#ffff00')
-		compare(c('yel' + 'low'), '#ffff00')
-		compare(c`#7`.toString(), undefined)
-		compare(c`#78`.toString(), undefined)
-		compare(c`#789`, '#778899')
-		compare(c`#6789`, '#66778899')
-		compare(c`#56789`.toString(), undefined)
-		compare(c`#778899`, '#778899')
-		compare(c`#8000ff`, '#8000ff')
-		compare(c`#56789AB`.toString(), undefined)
-		compare(c`#808000ff`, '#808000ff')
-		compare(c`#${'7f'}00${'ff'}`, '#7f00ff')
-		compare(c`#${0x20}${0x00}${0xff}`, '#320255')
-		compare(c`#${0x20}${0x00}${0xff}!`, '#2000ff')
-		compare(c`${0x20}${0x00}${0xff}`, '#2000ff')
-		compare(c`${0x80}${0x80}${0x00}${0xff}`, '#808000ff')
-		compare(c`
+		compare(cc`indigo`, '#4b0082')
+		compare(cc`ye${'ll'}ow`, '#ffff00')
+		compare(cc('yel' + 'low'), '#ffff00')
+		compare(cc`#7`.toString(), undefined)
+		compare(cc`#78`.toString(), undefined)
+		compare(cc`#789`, '#778899')
+		compare(cc`#6789`, '#66778899')
+		compare(cc`#56789`.toString(), undefined)
+		compare(cc`#778899`, '#778899')
+		compare(cc`#8000ff`, '#8000ff')
+		compare(cc`#56789AB`.toString(), undefined)
+		compare(cc`#808000ff`, '#808000ff')
+		compare(cc`#${'7f'}00${'ff'}`, '#7f00ff')
+		compare(cc`#${0x20}${0x00}${0xff}`, '#320255')
+		compare(cc`#${0x20}${0x00}${0xff}!`, '#2000ff')
+		compare(cc`${0x20}${0x00}${0xff}`, '#2000ff')
+		compare(cc`${0x80}${0x80}${0x00}${0xff}`, '#808000ff')
+		compare(cc`
 			alpha: ${0x80}
 			red: ${0x80}
 			green: ${0x00}

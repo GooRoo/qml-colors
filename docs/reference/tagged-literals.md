@@ -16,7 +16,7 @@ If you are too lazy to read the documentation on tagged template literals from E
 
 	Some general information on how to pass parameters to tagged literals is available [here](./index.md#parameters-of-tagged-literals "Parameters of tagged literals").
 
-	For all tags except [`qolor`](#qolor-or-q) and [`color`](#color-or-c) the following rules apply:
+	For all tags except [`qolor`](#qolor) and [`color`](#color) the following rules apply:
 
 	1. **String parts are ignored.** The following literals are equal:
 		```js
@@ -66,13 +66,15 @@ If you are too lazy to read the documentation on tagged template literals from E
 
 ## List of available tags
 
-The first two tags—[`qolor`](#qolor-or-q) and [`color`](#color-or-c)—are trying to cover 80% of needs of an average user of the library by using a multi-step heuristics approach.
+The first two tags—[`qolor`](#qolor) and [`color`](#color)—are trying to cover 80% of needs of an average user of the library by using a multi-step heuristics approach.
 
-If you need to construct a color using a precise form, please, see [`argb`](#argb), [`argb32`](#argb32), [`hsla`](#hsla-or-hsl), [`hsva`](#hsva-or-hsv), [`hwba`](#hwba-or-hwb), [`rgba`](#rgba-or-rgb), or [`rgba32`](#rgba32-or-rgb24) below.
+If you need to construct a color using a precise form, please, see [`argb`](#argb), [`argb32`](#argb32), [`hsla`](#hsla), [`hsva`](#hsva), [`hwba`](#hwba), [`rgba`](#rgba), or [`rgba32`](#rgba32) below.
 
-#### `qolor` (or `q`)
+#### `qolor`
 
-:	??? info "(various types) &rarr; [`qolor`][qolor]"
+:	<table class="type-alias"><tr><td text-align="right">Alias:</td><td>`q`</td></tr></table>
+
+	??? info "(various types) &rarr; [`qolor`][qolor]"
 
 		- (`name`: [`color-name`][color-name]) &rarr; [`qolor`][qolor]
 		- (`#aarrggbb`|`#rrggbb`|`#argb`|`#rgb`: [`color-literal`][color-literal]) &rarr; [`qolor`][qolor]
@@ -105,7 +107,7 @@ If you need to construct a color using a precise form, please, see [`argb`](#arg
 	q`#ccff8000`  // ⇒ #ccff8000
 	```
 
-	##### (A)RGB32
+	##### [(A)RGB32][argb]
 	```js
 	q`${0xCC}${255}${128}${0}`  // ⇒ #ccff8000
 	q`${128}${0}${255}`  // ⇒ #8000ff
@@ -138,42 +140,46 @@ If you need to construct a color using a precise form, please, see [`argb`](#arg
 		4. The `#320255` is returned.
 
 
-#### `color` (or `c`)
+#### `color`
 
-:	??? info "(various types) &rarr; [`color`][color]"
+:	<table class="type-alias"><tr><td text-align="right">Alias:</td><td>`cc`</td></tr></table>
+
+	??? info "(various types) &rarr; [`color`][color]"
 
 		- (`name`: [`color-name`][color-name]) &rarr; [`color`][color]
 		- (`#aarrggbb`|`#rrggbb`|`#argb`|`#rgb`: [`color-literal`][color-literal]) &rarr; [`color`][color]
 		- (`a = 255`, `r`, `g`, `b`: [`8bit`][8bit]) &rarr; [`color`][color]
 
-	The only difference to [`qolor`](#qolor-or-q) tag is that this one creates an instance of the [`Color`][color] class instead of a regular [Qt color][qolor]. This class contains lots of useful methods and is far more superior in general. However, everthing comes with a price.
+	The only difference to [`qolor`](#qolor) tag is that this one creates an instance of the [`Color`][color] class instead of a regular [Qt color][qolor]. This class contains lots of useful methods and is far more superior in general. However, everthing comes with a price.
 
 	##### [Color names][color-name]
 	```js
-	c`indigo`  // ⇒ #4b0082
-	c`yellow`  // ⇒ #ffff00
+	cc`indigo`  // ⇒ #4b0082
+	cc`yellow`  // ⇒ #ffff00
 	```
 	```js
 	const fish = 'salmon'
-	c`dark${fish}`  // ⇒ #e9967a AKA darksalmon
+	cc`dark${fish}`  // ⇒ #e9967a AKA darksalmon
 	```
 
 	##### [Color literals][color-literal]
 	```js
-	c`#789`  // ⇒ #778899
-	c`#8000ff`  // ⇒ #8000ff
-	c`#ccff8000`  // ⇒ #ccff8000
+	cc`#789`  // ⇒ #778899
+	cc`#8000ff`  // ⇒ #8000ff
+	cc`#ccff8000`  // ⇒ #ccff8000
 	```
 
-	##### (A)RGB32
+	##### [(A)RGB32][argb]
 	```js
-	c`${0xCC}${255}${128}${0}`  // ⇒ #ccff8000
-	c`${128}${0}${255}`  // ⇒ #8000ff
+	cc`${0xCC}${255}${128}${0}`  // ⇒ #ccff8000
+	cc`${128}${0}${255}`  // ⇒ #8000ff
 	```
 
 #### `argb`
 
-:	(`alpha`, `red`, `green`, `blue`: [`norm`][norm]) &rarr; [`qolor`][qolor]
+:	<table class="type-alias">
+		<tr><td text-align="right">Type:</td><td>(`alpha`, `red`, `green`, `blue`: [`norm`][norm]) &rarr; [`qolor`][qolor]</td></tr>
+	</table>
 
 	If this tag can't construct a color from literal's parameters, an exception is raised.
 
@@ -188,7 +194,9 @@ If you need to construct a color using a precise form, please, see [`argb`](#arg
 
 #### `argb32`
 
-:	(`alpha`, `red`, `green`, `blue`: [`8bit`][8bit]) &rarr; [`qolor`][qolor]
+:	<table class="type-alias">
+		<tr><td text-align="right">Type:</td><td>(`alpha`, `red`, `green`, `blue`: [`8bit`][8bit]) &rarr; [`qolor`][qolor]</td></tr>
+	</table>
 
 	If this tag can't construct a color from literal's parameters, an exception is raised.
 
@@ -204,9 +212,12 @@ If you need to construct a color using a precise form, please, see [`argb`](#arg
 	argb32`${204} ${255} ${128} ${0}`  // ⇒ #ccff8000
 	```
 
-#### `hsla` (or `hsl`)
+#### `hsla`
 
-:	(`hue`, `saturation`, `lightness`, `alpha = 1.0`: [`norm`][norm]) &rarr; [`qolor`][qolor]
+:	<table class="type-alias">
+		<tr><td text-align="right">Type:</td><td>(`hue`, `saturation`, `lightness`, `alpha = 1.0`: [`norm`][norm]) &rarr; [`qolor`][qolor]</td></tr>
+		<tr><td text-align="right">Alias:</td><td>`hsl`</td></tr>
+	</table>
 
 	If this tag can't construct a color from literal's parameters, an exception is raised.
 
@@ -232,9 +243,12 @@ If you need to construct a color using a precise form, please, see [`argb`](#arg
 	hsl`${ 51 .deg} ${100 .percent} ${50 .percent}`  // ⇒ #ffd700
 	```
 
-#### `hsva` (or `hsv`)
+#### `hsva`
 
-:	(`hue`, `saturation`, `value`, `alpha = 1.0`: [`norm`][norm]) &rarr; [`qolor`][qolor]
+:	<table class="type-alias">
+		<tr><td text-align="right">Type:</td><td>(`hue`, `saturation`, `value`, `alpha = 1.0`: [`norm`][norm]) &rarr; [`qolor`][qolor]</td></tr>
+		<tr><td text-align="right">Alias:</td><td>`hsv`</td></tr>
+	</table>
 
 	If this tag can't construct a color from literal's parameters, an exception is raised.
 
@@ -260,9 +274,12 @@ If you need to construct a color using a precise form, please, see [`argb`](#arg
 	hsv`${ 51 .deg} ${100 .percent} ${100 .percent}`  // ⇒ #ffd700
 	```
 
-#### `hwba` (or `hwb`)
+#### `hwba`
 
-:	(`hue`, `whiteness`, `blackness`, `alpha = 1.0`: [`norm`][norm]) &rarr; [`qolor`][qolor]
+:	<table class="type-alias">
+		<tr><td text-align="right">Type:</td><td>(`hue`, `whiteness`, `blackness`, `alpha = 1.0`: [`norm`][norm]) &rarr; [`qolor`][qolor]</td></tr>
+		<tr><td text-align="right">Alias:</td><td>`hwb`</td></tr>
+	</table>
 
 	If this tag can't construct a color from literal's parameters, an exception is raised.
 
@@ -288,9 +305,12 @@ If you need to construct a color using a precise form, please, see [`argb`](#arg
 	hwb`${ 51 .deg} ${0 .percent} ${  0 .percent}`  // ⇒ #ffd700
 	```
 
-#### `rgba` (or `rgb`)
+#### `rgba`
 
-:	(`red`, `green`, `blue`, `alpha = 1.0`: [`norm`][norm]) &rarr; [`qolor`][qolor]
+:	<table class="type-alias">
+		<tr><td text-align="right">Type:</td><td>(`red`, `green`, `blue`, `alpha = 1.0`: [`norm`][norm]) &rarr; [`qolor`][qolor]</td></tr>
+		<tr><td text-align="right">Alias:</td><td>`rgb`</td></tr>
+	</table>
 
 	If this tag can't construct a color from literal's parameters, an exception is raised.
 
@@ -309,9 +329,12 @@ If you need to construct a color using a precise form, please, see [`argb`](#arg
 	rgb`${1} ${0xD7.int} ${0}`  // ⇒ #ffd700
 	```
 
-#### `rgba32` (or `rgb24`)
+#### `rgba32`
 
-:	(`red`, `green`, `blue`, `alpha = 255`: [`8bit`][8bit]) &rarr; [`qolor`][qolor]
+:	<table class="type-alias">
+		<tr><td text-align="right">Type:</td><td>(`red`, `green`, `blue`, `alpha = 255`: [`8bit`][8bit]) &rarr; [`qolor`][qolor]</td></tr>
+		<tr><td text-align="right">Alias:</td><td>`rgb24`</td></tr>
+	</table>
 
 	If this tag can't construct a color from literal's parameters, an exception is raised.
 
@@ -336,6 +359,7 @@ If you need to construct a color using a precise form, please, see [`argb`](#arg
 [color]: ../getting-started/basic-concepts.md#the-color-class-color "Color class from this library"
 [color-name]: ../getting-started/basic-concepts.md#color-name
 [color-literal]: ../getting-started/basic-concepts.md#color-literal
+[argb]: ../getting-started/basic-concepts.md#rgb
 [notation]: ./index.md#notation "Notation"
 
 ---8<--- "docs/abbreviations.md"

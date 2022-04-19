@@ -75,12 +75,12 @@ Item {
 
 ```qml
 Rectangle {
-	color: c`#036`.adjustHue(+45['°'])   // ⇒ #1a0066
+	color: cc`#036`.adjustHue(+45['°'])   // ⇒ #1a0066
 }
 ```
 ```qml
 Rectangle {
-	color: c`#036`.lighten(60 .percent)  // ⇒ #99ccff
+	color: cc`#036`.lighten(60 .percent)  // ⇒ #99ccff
 }
 ```
 
@@ -107,7 +107,7 @@ Rectangle {
 ```qml
 Rectangle {
 	color:
-		c`#0000ff`
+		cc`#0000ff`
 			.adjustHue(-105 .deg)
 			.desaturate(20 .percent)
 			.mix('red', 85 .percent)
@@ -121,7 +121,7 @@ Rectangle {
 ```qml hl_lines="3 6-7"
 Rectangle {
 	color: {
-		let newColor = c`darkorange`
+		let newColor = cc`darkorange`
 		console.log(newColor)  // ⇒ #ffa500
 		console.log(newColor.hue, newColor.saturation)  // ⇒ 0.108 1.0
 		newColor.hue = 20 .deg

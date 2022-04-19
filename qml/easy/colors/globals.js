@@ -13,7 +13,7 @@ function registerGlobalFunctions(...functions) {
 
 registerGlobalFunctions.call(this,
 	Tags.color,
-	[Tags.color, 'c'],
+	[Tags.color, 'cc'],
 	Tags.qolor,
 	[Tags.qolor, 'q'],
 

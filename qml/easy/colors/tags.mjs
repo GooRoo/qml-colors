@@ -1,5 +1,5 @@
 export {
-	color as c,
+	color as cc,
 	color,
 	qolor as q,
 	qolor,
