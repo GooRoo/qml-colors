@@ -47,13 +47,10 @@ jobs:
           name: test-results
           path: test-results.xml
 
-  report:
-    runs-on: ubuntu-latest
-    needs: test
-    steps:
-    - uses: dorny/test-reporter@v1
-      with:
-        artifact: test-results
-        name: Tests
-        path: '*.xml'
-        reporter: java-junit
+      - name: Report test results
+        uses: dorny/test-reporter@v1
+        with:
+          artifact: test-results
+          name: Tests
+          path: '*.xml'
+          reporter: java-junit
