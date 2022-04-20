@@ -4,12 +4,17 @@ on:
     branches:
       - main
 jobs:
-  deploy:
+  checkout:
+    name: Checkout
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: Checkout the branch
         uses: actions/checkout@v2
 
+  install-tools:
+    name: Install Qt and Qbs
+    runs-on: ubuntu-latest
+    steps:
       - name: Cache Qt
         id: cache-qt
         uses: actions/cache@v1  # not v2!
@@ -28,9 +33,25 @@ jobs:
 
       - name: Install Qbs
         run: |
-          sudo apt-get install -y qbs
+          git clone git://code.qt.io/qbs/qbs.git /tmp/qbs
+          git -C /tmp/qbs checkout 1.21
+          git -C /tmp/qbs submodule update --init --recursive
+          cd /tmp/qbs
+          qmake -r qbs.pro
+          make
+          make install
+          rm -rf /tmp/qbs
+
+      - name: Configure Qbs
+        run: |
           qbs setup-toolchains --detect
           qbs setup-qt --detect
 
+  test:
+    runs-on: ubuntu-latest
+    needs:
+      - checkout
+      - install-tools
+    steps:
       - name: Run tests
         run: qbs build
