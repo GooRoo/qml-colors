@@ -11,9 +11,6 @@ jobs:
       - name: Checkout the branch
         uses: actions/checkout@v2
 
-      - name: Install deps
-        run: sudo apt-get install -y libxcb-xinerama0-dev
-
       - name: Cache Qt
         id: cache-qt
         uses: actions/cache@v3

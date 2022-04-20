@@ -41,6 +41,7 @@ Project {
 			}
 
 			env.push('QT_LOGGING_RULES=' + loggingRules)
+			env.push('QT_QPA_PLATFORM=offscreen')
 
 			return env
 		}
