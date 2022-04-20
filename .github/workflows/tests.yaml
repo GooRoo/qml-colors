@@ -4,22 +4,18 @@ on:
     branches:
       - main
 jobs:
-  checkout:
-    name: Checkout
+  test:
+    name: Run tests
     runs-on: ubuntu-latest
     steps:
       - name: Checkout the branch
         uses: actions/checkout@v2
 
-  install-tools:
-    name: Install Qt and Qbs
-    runs-on: ubuntu-latest
-    steps:
       - name: Cache Qt
         id: cache-qt
         uses: actions/cache@v3
         with:
-          path: ../Qt
+          path: /home/runner/work/qml-colors/Qt
           key: QtCache
 
       - name: Install Qt
@@ -41,11 +37,5 @@ jobs:
           qbs setup-qt ../Qt/5.15.2/gcc_64/bin/qmake qt515
           qbs config defaultProfile qt515
 
-  test:
-    runs-on: ubuntu-latest
-    needs:
-      - checkout
-      - install-tools
-    steps:
       - name: Run tests
         run: qbs build
