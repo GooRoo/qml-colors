@@ -7,8 +7,10 @@
 function registerGlobalFunctions(...functions) {
 	for (const func of functions) {
 		const [f, fn] = func instanceof Array? func : [func, func.name]
-		console.debug(`Registering global function '${f.name}' as '${fn}'`)
-		this[fn] = f
+		if (typeof this[fn] === 'undefined') {
+			console.debug(`Registering global function '${f.name}' as '${fn}'`)
+			this[fn] = f
+		}
 	}
 }
 
