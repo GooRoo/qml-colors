@@ -1,16 +1,20 @@
 import qbs
 
 CppApplication {
-	name: 'tst_qml'
-	type: ['application', 'autotest']
-
 	Depends {
 		name: 'Qt'; versionAtLeast: '5.15'
 		submodules: ['core', 'qmltest']
 	}
 	Depends { name: 'autotest' }
 
+	name: 'tst_qml'
+	type: ['application', 'autotest']
+
+	property bool outputToFile: false
+	property string outputFile: outputToFile? project.sourceDirectory + '/test-results.xml,junitxml' : '-'
+
 	autotest.arguments: [
+		'-o', outputFile,
 		'-import', project.sourceDirectory + '/qml',
 		'-import', product.sourceDirectory,
 		'-input', product.sourceDirectory

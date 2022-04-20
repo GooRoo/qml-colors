@@ -4,6 +4,9 @@ debug/*
 default/*
 release/*
 
+# Unit-test results
+test-results.xml
+
 ### Qt ###
 # C++ objects and libs
 *.slo
