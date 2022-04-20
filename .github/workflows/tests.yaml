@@ -17,10 +17,10 @@ jobs:
     steps:
       - name: Cache Qt
         id: cache-qt
-        uses: actions/cache@v1  # not v2!
+        uses: actions/cache@v3
         with:
           path: ../Qt
-          key: ${{ runner.os }}-QtCache
+          key: QtCache
 
       - name: Install Qt
         uses: jurplel/install-qt-action@v2
@@ -30,22 +30,16 @@ jobs:
           target: 'desktop'
           setup-python: false
           cached: ${{ steps.cache-qt.outputs.cache-hit }}
+          set-env: false
 
       - name: Install Qbs
-        run: |
-          git clone git://code.qt.io/qbs/qbs.git /tmp/qbs
-          git -C /tmp/qbs checkout 1.21
-          git -C /tmp/qbs submodule update --init --recursive
-          cd /tmp/qbs
-          qmake -r qbs.pro
-          make
-          make install
-          rm -rf /tmp/qbs
+        run: sudo apt-get install -y qbs
 
       - name: Configure Qbs
         run: |
           qbs setup-toolchains --detect
-          qbs setup-qt --detect
+          qbs setup-qt ../Qt/gcc_64/bin/qmake qt515
+          qbs config defaultProfile qt515
 
   test:
     runs-on: ubuntu-latest
