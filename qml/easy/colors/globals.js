@@ -2,6 +2,7 @@
 
 .import 'tags.mjs' as Tags
 .import 'color-funcs.mjs' as Funcs
+.import 'utils.mjs' as Utils
 
 function registerGlobalFunctions(...functions) {
 	for (const func of functions) {
@@ -31,9 +32,9 @@ registerGlobalFunctions.call(this,
 	Tags.rgba32
 )
 
-this.colors = {}
+this.$ = {}
 
-registerGlobalFunctions.call(this.colors,
+registerGlobalFunctions.call(this.$,
 	Funcs.adjust,
 	[Funcs.adjustHue, 'spin'],
 	Funcs.adjustHue,
@@ -52,4 +53,6 @@ registerGlobalFunctions.call(this.colors,
 	Funcs.scale,
 	[Funcs.transparentize, 'fadeOut'],
 	Funcs.transparentize,
+
+	Utils.textToColor,
 )

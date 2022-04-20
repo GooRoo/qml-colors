@@ -67,7 +67,7 @@ function rgba32 (_, r, g, b, a = 0xFF) {
 			g / 0xFF,
 			b / 0xFF,
 			a / 0xFF
-			)
+		)
 	} else if (typeof _ === 'string' && !g && !b) {    // for rgba32('#8000ff', 128)
 		let [rgb, trueA] = [Qolor.fromString(_), r ?? a]
 		return Qt.rgba(
@@ -85,15 +85,19 @@ function rgba32 (_, r, g, b, a = 0xFF) {
 }
 
 function argb32 (_, a, r, g, b) {
-	checkArgsNumber(4, 4, a, r, g, b)
-	checkTypes('number', 'integers', a, r, g, b)
-	checkRanges([0, 255], a, r, g, b)
-	return Qt.rgba(
-		r / 0xFF,
-		g / 0xFF,
-		b / 0xFF,
-		a / 0xFF
-	)
+	if (typeof _ === 'object' && _ instanceof Array) {
+		checkArgsNumber(4, 4, a, r, g, b)
+		checkTypes('number', 'integers', a, r, g, b)
+		checkRanges([0, 255], a, r, g, b)
+		return Qt.rgba(
+			r / 0xFF,
+			g / 0xFF,
+			b / 0xFF,
+			a / 0xFF
+		)
+	} else {
+		return argb32([], _, a, r, g)
+	}
 }
 
 function rgba (_, r, g, b, a = 1.0) {
@@ -114,48 +118,60 @@ function rgba (_, r, g, b, a = 1.0) {
 }
 
 function argb (_, a, r, g, b) {
-	checkArgsNumber(4, 4, a, r, g, b)
-	checkTypes('number', 'numbers', a, r, g, b)
-	checkRanges([0.0, 1.0], a, r, g, b)
-	return Qt.rgba(r, g, b, a)
+	if (typeof _ === 'object' && _ instanceof Array) {
+		checkArgsNumber(4, 4, a, r, g, b)
+		checkTypes('number', 'numbers', a, r, g, b)
+		checkRanges([0.0, 1.0], a, r, g, b)
+		return Qt.rgba(r, g, b, a)
+	} else {
+		return argb([], _, a, r, g)
+	}
 }
 
 function hsla (_, h, s, l, a = 1.0) {
-	checkArgsNumber(3, 4, h, s, l)
-	checkTypes('number', 'numbers', h, s, l, a)
-	checkRanges([0.0, 1.0], h, s, l, a)
-	return Qt.hsla(h, s, l, a)
+	if (typeof _ === 'object' && _ instanceof Array) {
+		checkArgsNumber(3, 4, h, s, l)
+		checkTypes('number', 'numbers', h, s, l, a)
+		checkRanges([0.0, 1.0], h, s, l, a)
+		return Qt.hsla(h, s, l, a)
+	} else {
+		return hsla([], _, h, s, l ?? a)
+	}
 }
 
 function hsva (_, h, s, v, a = 1.0) {
-	checkArgsNumber(3, 4, h, s, v)
-	checkTypes('number', 'numbers', h, s, v, a)
-	checkRanges([0.0, 1.0], h, s, v, a)
-	return Qt.hsva(h, s, v, a)
+	if (typeof _ === 'object' && _ instanceof Array) {
+		checkArgsNumber(3, 4, h, s, v)
+		checkTypes('number', 'numbers', h, s, v, a)
+		checkRanges([0.0, 1.0], h, s, v, a)
+		return Qt.hsva(h, s, v, a)
+	} else {
+		return hsva([], _, h, s, v ?? a)
+	}
 }
 
 function hwba (_, h, w, b, a = 1.0) {
-	checkArgsNumber(3, 4, h, w, b)
-	checkTypes('number', 'numbers', h, w, b, a)
-	checkRanges([0.0, 1.0], h, w, b, a)
-	const v = 1 - b
-	const s = 1 - w / v
-	return Qt.hsva(h, s, v, a)
+	if (typeof _ === 'object' && _ instanceof Array) {
+		checkArgsNumber(3, 4, h, w, b)
+		checkTypes('number', 'numbers', h, w, b, a)
+		checkRanges([0.0, 1.0], h, w, b, a)
+		const v = 1 - b
+		const s = 1 - w / v
+		return Qt.hsva(h, s, v, a)
+	} else {
+		return hwba([], _, h, w, b ?? a)
+	}
 }
 
 function qolor(strings, ...params) {
-	function zipConcat(a, b) {
-		return a.map((e, i) => `${e}${b[i]}`).join('')
-	}
-
 	// if called as a function directly
 	if (typeof strings === 'string') {
 		strings = [strings]
-	} else if (typeof strings === 'object' && utils.isQtColor(strings)) {
+	} else if (typeof strings === 'object' && utils.isQtColorCompatible(strings)) {
 		return Qolor.copy(strings)
 	}
 
-	const evaluatedString = zipConcat(strings, [...params, ''])
+	const evaluatedString = utils.zipConcat(strings, [...params, ''])
 	try {
 		return Qolor.fromString(evaluatedString)
 	} catch (error) {
@@ -179,13 +195,3 @@ function color(strings, ...params) {
 		return new Color(qolor(strings, ...params))
 	}
 }
-
-// console.error(color`red`)
-// console.error(color`red`.adjust({hsl: { hue: +180 .deg}}))
-// console.error(color`red`.invert())
-
-// console.warn(color`#036`.mix('#d2e1dd', 25 .percent))
-
-// console.warn('-----------------')
-// console.warn(color`#d2e1dd`.scale({hsl: {l: -10 .percent, s: +10 .percent}}))
-// console.warn('-----------------')

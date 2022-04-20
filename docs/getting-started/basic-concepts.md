@@ -95,11 +95,15 @@ Variants: HWB, HWBA.
 
 #### Qt color (`qolor`)
 
-:	Qt Quick's [`color`](https://doc.qt.io/qt-5/qml-color.html) basic type.
+:	Qt Quick's [`color`](https://doc.qt.io/qt-5/qml-color.html) basic type. In this documentation I usually refer to it as [`qolor`](#qt-color-qolor) to distinguish from the `Color` class.
+
+	Read more about [`qolor` vs `color`](#) in the next chapter.
 
 #### The Color class (`color`)
 
-: 	my `Color`
+: 	The bread-and-butter of this library is the `Color` class which provides all the interesting [methods](../reference/color.md#methods). Essentially, it's just a thin wrapper around [`qolor`](#qt-color-qolor) which provides some additional properties and methods.
+
+	Read more about [`qolor` vs `color`](#) in the next chapter.
 
 #### Any type of color (`any-color`)
 

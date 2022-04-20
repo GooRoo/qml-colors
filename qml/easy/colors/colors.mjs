@@ -71,7 +71,7 @@ class Qolor {
 			return Qolor.fromString(c)
 		} else if (typeof c === 'object') {
 			// check if valid and match against interface
-			if (utils.isQtColor(c) && c.valid) {
+			if (utils.isQtColorCompatible(c) && c.valid) {
 				return Qt.rgba(c.r, c.g, c.b, c.a)  // new copy
 			} else {
 				throw new TypeError('Invalid color.')
@@ -172,6 +172,8 @@ class Color {
 	set r (red) { this.red = red }
 	get red () { return this.qtColor.r }
 	set red (red) { this.qtColor.r = red }
+
+	get rgb () { return Qt.rgba(this.r, this.g, this.b, 1.0) }
 
 	get saturation () { return this.qtColor.hslSaturation }
 	set saturation (saturation) { this.qtColor.hslSaturation = saturation }

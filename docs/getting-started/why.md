@@ -2,7 +2,7 @@
 
 !!! question "Not interested in reasons?"
 
-	Skip to the [next article](./basic-concepts.md).
+	Skip to the [next article](./installation.md).
 
 ## What does Qt offer?
 

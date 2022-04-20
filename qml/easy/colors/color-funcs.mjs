@@ -19,60 +19,60 @@ export {
 	transparentize,
 }
 
-import { Color } from "./colors.mjs"
+import { cc } from "./tags.mjs"
 
 function adjust (color, change) {
-	return new Color(color).adjust(change)
+	return cc(color).adjust(change).color
 }
 
 function adjustHue (color, offset) {
-	return new Color(color).adjustHue(offset)
+	return cc(color).adjustHue(offset).color
 }
 
 function change (color, change) {
-	return new Color(color).change(change)
+	return cc(color).change(change).color
 }
 
 function complement (color) {
-	return new Color(color).complement()
+	return cc(color).complement().color
 }
 
 function darken (color, amount = 0.25) {
-	return new Color(color).darken(amount)
+	return cc(color).darken(amount).color
 }
 
 function desaturate (color, amount = 0.25) {
-	return new Color(color).desaturate(amount)
+	return cc(color).desaturate(amount).color
 }
 
 function grayscale (color) {
-	return new Color(color).grayscale()
+	return cc(color).grayscale().color
 }
 
 function invert (color, weight = 1.0) {
-	return new Color(color).invert(weight)
+	return cc(color).invert(weight).color
 }
 
 function lighten (color, amount = 0.25) {
-	return new Color(color).lighten(amount)
+	return cc(color).lighten(amount).color
 }
 
 function mix (color1, color2, weight = 0.5) {
-	return new Color(color1).mix(color2, weight)
+	return cc(color1).mix(color2, weight).color
 }
 
 function opacify (color, amount = 0.25) {
-	return new Color(color).opacify(amount)
+	return cc(color).opacify(amount).color
 }
 
 function saturate (color, amount = 0.25) {
-	return new Color(color).saturate(amount)
+	return cc(color).saturate(amount).color
 }
 
 function scale (color, change) {
-	return new Color(color).scale(change)
+	return cc(color).scale(change).color
 }
 
 function transparentize (color, amount = 0.25) {
-	return new Color(color).transparentize(amount)
+	return cc(color).transparentize(amount).color
 }

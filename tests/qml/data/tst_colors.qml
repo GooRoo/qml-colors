@@ -176,27 +176,6 @@ TestCase {
 		}
 	}
 
-	// readonly property var cc: new Colors.Color(Colors.Qolor.fromString('yellow'))
-	// property color c3: cc.color
-	// property color c4: cc.transparentize(0.5).color
-	// property color c5: cc.color
-	// function test_Color_inplace() {
-		// compare(c3, '#ffff00')
-		// console.warn(c3.color)
-		// compare(c4, '#80ffff00')
-		// console.warn(c`yellow`.transparentize(0.5))
-		// compare(c5, '#ffff00')
-		// cc.fadeIn()
-		// console.warn('------------------')
-		// console.warn(c5)
-		// console.warn('------------------')
-	// }
-	// onC5Changed: {
-	// 	console.warn('------------------')
-	// 	console.warn(c5)
-	// 	console.warn('------------------')
-	// }
-
 	function test_Color_adjust() {
 		compare(
 			cc`#6b717f`.adjust({rgb: {r: +15 .int}}),
@@ -477,6 +456,10 @@ TestCase {
 		compare(
 			cc`#8000ff`.transparentize().color,
 			  '#bf8000ff'
+		)
+		compare(
+			$.transparentize(`#8000ff`),
+			'#bf8000ff'
 		)
 	}
 }

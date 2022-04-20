@@ -107,7 +107,7 @@ If you need to construct a color using a precise form, please, see [`argb`](#arg
 	q`#ccff8000`  // ⇒ #ccff8000
 	```
 
-	##### [(A)RGB32][argb]
+	##### [(A)RGB32][rgb-model]
 	```js
 	q`${0xCC}${255}${128}${0}`  // ⇒ #ccff8000
 	q`${128}${0}${255}`  // ⇒ #8000ff
@@ -150,7 +150,7 @@ If you need to construct a color using a precise form, please, see [`argb`](#arg
 		- (`#aarrggbb`|`#rrggbb`|`#argb`|`#rgb`: [`color-literal`][color-literal]) &rarr; [`color`][color]
 		- (`a = 255`, `r`, `g`, `b`: [`8bit`][8bit]) &rarr; [`color`][color]
 
-	The only difference to [`qolor`](#qolor) tag is that this one creates an instance of the [`Color`][color] class instead of a regular [Qt color][qolor]. This class contains lots of useful methods and is far more superior in general. However, everthing comes with a price.
+	The only difference to [`qolor`](#qolor) tag is that this one creates an instance of the [`Color`][color] class instead of a regular [Qt color][qolor]. This class contains lots of useful methods and is far more superior in general. However, everthing comes [with a price](../getting-started/qolor-vs-color.md).
 
 	##### [Color names][color-name]
 	```js
@@ -169,7 +169,7 @@ If you need to construct a color using a precise form, please, see [`argb`](#arg
 	cc`#ccff8000`  // ⇒ #ccff8000
 	```
 
-	##### [(A)RGB32][argb]
+	##### [(A)RGB32][rgb-model]
 	```js
 	cc`${0xCC}${255}${128}${0}`  // ⇒ #ccff8000
 	cc`${128}${0}${255}`  // ⇒ #8000ff
@@ -180,6 +180,8 @@ If you need to construct a color using a precise form, please, see [`argb`](#arg
 :	<table class="type-alias">
 		<tr><td text-align="right">Type:</td><td>(`alpha`, `red`, `green`, `blue`: [`norm`][norm]) &rarr; [`qolor`][qolor]</td></tr>
 	</table>
+
+	Creates a color from [ARGB][rgb-model] parameters.
 
 	If this tag can't construct a color from literal's parameters, an exception is raised.
 
@@ -197,6 +199,8 @@ If you need to construct a color using a precise form, please, see [`argb`](#arg
 :	<table class="type-alias">
 		<tr><td text-align="right">Type:</td><td>(`alpha`, `red`, `green`, `blue`: [`8bit`][8bit]) &rarr; [`qolor`][qolor]</td></tr>
 	</table>
+
+	Creates a color from [ARGB][rgb-model] parameters.
 
 	If this tag can't construct a color from literal's parameters, an exception is raised.
 
@@ -218,6 +222,8 @@ If you need to construct a color using a precise form, please, see [`argb`](#arg
 		<tr><td text-align="right">Type:</td><td>(`hue`, `saturation`, `lightness`, `alpha = 1.0`: [`norm`][norm]) &rarr; [`qolor`][qolor]</td></tr>
 		<tr><td text-align="right">Alias:</td><td>`hsl`</td></tr>
 	</table>
+
+	Creates a color from [HSLA][hsl-model] parameters.
 
 	If this tag can't construct a color from literal's parameters, an exception is raised.
 
@@ -250,6 +256,8 @@ If you need to construct a color using a precise form, please, see [`argb`](#arg
 		<tr><td text-align="right">Alias:</td><td>`hsv`</td></tr>
 	</table>
 
+	Creates a color from [HSVA][hsv-model] parameters.
+
 	If this tag can't construct a color from literal's parameters, an exception is raised.
 
 	Examples:
@@ -280,6 +288,8 @@ If you need to construct a color using a precise form, please, see [`argb`](#arg
 		<tr><td text-align="right">Type:</td><td>(`hue`, `whiteness`, `blackness`, `alpha = 1.0`: [`norm`][norm]) &rarr; [`qolor`][qolor]</td></tr>
 		<tr><td text-align="right">Alias:</td><td>`hwb`</td></tr>
 	</table>
+
+	Creates a color from [HWBA][hwb-model] parameters.
 
 	If this tag can't construct a color from literal's parameters, an exception is raised.
 
@@ -312,6 +322,8 @@ If you need to construct a color using a precise form, please, see [`argb`](#arg
 		<tr><td text-align="right">Alias:</td><td>`rgb`</td></tr>
 	</table>
 
+	Creates a color from [RGBA][rgb-model] parameters.
+
 	If this tag can't construct a color from literal's parameters, an exception is raised.
 
 	Examples:
@@ -336,6 +348,8 @@ If you need to construct a color using a precise form, please, see [`argb`](#arg
 		<tr><td text-align="right">Alias:</td><td>`rgb24`</td></tr>
 	</table>
 
+	Creates a color from [RGBA][rgb-model] parameters.
+
 	If this tag can't construct a color from literal's parameters, an exception is raised.
 
 	Examples:
@@ -359,7 +373,10 @@ If you need to construct a color using a precise form, please, see [`argb`](#arg
 [color]: ../getting-started/basic-concepts.md#the-color-class-color "Color class from this library"
 [color-name]: ../getting-started/basic-concepts.md#color-name
 [color-literal]: ../getting-started/basic-concepts.md#color-literal
-[argb]: ../getting-started/basic-concepts.md#rgb
+[rgb-model]: ../getting-started/basic-concepts.md#rgb
+[hsl-model]: ../getting-started/basic-concepts.md#hsl
+[hsv-model]: ../getting-started/basic-concepts.md#hsv
+[hwb-model]: ../getting-started/basic-concepts.md#hwb
 [notation]: ./index.md#notation "Notation"
 
 ---8<--- "docs/abbreviations.md"

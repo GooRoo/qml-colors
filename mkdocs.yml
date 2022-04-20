@@ -22,10 +22,12 @@ theme:
         icon: material/weather-night
         name: Dark mode
   features:
+    - content.tabs.link
     - navigation.indexes
     - navigation.instant
     - navigation.tracking
     - navigation.tabs
+    - navigation.top
 markdown_extensions:
   - abbr
   - admonition
@@ -72,10 +74,15 @@ nav:
   - Home: index.md
   - Getting Started:
     - Why?: getting-started/why.md
+    - Installation: getting-started/installation.md
     - Basic concepts: getting-started/basic-concepts.md
+    - qolor vs color: getting-started/qolor-vs-color.md
   - Reference:
     - reference/index.md
     - Color names: reference/color-names.md
     - Units: reference/units.md
     - Tagged literals: reference/tagged-literals.md
+    - Qt Quick's color: reference/qolor.md
     - The Color class: reference/color.md
+    - Functions: reference/functions.md
+  - Development: development.md

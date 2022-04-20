@@ -139,7 +139,6 @@ export default class ColorNames {
 	static get teal ()                 { return Qt.rgba(0.0,          0.5019607843, 0.5019607843, 1.0) }  // #008080
 	static get thistle ()              { return Qt.rgba(0.8470588235, 0.7490196078, 0.8470588235, 1.0) }  // #d8bfd8
 	static get tomato ()               { return Qt.rgba(1.0,          0.3882352941, 0.2784313725, 1.0) }  // #ff6347
-	static get transparent ()          { return Qt.rgba(0.0,          0.0,          0.0,          0.0) }  // #00000000
 	static get turquoise ()            { return Qt.rgba(0.2509803922, 0.8784313725, 0.8156862745, 1.0) }  // #40e0d0
 	static get violet ()               { return Qt.rgba(0.9333333333, 0.5098039216, 0.9333333333, 1.0) }  // #ee82ee
 	static get wheat ()                { return Qt.rgba(0.9607843137, 0.8705882353, 0.7019607843, 1.0) }  // #f5deb3
@@ -147,4 +146,7 @@ export default class ColorNames {
 	static get whitesmoke ()           { return Qt.rgba(0.9607843137, 0.9607843137, 0.9607843137, 1.0) }  // #f5f5f5
 	static get yellow ()               { return Qt.rgba(1.0,          1.0,          0.0,          1.0) }  // #ffff00
 	static get yellowgreen ()          { return Qt.rgba(0.6039215686, 0.8039215686, 0.1960784314, 1.0) }  // #9acd32
+	// extensions
+	static get random ()      { return Qt.rgba(Math.random(), Math.random(), Math.random(), 1.0) }  // random color
+	static get transparent () { return Qt.rgba(0.0,           0.0,           0.0,           0.0) }  // #00000000
 }

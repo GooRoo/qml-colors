@@ -56,3 +56,9 @@ table.type-alias > tr:hover {
 table.type-alias td {
 	font-size: .64rem;
 }
+
+h4.readonly-prop::after {
+	font-style: italic;
+	font-weight: normal;
+	content: '(read-only)'
+}

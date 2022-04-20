@@ -55,5 +55,33 @@ TestCase {
 		verify( isQtColor(Qt.hsla(0.75, 1, 0.5, 1)))
 		verify(!isQtColor(c1))
 		verify( isQtColor(c2))
+		verify(!isQtColor(cc`orange`))
+	}
+
+	function test_isQtColorCompatible() {
+		const isQtColorCompatible = ColorUtils.isQtColorCompatible
+		verify( isQtColorCompatible(Qt.rgba(0.5, 0, 1, 1)))
+		verify( isQtColorCompatible(Qt.hsla(0.75, 1, 0.5, 1)))
+		verify(!isQtColorCompatible(c1))
+		verify( isQtColorCompatible(c2))
+		verify( isQtColorCompatible(cc`orange`))
+	}
+
+	function test_textToColor() {
+		const textToColor = ColorUtils.textToColor
+		compare(
+			textToColor(`Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+				Maecenas porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies,
+				purus lectus malesuada libero, sit amet commodo magna eros quis urna.`),
+			'#42acb8'
+		)
+		compare(
+			textToColor(`Pellentesque habitant morbi tristique senectus et netus et
+				malesuada fames ac turpis egestas. Proin pharetra nonummy pede. Mauris et orci.`),
+			'#213d57'
+		)
+
+		const name = 'John'
+		compare($.textToColor`Hello, ${name}!!!`, '#234a90')
 	}
 }

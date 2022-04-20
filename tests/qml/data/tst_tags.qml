@@ -6,6 +6,8 @@ import easy.colors 1.0
 TestCase {
 	name: 'Tags'
 
+	// TODO: @GooRoo - Test argb, argb32, hsla, hsva, and hwba as functions too
+
 	function test_argb() {
 		compare(argb`${1}${0.5}${0}${1}`, '#8000ff')
 		compare(argb`${0.5}${0.5}${0}${1}`, '#808000ff')
@@ -264,6 +266,14 @@ TestCase {
 		}
 	}
 
+	function test_rgba_as_func() {
+		compare(rgb('indigo', 0.8), '#cc4b0082')
+		compare(rgb(0.5, 0, 1), '#8000ff')
+		compare(rgba(0.5, 0, 1), '#8000ff')
+		compare(rgba(0.5, 0, 1, 1), '#8000ff')
+		compare(rgba(0.5, 0, 1, 0.5), '#808000ff')
+	}
+
 	function test_rgba32() {
 		compare(rgb24`${128}${0}${255}`, '#8000ff')
 		compare(rgba32`${128}${0}${255}`, '#8000ff')
@@ -313,6 +323,16 @@ TestCase {
 		} finally {
 			verify(exc); exc = false
 		}
+	}
+
+	function test_rgba32_as_func() {
+		compare(rgb24('indigo', 204), '#cc4b0082')
+		compare(rgba32('indigo', 0xCC), '#cc4b0082')
+
+		compare(rgb24(128, 0, 255), '#8000ff')
+		compare(rgba32(128, 0, 255), '#8000ff')
+		compare(rgba32(128, 0, 255, 255), '#8000ff')
+		compare(rgba32(128, 0, 255, 128), '#808000ff')
 	}
 
 	function test_qolor () {
@@ -442,5 +462,49 @@ TestCase {
 			green: ${0x00}
 			blue: ${0xff}
 		`, '#808000ff')
+	}
+
+	function test_qolor_as_func() {
+		let clr = qolor('indigo')
+		compare(clr, '#4b0082')
+		compare(typeof clr, 'object')
+		verify(ColorUtils.isQtColor(clr))
+
+		clr = qolor(Qt.rgba(1, 1, 0, 1))
+		compare(clr, '#ffff00')
+		compare(typeof clr, 'object')
+		verify(ColorUtils.isQtColor(clr))
+
+		clr = q(argb32`${0xCC}${255}${128}${0}`)
+		compare(clr, '#ccff8000')
+		compare(typeof clr, 'object')
+		verify(ColorUtils.isQtColor(clr))
+
+		clr = q(cc`#789`)
+		compare(clr, '#778899')
+		compare(typeof clr, 'object')
+		verify(ColorUtils.isQtColor(clr))
+	}
+
+	function test_color_as_func() {
+		let clr = color('indigo')
+		compare(clr, '#4b0082')
+		compare(typeof clr, 'object')
+		verify(clr instanceof Colors.Color)
+
+		clr = color(Qt.rgba(1, 1, 0, 1))
+		compare(clr, '#ffff00')
+		compare(typeof clr, 'object')
+		verify(clr instanceof Colors.Color)
+
+		clr = cc(argb32`${0xCC}${255}${128}${0}`)
+		compare(clr, '#ccff8000')
+		compare(typeof clr, 'object')
+		verify(clr instanceof Colors.Color)
+
+		clr = cc(cc`#789`)
+		compare(clr, '#778899')
+		compare(typeof clr, 'object')
+		verify(clr instanceof Colors.Color)
 	}
 }

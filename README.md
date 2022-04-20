@@ -2,7 +2,6 @@
 
 [![Made by Ukrainian](https://img.shields.io/static/v1?label=Made%20by&message=Ukrainian&labelColor=1f5fb2&color=fad247&style=flat-square)](https://github.com/GooRoo/ukrainian-shields)
 [![License](https://img.shields.io/github/license/GooRoo/qml-colors?style=flat-square)](LICENSE)
-![Build status](https://img.shields.io/github/checks-status/GooRoo/qml-colors/main?style=flat-square)
 
 ## Struggling with colors?
 
@@ -136,10 +135,10 @@ Rectangle {
 
 but I don't even remember.
 
-## I want to use it!
+## Wanna use it?
 
 Convinced? [Get started][get-started] now!
 
-Not yet? Anyway, read the [documentation][get-started].
+Not yet? Anyway, read the [documentation][get-started] and you'll change your mind.
 
 [get-started]: https://gooroo.github.io/qml-colors/getting-started/why/
