@@ -38,7 +38,7 @@ jobs:
       - name: Configure Qbs
         run: |
           qbs setup-toolchains --detect
-          qbs setup-qt ../Qt/gcc_64/bin/qmake qt515
+          qbs setup-qt ../Qt/5.15.2/gcc_64/bin/qmake qt515
           qbs config defaultProfile qt515
 
   test:
