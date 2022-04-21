@@ -23,7 +23,7 @@ Rectangle {
 Or even like this?
 ```qml
 Rectangle {
-	color: fadeOut(r1.color, 20 .percent)
+	color: $.fadeOut(r1.color, 20 .percent)
 }
 ```
 Interested? **Then welcome aboard!** Let's see some examples.
@@ -74,12 +74,12 @@ Item {
 
 ```qml
 Rectangle {
-	color: cc`#036`.adjustHue(+45['°'])   // ⇒ #1a0066
+	color: $.adjustHue('#036', +45['°'])   // ⇒ #1a0066
 }
 ```
 ```qml
 Rectangle {
-	color: cc`#036`.lighten(60 .percent)  // ⇒ #99ccff
+	color: cc`#036`.lighten(60 .percent).color  // ⇒ #99ccff
 }
 ```
 
@@ -87,17 +87,17 @@ Rectangle {
 
 ```qml
 Rectangle {
-	color: mix('#036', '#d2e1dd', 75['%'])  // ⇒ #355f84
+	color: $.mix('#036', '#d2e1dd', 75['%'])  // ⇒ #355f84
 }
 ```
 ```qml
 Rectangle {
-	color: scale('#d2e1dd', {hsl: {l: -10['%'], s: +10['%']}})  // ⇒ #b3d4cb
+	color: $.scale('#d2e1dd', {hsl: {l: -10['%'], s: +10['%']}})  // ⇒ #b3d4cb
 }
 ```
 ```qml
 Rectangle {
-	color: desaturate('#f2ece4', 20 .percent)  // ⇒ #eeebe8
+	color: $.desaturate('#f2ece4', 20 .percent)  // ⇒ #eeebe8
 }
 ```
 
@@ -126,7 +126,7 @@ Rectangle {
 		newColor.hue = 20 .deg
 		newColor.saturation = 65 .percent
 		console.log(newColor)  // ⇒ #d2642d
-		return newColor
+		return newColor.color
 	}
 }
 ```
