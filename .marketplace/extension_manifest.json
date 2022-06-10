@@ -1,0 +1,42 @@
+{
+	"$schema": "http://qt.io/schema/extension-schema-v1#",
+	"authors": ["Serhii Olendarenko"],
+	"bugUrl": "https://github.com/GooRoo/qml-colors/issues/new",
+	"collections": ["plugins"],
+	"contact": "[Serhii] [Olendarenko] sergey.olendarenko@gmail.com",
+	"copyright": ["Serhii Olendarenko, sergey.olendarenko@gmail.com"],
+	"created": "2022-04-07",
+	"dependencies": ["Qt Quick 5.12-or-later"],
+	"extensionType": ["library"],
+	"icon": "https://gooroo.github.io/qml-colors/assets/qml-colors-logo_512.png",
+	"lastUpdate": "2022-04-23",
+	"licenses": [
+		{
+			"licenseType": "BSD-3-Clause",
+			"licenseUrl": "https://github.com/GooRoo/qml-colors/blob/main/LICENSE"
+		}
+	],
+	"platforms": ["Linux", "Windows", "macOS", "Android", "iOS"],
+	"price": {
+		"listprice": 11.48,
+		"orderType": "single",
+		"discount": 0.42,
+		"period": 36
+	},
+	"qtVersions": ["5.12-or-later"],
+	"sourceRepoUrl": "https://github.com/GooRoo/qml-colors",
+	"support": "https://github.com/GooRoo/qml-colors/discussions",
+	"tags": [
+		"qml", "colors",
+		"qt-quick", "javascript",
+		"css", "scss",
+		"design", "styling", "theme"
+	],
+	"title": "qml-colors",
+	"userManuals": ["https://gooroo.github.io/qml-colors/"],
+	"vendor": {
+		"name": "GooRoo",
+		"url": "https://github.com/GooRoo"
+	},
+	"version": "1.0"
+}
