@@ -1,0 +1,64 @@
+:root {
+	--md-primary-fg-color: hsl(266, 80%, 19%);
+	--md-primary-fg-color--light: hsl(266, 100%, 60%);
+	--md-primary-fg-color--dark: hsl(266, 80%, 15%);
+}
+
+[data-md-color-scheme="default"] {
+	--md-typeset-a-color: hsl(266, 100%, 60%);
+}
+
+[data-md-color-scheme="slate"] {
+	--md-typeset-a-color: hsl(266, 80%, 70%);
+}
+
+td > .color-cell {
+	width: 30px;
+	height: 30px;
+	border-radius: 15px;
+}
+
+th.color-name, td.color-name {
+	vertical-align: middle !important;
+	text-align: right !important;
+}
+
+th.color-name, td.color-color {
+	/* vertical-align: middle !important; */
+	text-align: center !important;
+}
+
+th.color-hex, td.color-hex {
+	vertical-align: middle !important;
+}
+
+table.type-alias {
+	border-collapse: separate;
+	border-spacing: 5px 0;
+	background-color: var(--md-default-bg-color);
+	border: 0.05rem solid var(--md-typeset-table-color);
+	border-radius: 0.1rem;
+	display: inline-block;
+	max-width: 100%;
+	overflow: auto;
+	touch-action: auto;
+}
+
+table.type-alias > tr {
+	transition: background-color 125ms;
+}
+
+table.type-alias > tr:hover {
+	background-color: rgba(0, 0, 0, .035);
+	box-shadow: 0 .05rem 0 var(--md-default-bg-color) inset;
+}
+
+table.type-alias td {
+	font-size: .64rem;
+}
+
+h4.readonly-prop::after {
+	font-style: italic;
+	font-weight: normal;
+	content: '(read-only)'
+}

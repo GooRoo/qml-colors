@@ -1,0 +1,1920 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../../assets/qml-colors-logo_32.png">
+      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.3.9">
+    
+    
+      
+        <title>The Color class - qml-colors</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.1d29e8d0.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.cbb835fc.min.css">
+        
+      
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="" data-md-color-accent="orange">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#the-color-class" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="qml-colors" class="md-header__button md-logo" aria-label="qml-colors" data-md-component="logo">
+      
+  <img src="../../assets/qml-colors-logo_64.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            qml-colors
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              The Color class
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="" data-md-color-accent="orange"  aria-label="Light mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Light mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5c-.84 0-1.65.15-2.39.42L12 2M3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29L3.34 7m.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14L3.36 17M20.65 7l-1.77 3.79a7.023 7.023 0 0 0-2.38-4.15l4.15.36m-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29L20.64 17M12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44L12 22Z"/></svg>
+            </label>
+          
+        
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent="orange"  aria-label="Dark mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Dark mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3 3.19.09m3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95 2.06.05m-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31Z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/GooRoo/qml-colors" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GooRoo/qml-colors
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../.." class="md-tabs__link">
+      Home
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../getting-started/why/" class="md-tabs__link">
+        Getting Started
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../" class="md-tabs__link md-tabs__link--active">
+        Reference
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../development/" class="md-tabs__link">
+      Development
+    </a>
+  </li>
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="qml-colors" class="md-nav__button md-logo" aria-label="qml-colors" data-md-component="logo">
+      
+  <img src="../../assets/qml-colors-logo_64.png" alt="logo">
+
+    </a>
+    qml-colors
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/GooRoo/qml-colors" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GooRoo/qml-colors
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Getting Started
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Getting Started" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Getting Started
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/why/" class="md-nav__link">
+        Why?
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/installation/" class="md-nav__link">
+        Installation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/basic-concepts/" class="md-nav__link">
+        Basic concepts
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/qolor-vs-color/" class="md-nav__link">
+        qolor vs color
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../">Reference</a>
+          
+            <label for="__nav_3">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Reference" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Reference
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../color-names/" class="md-nav__link">
+        Color names
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../units/" class="md-nav__link">
+        Units
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tagged-literals/" class="md-nav__link">
+        Tagged literals
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../qolor/" class="md-nav__link">
+        Qt Quick's color
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          The Color class
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        The Color class
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#methods" class="md-nav__link">
+    Methods
+  </a>
+  
+    <nav class="md-nav" aria-label="Methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#adjust" class="md-nav__link">
+    adjust
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adjusthue" class="md-nav__link">
+    adjustHue
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#change" class="md-nav__link">
+    change
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#complement" class="md-nav__link">
+    complement
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#darken" class="md-nav__link">
+    darken
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#desaturate" class="md-nav__link">
+    desaturate
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#grayscale" class="md-nav__link">
+    grayscale
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#invert" class="md-nav__link">
+    invert
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lighten" class="md-nav__link">
+    lighten
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mix" class="md-nav__link">
+    mix
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#opacify" class="md-nav__link">
+    opacify
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#saturate" class="md-nav__link">
+    saturate
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scale" class="md-nav__link">
+    scale
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#transparentize" class="md-nav__link">
+    transparentize
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#properties" class="md-nav__link">
+    Properties
+  </a>
+  
+    <nav class="md-nav" aria-label="Properties">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#own" class="md-nav__link">
+    Own
+  </a>
+  
+    <nav class="md-nav" aria-label="Own">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#alpha" class="md-nav__link">
+    alpha
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#blackness" class="md-nav__link">
+    blackness
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#blue" class="md-nav__link">
+    blue
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#color" class="md-nav__link">
+    color
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#green" class="md-nav__link">
+    green
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hue" class="md-nav__link">
+    hue
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lightness" class="md-nav__link">
+    lightness
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#red" class="md-nav__link">
+    red
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rgb" class="md-nav__link">
+    rgb
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#saturation" class="md-nav__link">
+    saturation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#whiteness" class="md-nav__link">
+    whiteness
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inherited-from-qt-quicks-color" class="md-nav__link">
+    Inherited from Qt Quick's color
+  </a>
+  
+    <nav class="md-nav" aria-label="Inherited from Qt Quick's color">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a" class="md-nav__link">
+    a
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b" class="md-nav__link">
+    b
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#g" class="md-nav__link">
+    g
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hslhue" class="md-nav__link">
+    hslHue
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hsllightness" class="md-nav__link">
+    hslLightness
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hslsaturation" class="md-nav__link">
+    hslSaturation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hsvhue" class="md-nav__link">
+    hsvHue
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hsvsaturation" class="md-nav__link">
+    hsvSaturation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hsvvalue" class="md-nav__link">
+    hsvValue
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#r" class="md-nav__link">
+    r
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#valid" class="md-nav__link">
+    valid
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../functions/" class="md-nav__link">
+        Functions
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/" class="md-nav__link">
+        Development
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#methods" class="md-nav__link">
+    Methods
+  </a>
+  
+    <nav class="md-nav" aria-label="Methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#adjust" class="md-nav__link">
+    adjust
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adjusthue" class="md-nav__link">
+    adjustHue
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#change" class="md-nav__link">
+    change
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#complement" class="md-nav__link">
+    complement
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#darken" class="md-nav__link">
+    darken
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#desaturate" class="md-nav__link">
+    desaturate
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#grayscale" class="md-nav__link">
+    grayscale
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#invert" class="md-nav__link">
+    invert
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lighten" class="md-nav__link">
+    lighten
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mix" class="md-nav__link">
+    mix
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#opacify" class="md-nav__link">
+    opacify
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#saturate" class="md-nav__link">
+    saturate
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scale" class="md-nav__link">
+    scale
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#transparentize" class="md-nav__link">
+    transparentize
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#properties" class="md-nav__link">
+    Properties
+  </a>
+  
+    <nav class="md-nav" aria-label="Properties">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#own" class="md-nav__link">
+    Own
+  </a>
+  
+    <nav class="md-nav" aria-label="Own">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#alpha" class="md-nav__link">
+    alpha
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#blackness" class="md-nav__link">
+    blackness
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#blue" class="md-nav__link">
+    blue
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#color" class="md-nav__link">
+    color
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#green" class="md-nav__link">
+    green
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hue" class="md-nav__link">
+    hue
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lightness" class="md-nav__link">
+    lightness
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#red" class="md-nav__link">
+    red
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rgb" class="md-nav__link">
+    rgb
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#saturation" class="md-nav__link">
+    saturation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#whiteness" class="md-nav__link">
+    whiteness
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inherited-from-qt-quicks-color" class="md-nav__link">
+    Inherited from Qt Quick's color
+  </a>
+  
+    <nav class="md-nav" aria-label="Inherited from Qt Quick's color">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a" class="md-nav__link">
+    a
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b" class="md-nav__link">
+    b
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#g" class="md-nav__link">
+    g
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hslhue" class="md-nav__link">
+    hslHue
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hsllightness" class="md-nav__link">
+    hslLightness
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hslsaturation" class="md-nav__link">
+    hslSaturation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hsvhue" class="md-nav__link">
+    hsvHue
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hsvsaturation" class="md-nav__link">
+    hsvSaturation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hsvvalue" class="md-nav__link">
+    hsvValue
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#r" class="md-nav__link">
+    r
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#valid" class="md-nav__link">
+    valid
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+
+
+<h1 id="the-color-class">The <code>Color</code> class<a class="headerlink" href="#the-color-class" title="Permanent link">&para;</a></h1>
+<p>Essentially, the <code>Color</code> is just a thin wrapper around Qt Quick's <a href="../../getting-started/basic-concepts/#qt-color-qolor" title="Qt color"><code>color</code></a>. It provides useful <a href="#properties">properties</a> and <a href="#methods">methods</a> though. They are listed below.</p>
+<h2 id="methods">Methods<a class="headerlink" href="#methods" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th align="right">Category</th>
+<th>Methods (and aliases)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="right">Multi-changes</td>
+<td><a href="#adjust"><code>adjust</code></a>, <a href="#change"><code>change</code></a>, <a href="#scale"><code>scale</code></a></td>
+</tr>
+<tr>
+<td align="right">Hue</td>
+<td><a href="#adjusthue"><code>adjustHue</code></a> (or <a href="#adjusthue"><code>spin</code></a>), <a href="#complement"><code>complement</code></a></td>
+</tr>
+<tr>
+<td align="right">Brightness</td>
+<td><a href="#darken"><code>darken</code></a>, <a href="#lighten"><code>lighten</code></a></td>
+</tr>
+<tr>
+<td align="right">Saturation</td>
+<td><a href="#desaturate"><code>desaturate</code></a>, <a href="#grayscale"><code>grayscale</code></a> (or <a href="#grayscale"><code>greyscale</code></a>), <a href="#saturate"><code>saturate</code></a></td>
+</tr>
+<tr>
+<td align="right">Opacity</td>
+<td><a href="#opacify"><code>opacify</code></a> (or <a href="#opacify"><code>fadeIn</code></a>), <a href="#transparentize"><code>transparentize</code></a> (or <a href="#transparentize"><code>fadeOut</code></a>)</td>
+</tr>
+<tr>
+<td align="right">Other</td>
+<td><a href="#invert"><code>invert</code></a>, <a href="#mix"><code>mix</code></a></td>
+</tr>
+</tbody>
+</table>
+<h4 id="adjust"><code>adjust</code><a class="headerlink" href="#adjust" title="Permanent link">&para;</a></h4>
+<dl>
+<dd>
+<p><table class="type-alias">
+    <tr><td>Type:</td><td>(<code>change</code>: <a href="../../getting-started/basic-concepts/#offset-object"><code>offset-object</code></a>) &rarr; <a href="../../getting-started/basic-concepts/#the-color-class-color" title="Color class from this library"><code>color</code></a></td></tr>
+</table></p>
+<p>Increases or decreases one or more properties of the color by fixed amounts.</p>
+<p>Adds the value passed for each keyword argument to the corresponding property of the color, and returns a new adjusted instance of color.</p>
+<p>Restrictions (for more details see <a href="../../getting-started/basic-concepts/#offset-object"><code>offset-object</code></a>):</p>
+<ul>
+<li><code>alpha</code> keyword <strong>can be</strong> specified separately.</li>
+<li>Among <code>rgb</code>, <code>hsl</code>, <code>hsv</code>, and <code>hwb</code>, <strong>only one</strong> may be used at a time.</li>
+<li>All keyword arguments are of type <a href="../../getting-started/basic-concepts/#normalized-real-offset-interval-offset" title="Normalized real interval offset (offset)"><code>offset</code></a> and optional.</li>
+</ul>
+<p><strong>Examples:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nx">cc</span><span class="sb">`#6b717f`</span><span class="p">.</span><span class="nx">adjust</span><span class="p">({</span><span class="nx">rgb</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="nx">r</span><span class="o">:</span><span class="w"> </span><span class="o">+</span><span class="mf">15</span><span class="w"> </span><span class="p">.</span><span class="kr">int</span><span class="p">}})</span><span class="w">  </span><span class="c1">// ⇒ #7a717f</span><span class="w"></span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nx">cc</span><span class="sb">`#d2e1dd`</span><span class="p">.</span><span class="nx">adjust</span><span class="p">({</span><span class="nx">rgb</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="nx">red</span><span class="o">:</span><span class="w"> </span><span class="o">-</span><span class="mf">10</span><span class="w"> </span><span class="p">.</span><span class="kr">int</span><span class="p">,</span><span class="w"> </span><span class="nx">blue</span><span class="o">:</span><span class="w"> </span><span class="o">+</span><span class="mf">10</span><span class="w"> </span><span class="p">.</span><span class="kr">int</span><span class="p">}})</span><span class="w">  </span><span class="c1">// ⇒ #c8e1e7</span><span class="w"></span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nx">cc</span><span class="sb">`#998099`</span><span class="p">.</span><span class="nx">adjust</span><span class="p">({</span><span class="w"></span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">    </span><span class="nx">hsl</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="nx">lightness</span><span class="o">:</span><span class="w"> </span><span class="o">-</span><span class="mf">30</span><span class="w"> </span><span class="p">.</span><span class="nx">percent</span><span class="p">},</span><span class="w"></span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="nx">alpha</span><span class="o">:</span><span class="w"> </span><span class="o">-</span><span class="mf">40</span><span class="w"> </span><span class="p">.</span><span class="nx">percent</span><span class="w"></span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="p">})</span><span class="w">  </span><span class="c1">// ⇒ #99473947</span><span class="w"></span>
+</code></pre></div></p>
+<p><strong>See also:</strong> <a href="#change"><code>change</code></a>, <a href="#scale"><code>scale</code></a>, <a href="../units/#or-percent" title="% (or percent)"><code>%</code></a>, <a href="../units/#or-deg" title="° (or deg)"><code>°</code></a>.</p>
+</dd>
+</dl>
+<h4 id="adjusthue"><code>adjustHue</code><a class="headerlink" href="#adjusthue" title="Permanent link">&para;</a></h4>
+<dl>
+<dd>
+<p><table class="type-alias">
+    <tr><td>Type:</td><td>(<code>offset</code>: <a href="../../getting-started/basic-concepts/#normalized-real-offset-interval-offset" title="Normalized real interval offset (offset)"><code>offset</code></a>) &rarr; <a href="../../getting-started/basic-concepts/#the-color-class-color" title="Color class from this library"><code>color</code></a></td></tr>
+    <tr><td>Alias:</td><td><code>spin</code></td></tr>
+</table></p>
+<p>Increases or decreases the color's hue.</p>
+<p><strong>Examples:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1">// Hue 222° becomes 282°</span><span class="w"></span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="nx">cc</span><span class="sb">`#6b717f`</span><span class="p">.</span><span class="nx">adjustHue</span><span class="p">(</span><span class="o">+</span><span class="mf">60</span><span class="w"> </span><span class="p">.</span><span class="nx">deg</span><span class="p">)</span><span class="w">  </span><span class="c1">// ⇒ #796b7f</span><span class="w"></span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1">// Hue 164° becomes 104°.</span><span class="w"></span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="nx">cc</span><span class="sb">`#d2e1dd`</span><span class="p">.</span><span class="nx">spin</span><span class="p">(</span><span class="o">-</span><span class="mf">60</span><span class="p">[</span><span class="s1">&#39;°&#39;</span><span class="p">])</span><span class="w">  </span><span class="c1">// ⇒ #d6e1d2</span><span class="w"></span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1">// Hue 210° becomes 255°</span><span class="w"></span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="nx">cc</span><span class="sb">`#036`</span><span class="p">.</span><span class="nx">adjustHue</span><span class="p">(</span><span class="o">+</span><span class="mf">45</span><span class="w"> </span><span class="p">.</span><span class="nx">deg</span><span class="p">)</span><span class="w">  </span><span class="c1">// ⇒ #1a0066</span><span class="w"></span>
+</code></pre></div></p>
+<p><strong>See also:</strong> <a href="#adjust"><code>adjust</code></a>, <a href="../units/#or-deg" title="° (or deg)"><code>°</code></a>.</p>
+</dd>
+</dl>
+<h4 id="change"><code>change</code><a class="headerlink" href="#change" title="Permanent link">&para;</a></h4>
+<dl>
+<dd>
+<p><table class="type-alias">
+    <tr><td>Type:</td><td>(<code>change</code>: <a href="../../getting-started/basic-concepts/#change-object"><code>change-object</code></a>) &rarr; <a href="../../getting-started/basic-concepts/#the-color-class-color" title="Color class from this library"><code>color</code></a></td></tr>
+</table></p>
+<p>Sets one or more properties of the color to new values and returns a new adjusted instance of color.</p>
+<p>Restrictions (for more details see <a href="../../getting-started/basic-concepts/#change-object"><code>change-object</code></a>):</p>
+<ul>
+<li><code>alpha</code> keyword <strong>can be</strong> specified separately.</li>
+<li>Among <code>rgb</code>, <code>hsl</code>, <code>hsv</code>, and <code>hwb</code>, <strong>only one</strong> may be used at a time.</li>
+<li>All keyword arguments are of type <a href="../../getting-started/basic-concepts/#normalized-real-interval-norm" title="Normalized real interval (norm)"><code>norm</code></a> and optional.</li>
+</ul>
+<p><strong>Examples:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="nx">cc</span><span class="sb">`#6b717f`</span><span class="p">.</span><span class="nx">change</span><span class="p">({</span><span class="nx">rgb</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="nx">r</span><span class="o">:</span><span class="w"> </span><span class="mf">100</span><span class="w"> </span><span class="p">.</span><span class="kr">int</span><span class="p">}})</span><span class="w">  </span><span class="c1">// ⇒ #64717f</span><span class="w"></span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="nx">cc</span><span class="sb">`#d2e1dd`</span><span class="p">.</span><span class="nx">change</span><span class="p">({</span><span class="nx">rgb</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="nx">red</span><span class="o">:</span><span class="w"> </span><span class="mf">100</span><span class="w"> </span><span class="p">.</span><span class="kr">int</span><span class="p">,</span><span class="w"> </span><span class="nx">blue</span><span class="o">:</span><span class="w"> </span><span class="mf">50</span><span class="w"> </span><span class="p">.</span><span class="kr">int</span><span class="p">}})</span><span class="w">  </span><span class="c1">// ⇒ #64e132</span><span class="w"></span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="nx">cc</span><span class="sb">`#998099`</span><span class="p">.</span><span class="nx">change</span><span class="p">({</span><span class="w"></span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="w">    </span><span class="nx">hsl</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="nx">lightness</span><span class="o">:</span><span class="w"> </span><span class="mf">30</span><span class="w"> </span><span class="p">.</span><span class="nx">percent</span><span class="p">},</span><span class="w"></span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">    </span><span class="nx">alpha</span><span class="o">:</span><span class="w"> </span><span class="mf">0.5</span><span class="w"></span>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="p">})</span><span class="w">  </span><span class="c1">// ⇒ #80554455</span><span class="w"></span>
+</code></pre></div></p>
+<p><strong>See also:</strong> <a href="#adjust"><code>adjust</code></a>, <a href="#scale"><code>scale</code></a>, <a href="../units/#or-percent" title="% (or percent)"><code>%</code></a>, <a href="../units/#or-deg" title="° (or deg)"><code>°</code></a>.</p>
+</dd>
+</dl>
+<h4 id="complement"><code>complement</code><a class="headerlink" href="#complement" title="Permanent link">&para;</a></h4>
+<dl>
+<dd>
+<p><table class="type-alias">
+    <tr><td>Type:</td><td>() &rarr; <a href="../../getting-started/basic-concepts/#the-color-class-color" title="Color class from this library"><code>color</code></a></td></tr>
+</table></p>
+<p>Returns the <abbr title="red, green, blue">RGB</abbr> <a href="https://en.wikipedia.org/wiki/Complementary_colors">complement</a> of the color.</p>
+<p>This is identical to <code class="highlight"><span class="nx">color</span><span class="p">.</span><span class="nx">adjustHue</span><span class="p">(</span><span class="o">-</span><span class="mf">180</span><span class="w"> </span><span class="p">.</span><span class="nx">deg</span><span class="p">)</span><span class="w"></span></code>.</p>
+<p><strong>Examples:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="c1">// Hue 222° becomes 42°</span><span class="w"></span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="nx">cc</span><span class="sb">`#6b717f`</span><span class="p">.</span><span class="nx">complement</span><span class="p">()</span><span class="w">  </span><span class="c1">// ⇒ #7f796b</span><span class="w"></span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="c1">// Hue 164° becomes 344°</span><span class="w"></span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="nx">cc</span><span class="sb">`#d2e1dd`</span><span class="p">.</span><span class="nx">complement</span><span class="p">()</span><span class="w">  </span><span class="c1">// ⇒ #e1d2d6</span><span class="w"></span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="c1">// Hue 210° becomes 30°</span><span class="w"></span>
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="nx">cc</span><span class="sb">`#036`</span><span class="p">.</span><span class="nx">complement</span><span class="p">()</span><span class="w">  </span><span class="c1">// ⇒ #663300</span><span class="w"></span>
+</code></pre></div></p>
+<p><strong>See also:</strong> <a href="#adjust"><code>adjust</code></a>, <a href="#adjusthue"><code>adjustHue</code></a>, <a href="#invert"><code>invert</code></a>.</p>
+</dd>
+</dl>
+<h4 id="darken"><code>darken</code><a class="headerlink" href="#darken" title="Permanent link">&para;</a></h4>
+<dl>
+<dd>
+<p><table class="type-alias">
+    <tr><td>Type:</td><td>(<code>amount = 0.25</code>: <a href="../../getting-started/basic-concepts/#normalized-real-interval-norm" title="Normalized real interval (norm)"><code>norm</code></a>) &rarr; <a href="../../getting-started/basic-concepts/#the-color-class-color" title="Color class from this library"><code>color</code></a></td></tr>
+</table></p>
+<p>Makes the color darker by specified <code>amount</code> (by decreasing the <abbr title="hue, saturation, lightness">HSL</abbr> <em>lightness</em>).</p>
+<p><strong>Examples:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="c1">// Lightness 92% becomes 72%</span><span class="w"></span>
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="nx">cc</span><span class="sb">`#b37399`</span><span class="p">.</span><span class="nx">darken</span><span class="p">(</span><span class="mf">20</span><span class="p">[</span><span class="s1">&#39;%&#39;</span><span class="p">])</span><span class="w">  </span><span class="c1">// ⇒ #7c4465</span><span class="w"></span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="c1">// Lightness 85% becomes 45%</span><span class="w"></span>
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="nx">cc</span><span class="sb">`#f2ece4`</span><span class="p">.</span><span class="nx">darken</span><span class="p">(</span><span class="mf">40</span><span class="w"> </span><span class="p">.</span><span class="nx">percent</span><span class="p">)</span><span class="w">  </span><span class="c1">// ⇒ #b08b5a</span><span class="w"></span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="c1">// Lightness 20% becomes 0%</span><span class="w"></span>
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="nx">cc</span><span class="sb">`#036`</span><span class="p">.</span><span class="nx">darken</span><span class="p">(</span><span class="mf">0.3</span><span class="p">)</span><span class="w">  </span><span class="c1">// ⇒ #000000</span><span class="w"></span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="c1">// Lightness 50% becomes 25%</span><span class="w"></span>
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="nx">cc</span><span class="sb">`#8000ff`</span><span class="p">.</span><span class="nx">darken</span><span class="p">()</span><span class="w">  </span><span class="c1">// ⇒ #000000</span><span class="w"></span>
+</code></pre></div></p>
+<p><strong>See also:</strong> <a href="#adjust"><code>adjust</code></a>, <a href="../units/#or-percent" title="% (or percent)"><code>%</code></a>.</p>
+</dd>
+</dl>
+<h4 id="desaturate"><code>desaturate</code><a class="headerlink" href="#desaturate" title="Permanent link">&para;</a></h4>
+<dl>
+<dd>
+<p><table class="type-alias">
+    <tr><td>Type:</td><td>(<code>amount = 0.25</code>: <a href="../../getting-started/basic-concepts/#normalized-real-interval-norm" title="Normalized real interval (norm)"><code>norm</code></a>) &rarr; <a href="../../getting-started/basic-concepts/#the-color-class-color" title="Color class from this library"><code>color</code></a></td></tr>
+</table></p>
+<p>Makes the color less saturated by specified <code>amount</code> (by decreasing the <abbr title="hue, saturation, lightness">HSL</abbr> <em>saturation</em>).</p>
+<p><strong>Examples:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="c1">// Saturation 100% becomes 80%</span><span class="w"></span>
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="nx">cc</span><span class="sb">`#036`</span><span class="p">.</span><span class="nx">desaturate</span><span class="p">(</span><span class="mf">20</span><span class="w"> </span><span class="p">.</span><span class="nx">percent</span><span class="p">)</span><span class="w">  </span><span class="c1">// ⇒ #0a335c</span><span class="w"></span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="c1">// Saturation 35% becomes 15%</span><span class="w"></span>
+<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="nx">cc</span><span class="sb">`#f2ece4`</span><span class="p">.</span><span class="nx">desaturate</span><span class="p">(</span><span class="mf">20</span><span class="w"> </span><span class="p">.</span><span class="nx">percent</span><span class="p">)</span><span class="w">  </span><span class="c1">// ⇒ #eeebe8</span><span class="w"></span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="c1">// Saturation 20% becomes 0%</span><span class="w"></span>
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="nx">cc</span><span class="sb">`#d2e1dd`</span><span class="p">.</span><span class="nx">desaturate</span><span class="p">(</span><span class="mf">30</span><span class="w"> </span><span class="p">.</span><span class="nx">percent</span><span class="p">)</span><span class="w">  </span><span class="c1">// ⇒ #dadada</span><span class="w"></span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="c1">// Saturation 100% becomes 75%</span><span class="w"></span>
+<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="nx">cc</span><span class="sb">`#8000ff`</span><span class="p">.</span><span class="nx">desaturate</span><span class="p">()</span><span class="w">  </span><span class="c1">// ⇒ #8020df</span><span class="w"></span>
+</code></pre></div></p>
+<p><strong>See also:</strong> <a href="#adjust"><code>adjust</code></a>, <a href="../units/#or-percent" title="% (or percent)"><code>%</code></a>.</p>
+</dd>
+</dl>
+<h4 id="grayscale"><code>grayscale</code><a class="headerlink" href="#grayscale" title="Permanent link">&para;</a></h4>
+<dl>
+<dd>
+<p><table class="type-alias">
+    <tr><td>Type:</td><td>() &rarr; <a href="../../getting-started/basic-concepts/#the-color-class-color" title="Color class from this library"><code>color</code></a></td></tr>
+    <tr><td>Alias:</td><td><code>greyscale</code></td></tr>
+</table></p>
+<p>Returns a gray color with the same lightness as the color's one.</p>
+<p>This is identical to <code class="highlight"><span class="nx">color</span><span class="p">.</span><span class="nx">change</span><span class="p">({</span><span class="nx">hsl</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="nx">saturation</span><span class="o">:</span><span class="w"> </span><span class="mf">0</span><span class="p">}})</span><span class="w"></span></code>.</p>
+<p><strong>Examples:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="nx">cc</span><span class="sb">`#6b717f`</span><span class="p">.</span><span class="nx">grayscale</span><span class="p">()</span><span class="w">  </span><span class="c1">// ⇒ #757575</span><span class="w"></span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="nx">cc</span><span class="sb">`#d2e1dd`</span><span class="p">.</span><span class="nx">grayscale</span><span class="p">()</span><span class="w">  </span><span class="c1">// ⇒ #dadada</span><span class="w"></span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="nx">cc</span><span class="sb">`#036`</span><span class="p">.</span><span class="nx">greyscale</span><span class="p">()</span><span class="w">  </span><span class="c1">// ⇒ #333333</span><span class="w"></span>
+</code></pre></div></p>
+<p><strong>See also:</strong> <a href="#change"><code>change</code></a>.</p>
+</dd>
+</dl>
+<h4 id="invert"><code>invert</code><a class="headerlink" href="#invert" title="Permanent link">&para;</a></h4>
+<dl>
+<dd>
+<p><table class="type-alias">
+    <tr><td>Type:</td><td>(<code>weight = 1.0</code>: <a href="../../getting-started/basic-concepts/#normalized-real-interval-norm" title="Normalized real interval (norm)"><code>norm</code></a>) &rarr; <a href="../../getting-started/basic-concepts/#the-color-class-color" title="Color class from this library"><code>color</code></a></td></tr>
+</table></p>
+<p>Returns the <a href="https://en.wikipedia.org/wiki/Negative_(photography)">negative</a> of the color.</p>
+<p>A higher <code>weight</code> means the result will be closer to the negative, and a lower <code>weight</code> means it will be closer to the original color. <code class="highlight"><span class="nx">weight</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.5</span><span class="w"></span></code> will always produce <code>#808080</code>.</p>
+<p><strong>Examples:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="nx">cc</span><span class="sb">`#b37399`</span><span class="p">.</span><span class="nx">invert</span><span class="p">()</span><span class="w">  </span><span class="c1">// ⇒ #4c8c66</span><span class="w"></span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="nx">cc</span><span class="sb">`black`</span><span class="p">.</span><span class="nx">invert</span><span class="p">()</span><span class="w">  </span><span class="c1">// ⇒ #ffffff</span><span class="w"></span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="nx">cc</span><span class="sb">`#550e0cc`</span><span class="p">.</span><span class="nx">invert</span><span class="p">(</span><span class="mf">20</span><span class="w"> </span><span class="p">.</span><span class="nx">percent</span><span class="p">)</span><span class="w">  </span><span class="c1">// ⇒ #663b3a</span><span class="w"></span>
+</code></pre></div></p>
+<p><strong>See also:</strong> <a href="#complement"><code>complement</code></a>, <a href="../units/#or-percent" title="% (or percent)"><code>%</code></a>.</p>
+</dd>
+</dl>
+<h4 id="lighten"><code>lighten</code><a class="headerlink" href="#lighten" title="Permanent link">&para;</a></h4>
+<dl>
+<dd>
+<p><table class="type-alias">
+    <tr><td>Type:</td><td>(<code>amount = 0.25</code>: <a href="../../getting-started/basic-concepts/#normalized-real-interval-norm" title="Normalized real interval (norm)"><code>norm</code></a>) &rarr; <a href="../../getting-started/basic-concepts/#the-color-class-color" title="Color class from this library"><code>color</code></a></td></tr>
+</table></p>
+<p>Makes the color lighter by specified <code>amount</code> (by increasing the <abbr title="hue, saturation, lightness">HSL</abbr> <em>lightness</em>).</p>
+<p><strong>Examples:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a><span class="c1">// Lightness 46% becomes 66%</span><span class="w"></span>
+<a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a><span class="nx">cc</span><span class="sb">`#6b717f`</span><span class="p">.</span><span class="nx">lighten</span><span class="p">(</span><span class="mf">20</span><span class="p">[</span><span class="s1">&#39;%&#39;</span><span class="p">])</span><span class="w">  </span><span class="c1">// ⇒ #a1a5af</span><span class="w"></span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a><span class="c1">// Lightness 20% becomes 80%</span><span class="w"></span>
+<a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a><span class="nx">cc</span><span class="sb">`#036`</span><span class="p">.</span><span class="nx">lighten</span><span class="p">(</span><span class="mf">60</span><span class="w"> </span><span class="p">.</span><span class="nx">percent</span><span class="p">)</span><span class="w">  </span><span class="c1">// ⇒ #99ccff</span><span class="w"></span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a><span class="c1">// Lightness 85% becomes 100%</span><span class="w"></span>
+<a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a><span class="nx">cc</span><span class="sb">`#e1d7d2`</span><span class="p">.</span><span class="nx">lighten</span><span class="p">(</span><span class="mf">0.3</span><span class="p">)</span><span class="w">  </span><span class="c1">// ⇒ #ffffff</span><span class="w"></span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a><span class="c1">// Lightness 50% becomes 75%</span><span class="w"></span>
+<a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a><span class="nx">cc</span><span class="sb">`#8000ff`</span><span class="p">.</span><span class="nx">lighten</span><span class="p">()</span><span class="w">  </span><span class="c1">// ⇒ #c080ff</span><span class="w"></span>
+</code></pre></div></p>
+<p><strong>See also:</strong> <a href="#adjust"><code>adjust</code></a>, <a href="../units/#or-percent" title="% (or percent)"><code>%</code></a>.</p>
+</dd>
+</dl>
+<h4 id="mix"><code>mix</code><a class="headerlink" href="#mix" title="Permanent link">&para;</a></h4>
+<dl>
+<dd>
+<p><table class="type-alias">
+    <tr><td>Type:</td><td>(<code>color2</code>: <a href="../../getting-started/basic-concepts/#any-type-of-color-any-color" title="Any type of color"><code>any-color</code></a>, <code>weight = 0.5</code>: <a href="../../getting-started/basic-concepts/#normalized-real-interval-norm" title="Normalized real interval (norm)"><code>norm</code></a>) &rarr; <a href="../../getting-started/basic-concepts/#the-color-class-color" title="Color class from this library"><code>color</code></a></td></tr>
+</table></p>
+<p>Returns a new color that’s a mixture of the current color and <code>color2</code>.</p>
+<p>Both the <code>weight</code> and the relative opacity of each color determines how much of each color is in the result. A larger <code>weight</code> indicates that more of the current color should be used, and a smaller <code>weight</code> indicates that more of <code>color2</code> should be used.</p>
+<p>By default, the colors are mixed in equal proportions.</p>
+<p><strong>Examples:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a><span class="nx">cc</span><span class="sb">`#036`</span><span class="p">.</span><span class="nx">mix</span><span class="p">(</span><span class="nx">cc</span><span class="sb">`#d2e1dd`</span><span class="p">)</span><span class="w">  </span><span class="c1">// ⇒ #698aa2</span><span class="w"></span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a><span class="nx">cc</span><span class="sb">`#036`</span><span class="p">.</span><span class="nx">mix</span><span class="p">(</span><span class="nx">q</span><span class="sb">`#d2e1dd`</span><span class="p">,</span><span class="w"> </span><span class="mf">75</span><span class="w"> </span><span class="p">.</span><span class="nx">percent</span><span class="p">)</span><span class="w">  </span><span class="c1">// ⇒ #355f84</span><span class="w"></span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a><span class="nx">cc</span><span class="sb">`#036`</span><span class="p">.</span><span class="nx">mix</span><span class="p">(</span><span class="s1">&#39;#d2e1dd&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">25</span><span class="p">[</span><span class="s1">&#39;%&#39;</span><span class="p">])</span><span class="w">  </span><span class="c1">// ⇒ #9eb6bf</span><span class="w"></span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a><span class="nx">cc</span><span class="sb">`</span><span class="si">${</span><span class="mf">0.5</span><span class="p">.</span><span class="kr">byte</span><span class="si">}</span><span class="sb"> </span><span class="si">${</span><span class="mf">242</span><span class="si">}</span><span class="sb"> </span><span class="si">${</span><span class="mf">236</span><span class="si">}</span><span class="sb"> </span><span class="si">${</span><span class="mf">228</span><span class="si">}</span><span class="sb">`</span><span class="p">.</span><span class="nx">mix</span><span class="p">(</span><span class="nx">cc</span><span class="sb">`#6b717f`</span><span class="p">)</span><span class="w">  </span><span class="c1">// ⇒ #8d9098</span><span class="w"></span>
+</code></pre></div></p>
+<p><strong>See also:</strong> <a href="../units/#or-percent" title="% (or percent)"><code>%</code></a>.</p>
+</dd>
+</dl>
+<h4 id="opacify"><code>opacify</code><a class="headerlink" href="#opacify" title="Permanent link">&para;</a></h4>
+<dl>
+<dd>
+<p><table class="type-alias">
+    <tr><td>Type:</td><td>(<code>amount = 0.25</code>: <a href="../../getting-started/basic-concepts/#normalized-real-interval-norm" title="Normalized real interval (norm)"><code>norm</code></a>) &rarr; <a href="../../getting-started/basic-concepts/#the-color-class-color" title="Color class from this library"><code>color</code></a></td></tr>
+    <tr><td>Alias:</td><td><code>fadeIn</code></td></tr>
+</table></p>
+<p>Makes the color more opaque by increasing the alpha channel by <code>amount</code>.</p>
+<p><strong>Examples:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a><span class="nx">cc</span><span class="sb">`#806b717f`</span><span class="p">.</span><span class="nx">opacify</span><span class="p">(</span><span class="mf">0.2</span><span class="p">)</span><span class="w">  </span><span class="c1">// ⇒ #b36b717f</span><span class="w"></span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a><span class="nx">cc</span><span class="sb">`#80e1d7d2`</span><span class="p">.</span><span class="nx">fadeIn</span><span class="p">(</span><span class="mf">40</span><span class="p">[</span><span class="s1">&#39;%&#39;</span><span class="p">])</span><span class="w">  </span><span class="c1">// ⇒ #e6e1d7d2</span><span class="w"></span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a><span class="nx">cc</span><span class="p">(</span><span class="nx">rgba</span><span class="p">(</span><span class="s1">&#39;#036&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">0.3</span><span class="p">)).</span><span class="nx">opacify</span><span class="p">(</span><span class="mf">70</span><span class="p">[</span><span class="s1">&#39;%&#39;</span><span class="p">])</span><span class="w">  </span><span class="c1">// ⇒ #003366</span><span class="w"></span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a><span class="nx">cc</span><span class="sb">`#808000ff`</span><span class="p">.</span><span class="nx">opacify</span><span class="p">()</span><span class="w">  </span><span class="c1">// ⇒ #c08000ff</span><span class="w"></span>
+</code></pre></div></p>
+<p><strong>See also:</strong> <a href="#adjust"><code>adjust</code></a>, <a href="../units/#or-percent" title="% (or percent)"><code>%</code></a>.</p>
+</dd>
+</dl>
+<h4 id="saturate"><code>saturate</code><a class="headerlink" href="#saturate" title="Permanent link">&para;</a></h4>
+<dl>
+<dd>
+<p><table class="type-alias">
+    <tr><td>Type:</td><td>(<code>amount = 0.25</code>: <a href="../../getting-started/basic-concepts/#normalized-real-interval-norm" title="Normalized real interval (norm)"><code>norm</code></a>) &rarr; <a href="../../getting-started/basic-concepts/#the-color-class-color" title="Color class from this library"><code>color</code></a></td></tr>
+</table></p>
+<p>Makes the color more saturated by specified <code>amount</code> (by increasing the <abbr title="hue, saturation, lightness">HSL</abbr> <em>saturation</em>).</p>
+<p><strong>Examples:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a><span class="c1">// Saturation 50% becomes 70%</span><span class="w"></span>
+<a id="__codelineno-38-2" name="__codelineno-38-2" href="#__codelineno-38-2"></a><span class="nx">cc</span><span class="sb">`#c69`</span><span class="p">.</span><span class="nx">saturate</span><span class="p">(</span><span class="mf">20</span><span class="w"> </span><span class="p">.</span><span class="nx">percent</span><span class="p">)</span><span class="w">  </span><span class="c1">// ⇒ #e05299</span><span class="w"></span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a><span class="c1">// Saturation 35% becomes 85%</span><span class="w"></span>
+<a id="__codelineno-39-2" name="__codelineno-39-2" href="#__codelineno-39-2"></a><span class="nx">cc</span><span class="sb">`#f2ece4`</span><span class="p">.</span><span class="nx">saturate</span><span class="p">(</span><span class="mf">50</span><span class="p">[</span><span class="s1">&#39;%&#39;</span><span class="p">])</span><span class="w">  </span><span class="c1">// ⇒ #fcedda</span><span class="w"></span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a><span class="c1">// Saturation 80% becomes 100%</span><span class="w"></span>
+<a id="__codelineno-40-2" name="__codelineno-40-2" href="#__codelineno-40-2"></a><span class="nx">cc</span><span class="sb">`#0e4982`</span><span class="p">.</span><span class="nx">saturate</span><span class="p">(</span><span class="mf">0.3</span><span class="p">)</span><span class="w">  </span><span class="c1">// ⇒ #004990</span><span class="w"></span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a><span class="c1">// Saturation 75% becomes 100%</span><span class="w"></span>
+<a id="__codelineno-41-2" name="__codelineno-41-2" href="#__codelineno-41-2"></a><span class="nx">cc</span><span class="sb">`#8020df`</span><span class="p">.</span><span class="nx">desaturate</span><span class="p">()</span><span class="w">  </span><span class="c1">// ⇒ #8000ff</span><span class="w"></span>
+</code></pre></div></p>
+<p><strong>See also:</strong> <a href="#adjust"><code>adjust</code></a>, <a href="../units/#or-percent" title="% (or percent)"><code>%</code></a>.</p>
+</dd>
+</dl>
+<h4 id="scale"><code>scale</code><a class="headerlink" href="#scale" title="Permanent link">&para;</a></h4>
+<dl>
+<dd>
+<p><table class="type-alias">
+    <tr><td>Type:</td><td>(<code>change</code>: <a href="../../getting-started/basic-concepts/#offset-object"><code>offset-object</code></a>) &rarr; <a href="../../getting-started/basic-concepts/#the-color-class-color" title="Color class from this library"><code>color</code></a></td></tr>
+</table></p>
+<p>Fluidly scales one or more properties of the color and returns a new adjusted instance of color.</p>
+<p>Each keyword argument indicates how far the corresponding property of the color should be moved from its original position towards the maximum (if the argument is positive) or the minimum (if the argument is negative). This means that, for example, <code class="highlight"><span class="p">{</span><span class="nx">hsl</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="nx">lightness</span><span class="o">:</span><span class="w"> </span><span class="o">+</span><span class="mf">50</span><span class="p">[</span><span class="s1">&#39;%&#39;</span><span class="p">]}}</span><span class="w"></span></code> will make a color 50% closer to maximum lightness without making it fully white.</p>
+<p>Restrictions (for more details see <a href="../../getting-started/basic-concepts/#offset-object"><code>offset-object</code></a>):</p>
+<ul>
+<li><code>alpha</code> keyword <strong>can be</strong> specified separately.</li>
+<li>Among <code>rgb</code>, <code>hsl</code>, <code>hsv</code>, and <code>hwb</code>, <strong>only one</strong> may be used at a time.</li>
+<li>All keyword arguments are of type <a href="../../getting-started/basic-concepts/#normalized-real-offset-interval-offset" title="Normalized real interval offset (offset)"><code>offset</code></a> and optional.</li>
+<li>Although it is possible to specify <code>hue</code> for <abbr title="hue, saturation, lightness">HSL</abbr>, <abbr title="hue, saturation, value (AKA brightness)">HSV</abbr>, or <abbr title="hue, whiteness, blackness">HWB</abbr> keyword arguments, it doesn't make much sense because the menthal model of such a change is vague <abbr title="In My Opinion">IMO</abbr>.</li>
+</ul>
+<p><strong>Examples:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-42-1" name="__codelineno-42-1" href="#__codelineno-42-1"></a><span class="nx">cc</span><span class="sb">`#6b717f`</span><span class="p">.</span><span class="nx">scale</span><span class="p">({</span><span class="nx">rgb</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="nx">red</span><span class="o">:</span><span class="w"> </span><span class="o">+</span><span class="mf">15</span><span class="w"> </span><span class="p">.</span><span class="nx">percent</span><span class="p">}})</span><span class="w">  </span><span class="c1">// ⇒ #81717f</span><span class="w"></span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-43-1" name="__codelineno-43-1" href="#__codelineno-43-1"></a><span class="nx">cc</span><span class="sb">`#d2e1dd`</span><span class="p">.</span><span class="nx">scale</span><span class="p">({</span><span class="w"></span>
+<a id="__codelineno-43-2" name="__codelineno-43-2" href="#__codelineno-43-2"></a><span class="w">    </span><span class="nx">hsl</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-43-3" name="__codelineno-43-3" href="#__codelineno-43-3"></a><span class="w">        </span><span class="nx">l</span><span class="o">:</span><span class="w"> </span><span class="o">-</span><span class="mf">10</span><span class="p">[</span><span class="s1">&#39;%&#39;</span><span class="p">],</span><span class="w"></span>
+<a id="__codelineno-43-4" name="__codelineno-43-4" href="#__codelineno-43-4"></a><span class="w">        </span><span class="nx">s</span><span class="o">:</span><span class="w"> </span><span class="o">+</span><span class="mf">10</span><span class="p">[</span><span class="s1">&#39;%&#39;</span><span class="p">]</span><span class="w"></span>
+<a id="__codelineno-43-5" name="__codelineno-43-5" href="#__codelineno-43-5"></a><span class="w">    </span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-43-6" name="__codelineno-43-6" href="#__codelineno-43-6"></a><span class="p">})</span><span class="w">  </span><span class="c1">// ⇒ #b3d4cb</span><span class="w"></span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-44-1" name="__codelineno-44-1" href="#__codelineno-44-1"></a><span class="nx">cc</span><span class="sb">`#998099`</span><span class="p">.</span><span class="nx">scale</span><span class="p">({</span><span class="nx">a</span><span class="o">:</span><span class="w"> </span><span class="o">-</span><span class="mf">40</span><span class="w"> </span><span class="p">.</span><span class="nx">percent</span><span class="p">})</span><span class="w">  </span><span class="c1">// ⇒ #99998099</span><span class="w"></span>
+</code></pre></div></p>
+<p><strong>See also:</strong> <a href="#adjust"><code>adjust</code></a>, <a href="#change"><code>change</code></a>, <a href="../units/#or-percent" title="% (or percent)"><code>%</code></a>, <a href="../units/#or-deg" title="° (or deg)"><code>°</code></a>.</p>
+</dd>
+</dl>
+<h4 id="transparentize"><code>transparentize</code><a class="headerlink" href="#transparentize" title="Permanent link">&para;</a></h4>
+<dl>
+<dd>
+<p><table class="type-alias">
+    <tr><td>Type:</td><td>(<code>amount = 0.25</code>: <a href="../../getting-started/basic-concepts/#normalized-real-interval-norm" title="Normalized real interval (norm)"><code>norm</code></a>) &rarr; <a href="../../getting-started/basic-concepts/#the-color-class-color" title="Color class from this library"><code>color</code></a></td></tr>
+    <tr><td>Alias:</td><td><code>fadeOut</code></td></tr>
+</table></p>
+<p>Makes the color less opaque by decreasing the alpha channel by <code>amount</code>.</p>
+<p><strong>Examples:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-45-1" name="__codelineno-45-1" href="#__codelineno-45-1"></a><span class="nx">cc</span><span class="sb">`#806b717f`</span><span class="p">.</span><span class="nx">transparentize</span><span class="p">(</span><span class="mf">20</span><span class="w"> </span><span class="p">.</span><span class="nx">percent</span><span class="p">)</span><span class="w">  </span><span class="c1">// ⇒ #4d6b717f</span><span class="w"></span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-46-1" name="__codelineno-46-1" href="#__codelineno-46-1"></a><span class="nx">cc</span><span class="p">(</span><span class="nx">rgba</span><span class="p">(</span><span class="s1">&#39;#e1d7d2&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">0.5</span><span class="p">)).</span><span class="nx">fadeOut</span><span class="p">(</span><span class="mf">40</span><span class="p">[</span><span class="s1">&#39;%&#39;</span><span class="p">])</span><span class="w">  </span><span class="c1">// ⇒ #1ae1d7d2</span><span class="w"></span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-47-1" name="__codelineno-47-1" href="#__codelineno-47-1"></a><span class="nx">cc</span><span class="p">(</span><span class="nx">rgba</span><span class="p">(</span><span class="s1">&#39;#036&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">0.3</span><span class="p">)).</span><span class="nx">transparentize</span><span class="p">(</span><span class="mf">0.3</span><span class="p">)</span><span class="w">  </span><span class="c1">// ⇒ #00003366</span><span class="w"></span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-48-1" name="__codelineno-48-1" href="#__codelineno-48-1"></a><span class="nx">cc</span><span class="sb">`#8000ff`</span><span class="p">.</span><span class="nx">transparentize</span><span class="p">()</span><span class="w">  </span><span class="c1">// ⇒ #bf8000ff</span><span class="w"></span>
+</code></pre></div></p>
+<p><strong>See also:</strong> <a href="#adjust"><code>adjust</code></a>, <a href="../units/#or-percent" title="% (or percent)"><code>%</code></a>.</p>
+</dd>
+</dl>
+<h2 id="properties">Properties<a class="headerlink" href="#properties" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th align="right">Category</th>
+<th>Properties (and aliases)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="right">Common</td>
+<td><a href="#alpha"><code>alpha</code></a> (or <a href="#alpha"><code>a</code></a>), <a href="#color"><code>color</code></a> (or <a href="#color"><code>qolor</code></a>), <a href="#rgb"><code>rgb</code></a>, <a href="#valid"><code>valid</code></a></td>
+</tr>
+<tr>
+<td align="right"><abbr title="red, green, blue">RGB</abbr></td>
+<td><a href="#red"><code>red</code></a>, <a href="#green"><code>green</code></a>, <a href="#blue"><code>blue</code></a> (or just <a href="#red"><code>r</code></a>, <a href="#green"><code>g</code></a>, <a href="#blue"><code>b</code></a>)</td>
+</tr>
+<tr>
+<td align="right"><abbr title="hue, saturation, lightness">HSL</abbr></td>
+<td><a href="#hue"><code>hue</code></a>, <a href="#saturation"><code>saturation</code></a>, <a href="#lightness"><code>lightness</code></a><br/>(or <a href="#hue"><code>hslHue</code></a>, <a href="#saturation"><code>hslSaturation</code></a>, <a href="#lightness"><code>hslLightness</code></a>)</td>
+</tr>
+<tr>
+<td align="right"><abbr title="hue, saturation, value (AKA brightness)">HSV</abbr></td>
+<td><a href="#hue"><code>hsvHue</code></a> (or just <a href="#hue"><code>hue</code></a>), <a href="#hsvsaturation"><code>hsvSaturation</code></a>, <a href="#hsvvalue"><code>hsvValue</code></a></td>
+</tr>
+<tr>
+<td align="right"><abbr title="hue, whiteness, blackness">HWB</abbr></td>
+<td><a href="#hue"><code>hue</code></a>, <a href="#whiteness"><code>whiteness</code></a>, <a href="#blackness"><code>blackness</code></a><br/>(or <a href="#hue"><code>hwbHue</code></a>, <a href="#whiteness"><code>hwbWhiteness</code></a>, <a href="#blackness"><code>hwbBlackness</code></a>)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="own">Own<a class="headerlink" href="#own" title="Permanent link">&para;</a></h3>
+<h4 id="alpha"><code>alpha</code><a class="headerlink" href="#alpha" title="Permanent link">&para;</a></h4>
+<dl>
+<dd>
+<p><table class="type-alias">
+    <tr><td style="text-align: right">Type:</td><td><a href="../../getting-started/basic-concepts/#normalized-real-interval-norm" title="Normalized real interval (norm)"><code>norm</code></a></td></tr>
+    <tr><td style="text-align: right">Alias:</td><td><a href="#a"><code>a</code></a></td></tr>
+</table></p>
+<p>Returns the <em>alpha</em> channel of the color.</p>
+</dd>
+</dl>
+<h4 id="blackness"><code>blackness</code><a class="headerlink" href="#blackness" title="Permanent link">&para;</a></h4>
+<dl>
+<dd>
+<p><table class="type-alias">
+    <tr><td style="text-align: right">Type:</td><td><a href="../../getting-started/basic-concepts/#normalized-real-interval-norm" title="Normalized real interval (norm)"><code>norm</code></a></td></tr>
+    <tr><td style="text-align: right">Alias:</td><td><code>hwbBlackness</code></td></tr>
+</table></p>
+<p>Returns the <a href="../../getting-started/basic-concepts/#hwb"><abbr title="hue, whiteness, blackness">HWB</abbr></a> <em>blackness</em> of the color.</p>
+<p><strong>See also:</strong> <a href="#hue"><code>hue</code></a>, <a href="#whiteness"><code>whiteness</code></a>.</p>
+</dd>
+</dl>
+<h4 id="blue"><code>blue</code><a class="headerlink" href="#blue" title="Permanent link">&para;</a></h4>
+<dl>
+<dd>
+<p><table class="type-alias">
+    <tr><td style="text-align: right">Type:</td><td><a href="../../getting-started/basic-concepts/#normalized-real-interval-norm" title="Normalized real interval (norm)"><code>norm</code></a></td></tr>
+    <tr><td style="text-align: right">Alias:</td><td><a href="#b"><code>b</code></a></td></tr>
+</table></p>
+<p>Returns the <a href="../../getting-started/basic-concepts/#rgb"><abbr title="red, green, blue">RGB</abbr></a> <em>blue</em> channel of the color.</p>
+<p><strong>See also:</strong> <a href="#green"><code>green</code></a>, <a href="#red"><code>red</code></a>.</p>
+</dd>
+</dl>
+<h4 class="readonly-prop" id="color"><code>color</code><a class="headerlink" href="#color" title="Permanent link">&para;</a></h4>
+<dl>
+<dd>
+<p><table class="type-alias">
+    <tr><td style="text-align: right">Type:</td><td><a href="../../getting-started/basic-concepts/#qt-color-qolor" title="Qt color"><code>qolor</code></a></td></tr>
+    <tr><td style="text-align: right">Alias:</td><td><code>qolor</code></td></tr>
+</table></p>
+<p>Returns the underlying <a href="../../getting-started/basic-concepts/#qt-color-qolor" title="Qt color">Qt Quick's <code>color</code></a>.</p>
+</dd>
+</dl>
+<h4 id="green"><code>green</code><a class="headerlink" href="#green" title="Permanent link">&para;</a></h4>
+<dl>
+<dd>
+<p><table class="type-alias">
+    <tr><td style="text-align: right">Type:</td><td><a href="../../getting-started/basic-concepts/#normalized-real-interval-norm" title="Normalized real interval (norm)"><code>norm</code></a></td></tr>
+    <tr><td style="text-align: right">Alias:</td><td><a href="#g"><code>g</code></a></td></tr>
+</table></p>
+<p>Returns the <a href="../../getting-started/basic-concepts/#rgb"><abbr title="red, green, blue">RGB</abbr></a> <em>green</em> channel of the color.</p>
+<p><strong>See also:</strong> <a href="#blue"><code>blue</code></a>, <a href="#red"><code>red</code></a>.</p>
+</dd>
+</dl>
+<h4 id="hue"><code>hue</code><a class="headerlink" href="#hue" title="Permanent link">&para;</a></h4>
+<dl>
+<dd>
+<p><table class="type-alias">
+    <tr><td style="text-align: right">Type:</td><td><a href="../../getting-started/basic-concepts/#normalized-real-interval-norm" title="Normalized real interval (norm)"><code>norm</code></a></td></tr>
+    <tr><td style="text-align: right">Alias:</td><td><a href="#hslhue"><code>hslHue</code></a>, <a href="#hsvhue"><code>hsvHue</code></a>, <code>hwbHue</code></td></tr>
+</table></p>
+<p>Returns the <a href="../../getting-started/basic-concepts/#hsl"><abbr title="hue, saturation, lightness">HSL</abbr></a>, <a href="../../getting-started/basic-concepts/#hsv"><abbr title="hue, saturation, value (AKA brightness)">HSV</abbr></a>, or <a href="../../getting-started/basic-concepts/#hwb"><abbr title="hue, whiteness, blackness">HWB</abbr></a> <em>hue</em> of the color.</p>
+<p><strong>See also:</strong></p>
+<ul>
+<li><abbr title="hue, saturation, lightness">HSL</abbr>: <a href="#lightness"><code>lightness</code></a>, <a href="#saturation"><code>saturation</code></a></li>
+<li><abbr title="hue, saturation, value (AKA brightness)">HSV</abbr>: <a href="#hsvsaturation"><code>hsvSaturation</code></a>, <a href="#hsvvalue"><code>hsvValue</code></a></li>
+<li><abbr title="hue, whiteness, blackness">HWB</abbr>: <a href="#blackness"><code>blackness</code></a>, <a href="#whiteness"><code>whiteness</code></a></li>
+</ul>
+</dd>
+</dl>
+<h4 id="lightness"><code>lightness</code><a class="headerlink" href="#lightness" title="Permanent link">&para;</a></h4>
+<dl>
+<dd>
+<p><table class="type-alias">
+    <tr><td style="text-align: right">Type:</td><td><a href="../../getting-started/basic-concepts/#normalized-real-interval-norm" title="Normalized real interval (norm)"><code>norm</code></a></td></tr>
+    <tr><td style="text-align: right">Alias:</td><td><a href="#hsllightness"><code>hslLightness</code></a></td></tr>
+</table></p>
+<p>Returns the <a href="../../getting-started/basic-concepts/#hsl"><abbr title="hue, saturation, lightness">HSL</abbr></a> <em>lightness</em> of the color.</p>
+<p><strong>See also:</strong> <a href="#hue"><code>hue</code></a>, <a href="#saturation"><code>saturation</code></a>.</p>
+</dd>
+</dl>
+<h4 id="red"><code>red</code><a class="headerlink" href="#red" title="Permanent link">&para;</a></h4>
+<dl>
+<dd>
+<p><table class="type-alias">
+    <tr><td style="text-align: right">Type:</td><td><a href="../../getting-started/basic-concepts/#normalized-real-interval-norm" title="Normalized real interval (norm)"><code>norm</code></a></td></tr>
+    <tr><td style="text-align: right">Alias:</td><td><a href="#r"><code>r</code></a></td></tr>
+</table></p>
+<p>Returns the <a href="../../getting-started/basic-concepts/#rgb"><abbr title="red, green, blue">RGB</abbr></a> <em>red</em> channel of the color.</p>
+<p><strong>See also:</strong> <a href="#blue"><code>blue</code></a>, <a href="#green"><code>green</code></a>.</p>
+</dd>
+</dl>
+<h4 class="readonly-prop" id="rgb"><code>rgb</code><a class="headerlink" href="#rgb" title="Permanent link">&para;</a></h4>
+<dl>
+<dd>
+<p><table class="type-alias">
+    <tr><td style="text-align: right">Type:</td><td><a href="../../getting-started/basic-concepts/#qt-color-qolor" title="Qt color"><code>qolor</code></a></td></tr>
+</table></p>
+<p>Returns the same color, but with <em>alpha</em> channel set to 100% (fully opaque).</p>
+<p><strong>See also:</strong> <a href="#alpha"><code>alpha</code></a>, <a href="#blue"><code>blue</code></a>, <a href="#green"><code>green</code></a>, <a href="#red"><code>red</code></a>.</p>
+</dd>
+</dl>
+<h4 id="saturation"><code>saturation</code><a class="headerlink" href="#saturation" title="Permanent link">&para;</a></h4>
+<dl>
+<dd>
+<p><table class="type-alias">
+    <tr><td style="text-align: right">Type:</td><td><a href="../../getting-started/basic-concepts/#normalized-real-interval-norm" title="Normalized real interval (norm)"><code>norm</code></a></td></tr>
+    <tr><td style="text-align: right">Alias:</td><td><a href="#hslsaturation"><code>hslSaturation</code></a></td></tr>
+</table></p>
+<p>Returns the <a href="../../getting-started/basic-concepts/#hsl"><abbr title="hue, saturation, lightness">HSL</abbr></a> <em>saturation</em> of the color.</p>
+<p>For <a href="../../getting-started/basic-concepts/#hsv"><abbr title="hue, saturation, value (AKA brightness)">HSV</abbr></a> <em>saturation</em>, <strong>see</strong> <a href="#hsvsaturation"><code>hsvSaturation</code></a>.</p>
+<p><strong>See also:</strong> <a href="#hue"><code>hue</code></a>, <a href="#lightness"><code>lightness</code></a>.</p>
+</dd>
+</dl>
+<h4 id="whiteness"><code>whiteness</code><a class="headerlink" href="#whiteness" title="Permanent link">&para;</a></h4>
+<dl>
+<dd>
+<p><table class="type-alias">
+    <tr><td style="text-align: right">Type:</td><td><a href="../../getting-started/basic-concepts/#normalized-real-interval-norm" title="Normalized real interval (norm)"><code>norm</code></a></td></tr>
+    <tr><td style="text-align: right">Alias:</td><td><code>hwbWhiteness</code></td></tr>
+</table></p>
+<p>Returns the <a href="../../getting-started/basic-concepts/#hwb"><abbr title="hue, whiteness, blackness">HWB</abbr></a> <em>whiteness</em> of the color.</p>
+<p><strong>See also:</strong> <a href="#blackness"><code>blackness</code></a>, <a href="#hue"><code>hue</code></a>.</p>
+</dd>
+</dl>
+<h3 id="inherited-from-qt-quicks-color">Inherited from Qt Quick's <code>color</code><a class="headerlink" href="#inherited-from-qt-quicks-color" title="Permanent link">&para;</a></h3>
+<h4 id="a"><code>a</code><a class="headerlink" href="#a" title="Permanent link">&para;</a></h4>
+<dl>
+<dd>Same as <a href="#alpha"><code>alpha</code></a>.</dd>
+</dl>
+<h4 id="b"><code>b</code><a class="headerlink" href="#b" title="Permanent link">&para;</a></h4>
+<dl>
+<dd>Same as <a href="#blue"><code>blue</code></a>.</dd>
+</dl>
+<h4 id="g"><code>g</code><a class="headerlink" href="#g" title="Permanent link">&para;</a></h4>
+<dl>
+<dd>Same as <a href="#green"><code>green</code></a>.</dd>
+</dl>
+<h4 id="hslhue"><code>hslHue</code><a class="headerlink" href="#hslhue" title="Permanent link">&para;</a></h4>
+<dl>
+<dd>Same as <a href="#hue"><code>hue</code></a>.</dd>
+</dl>
+<h4 id="hsllightness"><code>hslLightness</code><a class="headerlink" href="#hsllightness" title="Permanent link">&para;</a></h4>
+<dl>
+<dd>Same as <a href="#lightness"><code>lightness</code></a>.</dd>
+</dl>
+<h4 id="hslsaturation"><code>hslSaturation</code><a class="headerlink" href="#hslsaturation" title="Permanent link">&para;</a></h4>
+<dl>
+<dd>Same as <a href="#saturation"><code>saturation</code></a>.</dd>
+</dl>
+<h4 id="hsvhue"><code>hsvHue</code><a class="headerlink" href="#hsvhue" title="Permanent link">&para;</a></h4>
+<dl>
+<dd>Same as <a href="#hue"><code>hue</code></a>.</dd>
+</dl>
+<h4 id="hsvsaturation"><code>hsvSaturation</code><a class="headerlink" href="#hsvsaturation" title="Permanent link">&para;</a></h4>
+<dl>
+<dd>
+<p><table class="type-alias">
+    <tr><td style="text-align: right">Type:</td><td><a href="../../getting-started/basic-concepts/#normalized-real-interval-norm" title="Normalized real interval (norm)"><code>norm</code></a></td></tr>
+</table></p>
+<p>Returns the <a href="../../getting-started/basic-concepts/#hsv"><abbr title="hue, saturation, value (AKA brightness)">HSV</abbr></a> <em>saturation</em> of the color.</p>
+<p>For <a href="../../getting-started/basic-concepts/#hsl"><abbr title="hue, saturation, lightness">HSL</abbr></a> <em>saturation</em>, <strong>see</strong> <a href="#saturation"><code>saturation</code></a>.</p>
+<p><strong>See also:</strong> <a href="#hue"><code>hsvHue</code></a>, <a href="#hsvvalue"><code>hsvValue</code></a>.</p>
+</dd>
+</dl>
+<h4 id="hsvvalue"><code>hsvValue</code><a class="headerlink" href="#hsvvalue" title="Permanent link">&para;</a></h4>
+<dl>
+<dd>
+<p><table class="type-alias">
+    <tr><td style="text-align: right">Type:</td><td><a href="../../getting-started/basic-concepts/#normalized-real-interval-norm" title="Normalized real interval (norm)"><code>norm</code></a></td></tr>
+</table></p>
+<p>Returns the <a href="../../getting-started/basic-concepts/#hsv"><abbr title="hue, saturation, value (AKA brightness)">HSV</abbr></a> <em>value</em> of the color.</p>
+<p><strong>See also:</strong> <a href="#hue"><code>hsvHue</code></a>, <a href="#hsvsaturation"><code>hsvSaturation</code></a>.</p>
+</dd>
+</dl>
+<h4 id="r"><code>r</code><a class="headerlink" href="#r" title="Permanent link">&para;</a></h4>
+<dl>
+<dd>Same as <a href="#red"><code>red</code></a>.</dd>
+</dl>
+<h4 class="readonly-prop" id="valid"><code>valid</code><a class="headerlink" href="#valid" title="Permanent link">&para;</a></h4>
+<dl>
+<dd>
+<p><table class="type-alias">
+    <tr><td style="text-align: right">Type:</td><td><code>boolean</code></td></tr>
+</table></p>
+<p>Returns <code>true</code> if the color is valid and <code>false</code> otherwise. The only two ways of getting invalid colors in QML I found are:</p>
+<ol>
+<li>Passing an invalid (for example, default-constructed <code>QColor</code> from C++.</li>
+<li>Defining an uninitialized <code>color</code> property:
+    <div class="highlight"><pre><span></span><code><a id="__codelineno-49-1" name="__codelineno-49-1" href="#__codelineno-49-1"></a><span class="nx">Item</span> <span class="p">{</span>
+<a id="__codelineno-49-2" name="__codelineno-49-2" href="#__codelineno-49-2"></a>    <span class="nx">property</span> <span class="nx">color</span> <span class="nx">myColor</span>
+<a id="__codelineno-49-3" name="__codelineno-49-3" href="#__codelineno-49-3"></a>    <span class="k">Component.onCompleted:</span> <span class="p">{</span>
+<a id="__codelineno-49-4" name="__codelineno-49-4" href="#__codelineno-49-4"></a>        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">myColor</span><span class="p">.</span><span class="nx">valid</span><span class="p">)</span>  <span class="c1">// ⇒ false</span>
+<a id="__codelineno-49-5" name="__codelineno-49-5" href="#__codelineno-49-5"></a>    <span class="p">}</span>
+<a id="__codelineno-49-6" name="__codelineno-49-6" href="#__codelineno-49-6"></a><span class="p">}</span>
+</code></pre></div></li>
+</ol>
+</dd>
+</dl>
+
+              
+            </article>
+            
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+          </div>
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            Back to top
+          </a>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      
+        
+        <a href="../qolor/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Qt Quick&#39;s color" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Qt Quick's color
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../functions/" class="md-footer__link md-footer__link--next" aria-label="Next: Functions" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Functions
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.tabs.link", "navigation.indexes", "navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.top"], "search": "../../assets/javascripts/workers/search.b97dbffb.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.6c7ad80a.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

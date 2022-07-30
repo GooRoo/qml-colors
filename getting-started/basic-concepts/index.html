@@ -1,0 +1,2322 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../../assets/qml-colors-logo_32.png">
+      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.3.9">
+    
+    
+      
+        <title>Basic concepts - qml-colors</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.1d29e8d0.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.cbb835fc.min.css">
+        
+      
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="" data-md-color-accent="orange">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#basic-concepts" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="qml-colors" class="md-header__button md-logo" aria-label="qml-colors" data-md-component="logo">
+      
+  <img src="../../assets/qml-colors-logo_64.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            qml-colors
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Basic concepts
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="" data-md-color-accent="orange"  aria-label="Light mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Light mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5c-.84 0-1.65.15-2.39.42L12 2M3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29L3.34 7m.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14L3.36 17M20.65 7l-1.77 3.79a7.023 7.023 0 0 0-2.38-4.15l4.15.36m-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29L20.64 17M12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44L12 22Z"/></svg>
+            </label>
+          
+        
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent="orange"  aria-label="Dark mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Dark mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3 3.19.09m3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95 2.06.05m-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31Z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/GooRoo/qml-colors" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GooRoo/qml-colors
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../.." class="md-tabs__link">
+      Home
+    </a>
+  </li>
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../why/" class="md-tabs__link md-tabs__link--active">
+        Getting Started
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../reference/" class="md-tabs__link">
+        Reference
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../development/" class="md-tabs__link">
+      Development
+    </a>
+  </li>
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="qml-colors" class="md-nav__button md-logo" aria-label="qml-colors" data-md-component="logo">
+      
+  <img src="../../assets/qml-colors-logo_64.png" alt="logo">
+
+    </a>
+    qml-colors
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/GooRoo/qml-colors" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GooRoo/qml-colors
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Getting Started
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Getting Started" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Getting Started
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../why/" class="md-nav__link">
+        Why?
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../installation/" class="md-nav__link">
+        Installation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Basic concepts
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Basic concepts
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#color-models" class="md-nav__link">
+    Color models
+  </a>
+  
+    <nav class="md-nav" aria-label="Color models">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rgb" class="md-nav__link">
+    RGB
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hsl" class="md-nav__link">
+    HSL
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hsv" class="md-nav__link">
+    HSV
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hwb" class="md-nav__link">
+    HWB
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#types" class="md-nav__link">
+    Types
+  </a>
+  
+    <nav class="md-nav" aria-label="Types">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#color-types" class="md-nav__link">
+    Color types
+  </a>
+  
+    <nav class="md-nav" aria-label="Color types">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#color-name" class="md-nav__link">
+    color-name
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#color-literal" class="md-nav__link">
+    color-literal
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#qt-color-qolor" class="md-nav__link">
+    Qt color (qolor)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-color-class-color" class="md-nav__link">
+    The Color class (color)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#any-type-of-color-any-color" class="md-nav__link">
+    Any type of color (any-color)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#auxiliary-types" class="md-nav__link">
+    Auxiliary types
+  </a>
+  
+    <nav class="md-nav" aria-label="Auxiliary types">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#change-object" class="md-nav__link">
+    change-object
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#offset-object" class="md-nav__link">
+    offset-object
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#value-ranges" class="md-nav__link">
+    Value ranges
+  </a>
+  
+    <nav class="md-nav" aria-label="Value ranges">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#normalized-real-interval-norm" class="md-nav__link">
+    Normalized real interval (norm)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#normalized-real-offset-interval-offset" class="md-nav__link">
+    Normalized real offset interval (offset)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#integer-interval-8bit" class="md-nav__link">
+    Integer interval (8bit)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#integer-offset-interval-9bit" class="md-nav__link">
+    Integer offset interval (9bit)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../qolor-vs-color/" class="md-nav__link">
+        qolor vs color
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../reference/">Reference</a>
+          
+            <label for="__nav_3">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Reference" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Reference
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/color-names/" class="md-nav__link">
+        Color names
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/units/" class="md-nav__link">
+        Units
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/tagged-literals/" class="md-nav__link">
+        Tagged literals
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/qolor/" class="md-nav__link">
+        Qt Quick's color
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/color/" class="md-nav__link">
+        The Color class
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/functions/" class="md-nav__link">
+        Functions
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/" class="md-nav__link">
+        Development
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#color-models" class="md-nav__link">
+    Color models
+  </a>
+  
+    <nav class="md-nav" aria-label="Color models">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rgb" class="md-nav__link">
+    RGB
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hsl" class="md-nav__link">
+    HSL
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hsv" class="md-nav__link">
+    HSV
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hwb" class="md-nav__link">
+    HWB
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#types" class="md-nav__link">
+    Types
+  </a>
+  
+    <nav class="md-nav" aria-label="Types">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#color-types" class="md-nav__link">
+    Color types
+  </a>
+  
+    <nav class="md-nav" aria-label="Color types">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#color-name" class="md-nav__link">
+    color-name
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#color-literal" class="md-nav__link">
+    color-literal
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#qt-color-qolor" class="md-nav__link">
+    Qt color (qolor)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-color-class-color" class="md-nav__link">
+    The Color class (color)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#any-type-of-color-any-color" class="md-nav__link">
+    Any type of color (any-color)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#auxiliary-types" class="md-nav__link">
+    Auxiliary types
+  </a>
+  
+    <nav class="md-nav" aria-label="Auxiliary types">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#change-object" class="md-nav__link">
+    change-object
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#offset-object" class="md-nav__link">
+    offset-object
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#value-ranges" class="md-nav__link">
+    Value ranges
+  </a>
+  
+    <nav class="md-nav" aria-label="Value ranges">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#normalized-real-interval-norm" class="md-nav__link">
+    Normalized real interval (norm)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#normalized-real-offset-interval-offset" class="md-nav__link">
+    Normalized real offset interval (offset)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#integer-interval-8bit" class="md-nav__link">
+    Integer interval (8bit)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#integer-offset-interval-9bit" class="md-nav__link">
+    Integer offset interval (9bit)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+
+
+<h1 id="basic-concepts">Basic concepts<a class="headerlink" href="#basic-concepts" title="Permanent link">&para;</a></h1>
+<p>Before I start explaining to you how to use the library, we need to agree on certain terminology.</p>
+<h2 id="color-models">Color models<a class="headerlink" href="#color-models" title="Permanent link">&para;</a></h2>
+<p>This library supports several color models described below.</p>
+<div class="admonition info">
+<p class="admonition-title">Alpha-channel</p>
+<p>Each model may contain an additional optional alpha-channel that represents transparency (or, to be more precise, opacity). If so, the model's name contains the A letter as you'll see below.</p>
+</div>
+<h3 id="rgb"><abbr title="red, green, blue">RGB</abbr><a class="headerlink" href="#rgb" title="Permanent link">&para;</a></h3>
+<p>Represents a color as a combination of <em><strong>R</strong>ed, <strong>G</strong>reen,</em> and <em><strong>B</strong>lue</em> components.</p>
+<p>More details <a href="https://en.wikipedia.org/wiki/RGB_color_model">on Wikipedia</a>.</p>
+<p>Variants: <abbr title="red, green, blue">RGB</abbr>, <abbr title="alpha, red, green, blue">ARGB</abbr>, <abbr title="red, green, blue, alpha">RGBA</abbr>.</p>
+<h3 id="hsl"><abbr title="hue, saturation, lightness">HSL</abbr><a class="headerlink" href="#hsl" title="Permanent link">&para;</a></h3>
+<p>It's an alternative representation of a color in <a href="#rgb"><abbr title="red, green, blue">RGB</abbr> color model</a> that uses a combination of:</p>
+<ul>
+<li><em><strong>H</strong>ue</em> <span class="arithmatex">\(\in [0°, 360°]\)</span></li>
+<li><em><strong>S</strong>aturation</em> <span class="arithmatex">\(\in [0\%, 100\%]\)</span></li>
+<li><em><strong>L</strong>ightness</em> <span class="arithmatex">\(\in [0\%, 100\%]\)</span></li>
+</ul>
+<p>More details <a href="https://en.wikipedia.org/wiki/HSL_and_HSV">on Wikipedia</a>.</p>
+<p>Variants: <abbr title="hue, saturation, lightness">HSL</abbr>, <abbr title="hue, saturation, lightness, alpha">HSLA</abbr>.</p>
+<h3 id="hsv"><abbr title="hue, saturation, value (AKA brightness)">HSV</abbr><a class="headerlink" href="#hsv" title="Permanent link">&para;</a></h3>
+<p>It's an alternative representation of a color in <a href="#rgb"><abbr title="red, green, blue">RGB</abbr> color model</a> that uses a combination of:</p>
+<ul>
+<li><em><strong>H</strong>ue</em> <span class="arithmatex">\(\in [0°, 360°]\)</span></li>
+<li><em><strong>S</strong>aturation</em> <span class="arithmatex">\(\in [0\%, 100\%]\)</span></li>
+<li><em><strong>V</strong>alue</em> <span class="arithmatex">\(\in [0\%, 100\%]\)</span> (<abbr title="Also Known As">AKA</abbr> brightness)</li>
+</ul>
+<p>More details <a href="https://en.wikipedia.org/wiki/HSL_and_HSV">on Wikipedia</a>.</p>
+<p>Variants: <abbr title="hue, saturation, value (AKA brightness)">HSV</abbr>, <abbr title="hue, saturation, value (AKA brightness), alpha">HSVA</abbr>.</p>
+<h3 id="hwb"><abbr title="hue, whiteness, blackness">HWB</abbr><a class="headerlink" href="#hwb" title="Permanent link">&para;</a></h3>
+<p>It's an alternative representation of a color in <a href="#rgb"><abbr title="red, green, blue">RGB</abbr> color model</a> that uses a combination of:</p>
+<ul>
+<li><em><strong>H</strong>ue</em> <span class="arithmatex">\(\in [0°, 360°]\)</span></li>
+<li><em><strong>W</strong>hiteness</em> <span class="arithmatex">\(\in [0\%, 100\%]\)</span></li>
+<li><em><strong>B</strong>lackness</em> <span class="arithmatex">\(\in [0\%, 100\%]\)</span></li>
+</ul>
+<p>More details <a href="https://en.wikipedia.org/wiki/HWB_color_model">on Wikipedia</a>.</p>
+<p>Variants: <abbr title="hue, whiteness, blackness">HWB</abbr>, <abbr title="hue, whiteness, blackness, alpha">HWBA</abbr>.</p>
+<h2 id="types">Types<a class="headerlink" href="#types" title="Permanent link">&para;</a></h2>
+<h3 id="color-types">Color types<a class="headerlink" href="#color-types" title="Permanent link">&para;</a></h3>
+<h4 id="color-name"><code>color-name</code><a class="headerlink" href="#color-name" title="Permanent link">&para;</a></h4>
+<dl>
+<dd>
+<p>It's a <code>string</code> that contains one of the <a href="https://www.w3.org/TR/css-color-3/#svg-color">extended color keywords</a> from CSS.</p>
+<details class="example">
+<summary>List of all names</summary>
+<p><table>
+    <tr>
+        <th class="color-name">Name</th>
+        <th class="color-color">Color</th>
+        <th class="color-hex">HEX</th>
+    </tr>
+    <tr>
+        <td class="color-name">aliceblue</td>
+        <td class="color-color">
+            <div class="color-cell" style="background:aliceblue"></div>
+        </td>
+        <td class="color-hex"><code>#f0f8ff</code></td>
+    </tr>
+    <tr>
+        <td class="color-name">antiquewhite</td>
+        <td class="color-color">
+            <div class="color-cell" style="background:antiquewhite"></div>
+        </td>
+        <td class="color-hex"><code>#faebd7</code></td>
+    </tr>
+    <tr>
+        <td class="color-name">aqua</td>
+        <td class="color-color">
+            <div class="color-cell" style="background:aqua"></div>
+        </td>
+        <td class="color-hex"><code>#00ffff</code></td>
+    </tr>
+    <tr>
+        <td class="color-name">aquamarine</td>
+        <td class="color-color">
+            <div class="color-cell" style="background:aquamarine"></div>
+        </td>
+        <td class="color-hex"><code>#7fffd4</code></td>
+    </tr>
+    <tr>
+        <td class="color-name">azure</td>
+        <td class="color-color">
+            <div class="color-cell" style="background:azure"></div>
+        </td>
+        <td class="color-hex"><code>#f0ffff</code></td>
+    </tr>
+    <tr>
+        <td class="color-name">beige</td>
+        <td class="color-color">
+            <div class="color-cell" style="background:beige"></div>
+        </td>
+        <td class="color-hex"><code>#f5f5dc</code></td>
+    </tr>
+    <tr>
+        <td class="color-name">bisque</td>
+        <td class="color-color">
+            <div class="color-cell" style="background:bisque"></div>
+        </td>
+        <td class="color-hex"><code>#ffe4c4</code></td>
+    </tr>
+    <tr>
+        <td class="color-name">black</td>
+        <td class="color-color">
+            <div class="color-cell" style="background:black"></div>
+        </td>
+        <td class="color-hex"><code>#000000</code></td>
+    </tr>
+    <tr>
+        <td class="color-name">blanchedalmond</td>
+        <td class="color-color">
+            <div class="color-cell" style="background:blanchedalmond"></div>
+        </td>
+        <td class="color-hex"><code>#ffebcd</code></td>
+    </tr>
+    <tr>
+        <td class="color-name">blue</td>
+        <td class="color-color">
+            <div class="color-cell" style="background:blue"></div>
+        </td>
+        <td class="color-hex"><code>#0000ff</code></td>
+    </tr>
+    <tr>
+        <td class="color-name">blueviolet</td>
+        <td class="color-color">
+            <div class="color-cell" style="background:blueviolet"></div>
+        </td>
+        <td class="color-hex"><code>#8a2be2</code></td>
+    </tr>
+    <tr>
+        <td class="color-name">brown</td>
+        <td class="color-color">
+            <div class="color-cell" style="background:brown"></div>
+        </td>
+        <td class="color-hex"><code>#a52a2a</code></td>
+    </tr>
+    <tr>
+        <td class="color-name">burlywood</td>
+        <td class="color-color">
+            <div class="color-cell" style="background:burlywood"></div>
+        </td>
+        <td class="color-hex"><code>#deb887</code></td>
+    </tr>
+    <tr>
+        <td class="color-name">cadetblue</td>
+        <td class="color-color">
+            <div class="color-cell" style="background:cadetblue"></div>
+        </td>
+        <td class="color-hex"><code>#5f9ea0</code></td>
+    </tr>
+    <tr>
+        <td class="color-name">chartreuse</td>
+        <td class="color-color">
+            <div class="color-cell" style="background:chartreuse"></div>
+        </td>
+        <td class="color-hex"><code>#7fff00</code></td>
+    </tr>
+    <tr>
+        <td class="color-name">chocolate</td>
+        <td class="color-color">
+            <div class="color-cell" style="background:chocolate"></div>
+        </td>
+        <td class="color-hex"><code>#d2691e</code></td>
+    </tr>
+    <tr>
+        <td class="color-name">coral</td>
+        <td class="color-color">
+            <div class="color-cell" style="background:coral"></div>
+        </td>
+        <td class="color-hex"><code>#ff7f50</code></td>
+    </tr>
+    <tr>
+        <td class="color-name">cornflowerblue</td>
+        <td class="color-color">
+            <div class="color-cell" style="background:cornflowerblue"></div>
+        </td>
+        <td class="color-hex"><code>#6495ed</code></td>
+    </tr>
+    <tr>
+        <td class="color-name">cornsilk</td>
+        <td class="color-color">
+            <div class="color-cell" style="background:cornsilk"></div>
+        </td>
+        <td class="color-hex"><code>#fff8dc</code></td>
+    </tr>
+    <tr>
+        <td class="color-name">crimson</td>
+        <td class="color-color">
+            <div class="color-cell" style="background:crimson"></div>
+        </td>
+        <td class="color-hex"><code>#dc143c</code></td>
+    </tr>
+    <tr>
+        <td class="color-name">cyan</td>
+        <td class="color-color">
+            <div class="color-cell" style="background:cyan"></div>
+        </td>
+        <td class="color-hex"><code>#00ffff</code></td>
+    </tr>
+    <tr>
+        <td class="color-name">darkblue</td>
+        <td class="color-color">
+            <div class="color-cell" style="background:darkblue"></div>
+        </td>
+        <td class="color-hex"><code>#00008b</code></td>
+    </tr>
+    <tr>
+        <td class="color-name">darkcyan</td>
+        <td class="color-color">
+            <div class="color-cell" style="background:darkcyan"></div>
+        </td>
+        <td class="color-hex"><code>#008b8b</code></td>
+    </tr>
+    <tr>
+        <td class="color-name">darkgoldenrod</td>
+        <td class="color-color">
+            <div class="color-cell" style="background:darkgoldenrod"></div>
+        </td>
+        <td class="color-hex"><code>#b8860b</code></td>
+    </tr>
+    <tr>
+        <td class="color-name">darkgray</td>
+        <td class="color-color">
+            <div class="color-cell" style="background:darkgray"></div>
+        </td>
+        <td class="color-hex"><code>#a9a9a9</code></td>
+    </tr>
+    <tr>
+        <td class="color-name">darkgreen</td>
+        <td class="color-color">
+            <div class="color-cell" style="background:darkgreen"></div>
+        </td>
+        <td class="color-hex"><code>#006400</code></td>
+    </tr>
+    <tr>
+        <td class="color-name">darkgrey</td>
+        <td class="color-color">
+            <div class="color-cell" style="background:darkgrey"></div>
+        </td>
+        <td class="color-hex"><code>#a9a9a9</code></td>
+    </tr>
+    <tr>
+        <td class="color-name">darkkhaki</td>
+        <td class="color-color">
+            <div class="color-cell" style="background:darkkhaki"></div>
+        </td>
+        <td class="color-hex"><code>#bdb76b</code></td>
+    </tr>
+    <tr>
+        <td class="color-name">darkmagenta</td>
+        <td class="color-color">
+            <div class="color-cell" style="background:darkmagenta"></div>
+        </td>
+        <td class="color-hex"><code>#8b008b</code></td>
+    </tr>
+    <tr>
+        <td class="color-name">darkolivegreen</td>
+        <td class="color-color">
+            <div class="color-cell" style="background:darkolivegreen"></div>
+        </td>
+        <td class="color-hex"><code>#556b2f</code></td>
+    </tr>
+    <tr>
+        <td class="color-name">darkorange</td>
+        <td class="color-color">
+            <div class="color-cell" style="background:darkorange"></div>
+        </td>
+        <td class="color-hex"><code>#ff8c00</code></td>
+    </tr>
+    <tr>
+        <td class="color-name">darkorchid</td>
+        <td class="color-color">
+            <div class="color-cell" style="background:darkorchid"></div>
+        </td>
+        <td class="color-hex"><code>#9932cc</code></td>
+    </tr>
+    <tr>
+        <td class="color-name">darkred</td>
+        <td class="color-color">
+            <div class="color-cell" style="background:darkred"></div>
+        </td>
+        <td class="color-hex"><code>#8b0000</code></td>
+    </tr>
+    <tr>
+        <td class="color-name">darksalmon</td>
+        <td class="color-color">
+            <div class="color-cell" style="background:darksalmon"></div>
+        </td>
+        <td class="color-hex"><code>#e9967a</code></td>
+    </tr>
+    <tr>
+        <td class="color-name">darkseagreen</td>
+        <td class="color-color">
+            <div class="color-cell" style="background:darkseagreen"></div>
+        </td>
+        <td class="color-hex"><code>#8fbc8f</code></td>
+    </tr>
+    <tr>
+        <td class="color-name">darkslateblue</td>
+        <td class="color-color">
+            <div class="color-cell" style="background:darkslateblue"></div>
+        </td>
+        <td class="color-hex"><code>#483d8b</code></td>
+    </tr>
+    <tr>
+        <td class="color-name">darkslategray</td>
+        <td class="color-color">
+            <div class="color-cell" style="background:darkslategray"></div>
+        </td>
+        <td class="color-hex"><code>#2f4f4f</code></td>
+    </tr>
+    <tr>
+        <td class="color-name">darkslategrey</td>
+        <td class="color-color">
+            <div class="color-cell" style="background:darkslategrey"></div>
+        </td>
+        <td class="color-hex"><code>#2f4f4f</code></td>
+    </tr>
+    <tr>
+        <td class="color-name">darkturquoise</td>
+        <td class="color-color">
+            <div class="color-cell" style="background:darkturquoise"></div>
+        </td>
+        <td class="color-hex"><code>#00ced1</code></td>
+    </tr>
+    <tr>
+        <td class="color-name">darkviolet</td>
+        <td class="color-color">
+            <div class="color-cell" style="background:darkviolet"></div>
+        </td>
+        <td class="color-hex"><code>#9400d3</code></td>
+    </tr>
+    <tr>
+        <td class="color-name">deeppink</td>
+        <td class="color-color">
+            <div class="color-cell" style="background:deeppink"></div>
+        </td>
+        <td class="color-hex"><code>#ff1493</code></td>
+    </tr>
+    <tr>
+        <td class="color-name">deepskyblue</td>
+        <td class="color-color">
+            <div class="color-cell" style="background:deepskyblue"></div>
+        </td>
+        <td class="color-hex"><code>#00bfff</code></td>
+    </tr>
+    <tr>
+        <td class="color-name">dimgray</td>
+        <td class="color-color">
+            <div class="color-cell" style="background:dimgray"></div>
+        </td>
+        <td class="color-hex"><code>#696969</code></td>
+    </tr>
+    <tr>
+        <td class="color-name">dimgrey</td>
+        <td class="color-color">
+            <div class="color-cell" style="background:dimgrey"></div>
+        </td>
+        <td class="color-hex"><code>#696969</code></td>
+    </tr>
+    <tr>
+        <td class="color-name">dodgerblue</td>
+        <td class="color-color">
+            <div class="color-cell" style="background:dodgerblue"></div>
+        </td>
+        <td class="color-hex"><code>#1e90ff</code></td>
+    </tr>
+    <tr>
+        <td class="color-name">firebrick</td>
+        <td class="color-color">
+            <div class="color-cell" style="background:firebrick"></div>
+        </td>
+        <td class="color-hex"><code>#b22222</code></td>
+    </tr>
+    <tr>
+        <td class="color-name">floralwhite</td>
+        <td class="color-color">
+            <div class="color-cell" style="background:floralwhite"></div>
+        </td>
+        <td class="color-hex"><code>#fffaf0</code></td>
+    </tr>
+    <tr>
+        <td class="color-name">forestgreen</td>
+        <td class="color-color">
+            <div class="color-cell" style="background:forestgreen"></div>
+        </td>
+        <td class="color-hex"><code>#228b22</code></td>
+    </tr>
+    <tr>
+        <td class="color-name">fuchsia</td>
+        <td class="color-color">
+            <div class="color-cell" style="background:fuchsia"></div>
+        </td>
+        <td class="color-hex"><code>#ff00ff</code></td>
+    </tr>
+    <tr>
+        <td class="color-name">gainsboro</td>
+        <td class="color-color">
+            <div class="color-cell" style="background:gainsboro"></div>
+        </td>
+        <td class="color-hex"><code>#dcdcdc</code></td>
+    </tr>
+    <tr>
+        <td class="color-name">ghostwhite</td>
+        <td class="color-color">
+            <div class="color-cell" style="background:ghostwhite"></div>
+        </td>
+        <td class="color-hex"><code>#f8f8ff</code></td>
+    </tr>
+    <tr>
+        <td class="color-name">gold</td>
+        <td class="color-color">
+            <div class="color-cell" style="background:gold"></div>
+        </td>
+        <td class="color-hex"><code>#ffd700</code></td>
+    </tr>
+    <tr>
+        <td class="color-name">goldenrod</td>
+        <td class="color-color">
+            <div class="color-cell" style="background:goldenrod"></div>
+        </td>
+        <td class="color-hex"><code>#daa520</code></td>
+    </tr>
+    <tr>
+        <td class="color-name">gray</td>
+        <td class="color-color">
+            <div class="color-cell" style="background:gray"></div>
+        </td>
+        <td class="color-hex"><code>#808080</code></td>
+    </tr>
+    <tr>
+        <td class="color-name">green</td>
+        <td class="color-color">
+            <div class="color-cell" style="background:green"></div>
+        </td>
+        <td class="color-hex"><code>#008000</code></td>
+    </tr>
+    <tr>
+        <td class="color-name">greenyellow</td>
+        <td class="color-color">
+            <div class="color-cell" style="background:greenyellow"></div>
+        </td>
+        <td class="color-hex"><code>#adff2f</code></td>
+    </tr>
+    <tr>
+        <td class="color-name">grey</td>
+        <td class="color-color">
+            <div class="color-cell" style="background:grey"></div>
+        </td>
+        <td class="color-hex"><code>#808080</code></td>
+    </tr>
+    <tr>
+        <td class="color-name">honeydew</td>
+        <td class="color-color">
+            <div class="color-cell" style="background:honeydew"></div>
+        </td>
+        <td class="color-hex"><code>#f0fff0</code></td>
+    </tr>
+    <tr>
+        <td class="color-name">hotpink</td>
+        <td class="color-color">
+            <div class="color-cell" style="background:hotpink"></div>
+        </td>
+        <td class="color-hex"><code>#ff69b4</code></td>
+    </tr>
+    <tr>
+        <td class="color-name">indianred</td>
+        <td class="color-color">
+            <div class="color-cell" style="background:indianred"></div>
+        </td>
+        <td class="color-hex"><code>#cd5c5c</code></td>
+    </tr>
+    <tr>
+        <td class="color-name">indigo</td>
+        <td class="color-color">
+            <div class="color-cell" style="background:indigo"></div>
+        </td>
+        <td class="color-hex"><code>#4b0082</code></td>
+    </tr>
+    <tr>
+        <td class="color-name">ivory</td>
+        <td class="color-color">
+            <div class="color-cell" style="background:ivory"></div>
+        </td>
+        <td class="color-hex"><code>#fffff0</code></td>
+    </tr>
+    <tr>
+        <td class="color-name">khaki</td>
+        <td class="color-color">
+            <div class="color-cell" style="background:khaki"></div>
+        </td>
+        <td class="color-hex"><code>#f0e68c</code></td>
+    </tr>
+    <tr>
+        <td class="color-name">lavender</td>
+        <td class="color-color">
+            <div class="color-cell" style="background:lavender"></div>
+        </td>
+        <td class="color-hex"><code>#e6e6fa</code></td>
+    </tr>
+    <tr>
+        <td class="color-name">lavenderblush</td>
+        <td class="color-color">
+            <div class="color-cell" style="background:lavenderblush"></div>
+        </td>
+        <td class="color-hex"><code>#fff0f5</code></td>
+    </tr>
+    <tr>
+        <td class="color-name">lawngreen</td>
+        <td class="color-color">
+            <div class="color-cell" style="background:lawngreen"></div>
+        </td>
+        <td class="color-hex"><code>#7cfc00</code></td>
+    </tr>
+    <tr>
+        <td class="color-name">lemonchiffon</td>
+        <td class="color-color">
+            <div class="color-cell" style="background:lemonchiffon"></div>
+        </td>
+        <td class="color-hex"><code>#fffacd</code></td>
+    </tr>
+    <tr>
+        <td class="color-name">lightblue</td>
+        <td class="color-color">
+            <div class="color-cell" style="background:lightblue"></div>
+        </td>
+        <td class="color-hex"><code>#add8e6</code></td>
+    </tr>
+    <tr>
+        <td class="color-name">lightcoral</td>
+        <td class="color-color">
+            <div class="color-cell" style="background:lightcoral"></div>
+        </td>
+        <td class="color-hex"><code>#f08080</code></td>
+    </tr>
+    <tr>
+        <td class="color-name">lightcyan</td>
+        <td class="color-color">
+            <div class="color-cell" style="background:lightcyan"></div>
+        </td>
+        <td class="color-hex"><code>#e0ffff</code></td>
+    </tr>
+    <tr>
+        <td class="color-name">lightgoldenrodyellow</td>
+        <td class="color-color">
+            <div class="color-cell" style="background:lightgoldenrodyellow"></div>
+        </td>
+        <td class="color-hex"><code>#fafad2</code></td>
+    </tr>
+    <tr>
+        <td class="color-name">lightgray</td>
+        <td class="color-color">
+            <div class="color-cell" style="background:lightgray"></div>
+        </td>
+        <td class="color-hex"><code>#d3d3d3</code></td>
+    </tr>
+    <tr>
+        <td class="color-name">lightgreen</td>
+        <td class="color-color">
+            <div class="color-cell" style="background:lightgreen"></div>
+        </td>
+        <td class="color-hex"><code>#90ee90</code></td>
+    </tr>
+    <tr>
+        <td class="color-name">lightgrey</td>
+        <td class="color-color">
+            <div class="color-cell" style="background:lightgrey"></div>
+        </td>
+        <td class="color-hex"><code>#d3d3d3</code></td>
+    </tr>
+    <tr>
+        <td class="color-name">lightpink</td>
+        <td class="color-color">
+            <div class="color-cell" style="background:lightpink"></div>
+        </td>
+        <td class="color-hex"><code>#ffb6c1</code></td>
+    </tr>
+    <tr>
+        <td class="color-name">lightsalmon</td>
+        <td class="color-color">
+            <div class="color-cell" style="background:lightsalmon"></div>
+        </td>
+        <td class="color-hex"><code>#ffa07a</code></td>
+    </tr>
+    <tr>
+        <td class="color-name">lightseagreen</td>
+        <td class="color-color">
+            <div class="color-cell" style="background:lightseagreen"></div>
+        </td>
+        <td class="color-hex"><code>#20b2aa</code></td>
+    </tr>
+    <tr>
+        <td class="color-name">lightskyblue</td>
+        <td class="color-color">
+            <div class="color-cell" style="background:lightskyblue"></div>
+        </td>
+        <td class="color-hex"><code>#87cefa</code></td>
+    </tr>
+    <tr>
+        <td class="color-name">lightslategray</td>
+        <td class="color-color">
+            <div class="color-cell" style="background:lightslategray"></div>
+        </td>
+        <td class="color-hex"><code>#778899</code></td>
+    </tr>
+    <tr>
+        <td class="color-name">lightslategrey</td>
+        <td class="color-color">
+            <div class="color-cell" style="background:lightslategrey"></div>
+        </td>
+        <td class="color-hex"><code>#778899</code></td>
+    </tr>
+    <tr>
+        <td class="color-name">lightsteelblue</td>
+        <td class="color-color">
+            <div class="color-cell" style="background:lightsteelblue"></div>
+        </td>
+        <td class="color-hex"><code>#b0c4de</code></td>
+    </tr>
+    <tr>
+        <td class="color-name">lightyellow</td>
+        <td class="color-color">
+            <div class="color-cell" style="background:lightyellow"></div>
+        </td>
+        <td class="color-hex"><code>#ffffe0</code></td>
+    </tr>
+    <tr>
+        <td class="color-name">lime</td>
+        <td class="color-color">
+            <div class="color-cell" style="background:lime"></div>
+        </td>
+        <td class="color-hex"><code>#00ff00</code></td>
+    </tr>
+    <tr>
+        <td class="color-name">limegreen</td>
+        <td class="color-color">
+            <div class="color-cell" style="background:limegreen"></div>
+        </td>
+        <td class="color-hex"><code>#32cd32</code></td>
+    </tr>
+    <tr>
+        <td class="color-name">linen</td>
+        <td class="color-color">
+            <div class="color-cell" style="background:linen"></div>
+        </td>
+        <td class="color-hex"><code>#faf0e6</code></td>
+    </tr>
+    <tr>
+        <td class="color-name">magenta</td>
+        <td class="color-color">
+            <div class="color-cell" style="background:magenta"></div>
+        </td>
+        <td class="color-hex"><code>#ff00ff</code></td>
+    </tr>
+    <tr>
+        <td class="color-name">maroon</td>
+        <td class="color-color">
+            <div class="color-cell" style="background:maroon"></div>
+        </td>
+        <td class="color-hex"><code>#800000</code></td>
+    </tr>
+    <tr>
+        <td class="color-name">mediumaquamarine</td>
+        <td class="color-color">
+            <div class="color-cell" style="background:mediumaquamarine"></div>
+        </td>
+        <td class="color-hex"><code>#66cdaa</code></td>
+    </tr>
+    <tr>
+        <td class="color-name">mediumblue</td>
+        <td class="color-color">
+            <div class="color-cell" style="background:mediumblue"></div>
+        </td>
+        <td class="color-hex"><code>#0000cd</code></td>
+    </tr>
+    <tr>
+        <td class="color-name">mediumorchid</td>
+        <td class="color-color">
+            <div class="color-cell" style="background:mediumorchid"></div>
+        </td>
+        <td class="color-hex"><code>#ba55d3</code></td>
+    </tr>
+    <tr>
+        <td class="color-name">mediumpurple</td>
+        <td class="color-color">
+            <div class="color-cell" style="background:mediumpurple"></div>
+        </td>
+        <td class="color-hex"><code>#9370db</code></td>
+    </tr>
+    <tr>
+        <td class="color-name">mediumseagreen</td>
+        <td class="color-color">
+            <div class="color-cell" style="background:mediumseagreen"></div>
+        </td>
+        <td class="color-hex"><code>#3cb371</code></td>
+    </tr>
+    <tr>
+        <td class="color-name">mediumslateblue</td>
+        <td class="color-color">
+            <div class="color-cell" style="background:mediumslateblue"></div>
+        </td>
+        <td class="color-hex"><code>#7b68ee</code></td>
+    </tr>
+    <tr>
+        <td class="color-name">mediumspringgreen</td>
+        <td class="color-color">
+            <div class="color-cell" style="background:mediumspringgreen"></div>
+        </td>
+        <td class="color-hex"><code>#00fa9a</code></td>
+    </tr>
+    <tr>
+        <td class="color-name">mediumturquoise</td>
+        <td class="color-color">
+            <div class="color-cell" style="background:mediumturquoise"></div>
+        </td>
+        <td class="color-hex"><code>#48d1cc</code></td>
+    </tr>
+    <tr>
+        <td class="color-name">mediumvioletred</td>
+        <td class="color-color">
+            <div class="color-cell" style="background:mediumvioletred"></div>
+        </td>
+        <td class="color-hex"><code>#c71585</code></td>
+    </tr>
+    <tr>
+        <td class="color-name">midnightblue</td>
+        <td class="color-color">
+            <div class="color-cell" style="background:midnightblue"></div>
+        </td>
+        <td class="color-hex"><code>#191970</code></td>
+    </tr>
+    <tr>
+        <td class="color-name">mintcream</td>
+        <td class="color-color">
+            <div class="color-cell" style="background:mintcream"></div>
+        </td>
+        <td class="color-hex"><code>#f5fffa</code></td>
+    </tr>
+    <tr>
+        <td class="color-name">mistyrose</td>
+        <td class="color-color">
+            <div class="color-cell" style="background:mistyrose"></div>
+        </td>
+        <td class="color-hex"><code>#ffe4e1</code></td>
+    </tr>
+    <tr>
+        <td class="color-name">moccasin</td>
+        <td class="color-color">
+            <div class="color-cell" style="background:moccasin"></div>
+        </td>
+        <td class="color-hex"><code>#ffe4b5</code></td>
+    </tr>
+    <tr>
+        <td class="color-name">navajowhite</td>
+        <td class="color-color">
+            <div class="color-cell" style="background:navajowhite"></div>
+        </td>
+        <td class="color-hex"><code>#ffdead</code></td>
+    </tr>
+    <tr>
+        <td class="color-name">navy</td>
+        <td class="color-color">
+            <div class="color-cell" style="background:navy"></div>
+        </td>
+        <td class="color-hex"><code>#000080</code></td>
+    </tr>
+    <tr>
+        <td class="color-name">oldlace</td>
+        <td class="color-color">
+            <div class="color-cell" style="background:oldlace"></div>
+        </td>
+        <td class="color-hex"><code>#fdf5e6</code></td>
+    </tr>
+    <tr>
+        <td class="color-name">olive</td>
+        <td class="color-color">
+            <div class="color-cell" style="background:olive"></div>
+        </td>
+        <td class="color-hex"><code>#808000</code></td>
+    </tr>
+    <tr>
+        <td class="color-name">olivedrab</td>
+        <td class="color-color">
+            <div class="color-cell" style="background:olivedrab"></div>
+        </td>
+        <td class="color-hex"><code>#6b8e23</code></td>
+    </tr>
+    <tr>
+        <td class="color-name">orange</td>
+        <td class="color-color">
+            <div class="color-cell" style="background:orange"></div>
+        </td>
+        <td class="color-hex"><code>#ffa500</code></td>
+    </tr>
+    <tr>
+        <td class="color-name">orangered</td>
+        <td class="color-color">
+            <div class="color-cell" style="background:orangered"></div>
+        </td>
+        <td class="color-hex"><code>#ff4500</code></td>
+    </tr>
+    <tr>
+        <td class="color-name">orchid</td>
+        <td class="color-color">
+            <div class="color-cell" style="background:orchid"></div>
+        </td>
+        <td class="color-hex"><code>#da70d6</code></td>
+    </tr>
+    <tr>
+        <td class="color-name">palegoldenrod</td>
+        <td class="color-color">
+            <div class="color-cell" style="background:palegoldenrod"></div>
+        </td>
+        <td class="color-hex"><code>#eee8aa</code></td>
+    </tr>
+    <tr>
+        <td class="color-name">palegreen</td>
+        <td class="color-color">
+            <div class="color-cell" style="background:palegreen"></div>
+        </td>
+        <td class="color-hex"><code>#98fb98</code></td>
+    </tr>
+    <tr>
+        <td class="color-name">paleturquoise</td>
+        <td class="color-color">
+            <div class="color-cell" style="background:paleturquoise"></div>
+        </td>
+        <td class="color-hex"><code>#afeeee</code></td>
+    </tr>
+    <tr>
+        <td class="color-name">palevioletred</td>
+        <td class="color-color">
+            <div class="color-cell" style="background:palevioletred"></div>
+        </td>
+        <td class="color-hex"><code>#db7093</code></td>
+    </tr>
+    <tr>
+        <td class="color-name">papayawhip</td>
+        <td class="color-color">
+            <div class="color-cell" style="background:papayawhip"></div>
+        </td>
+        <td class="color-hex"><code>#ffefd5</code></td>
+    </tr>
+    <tr>
+        <td class="color-name">peachpuff</td>
+        <td class="color-color">
+            <div class="color-cell" style="background:peachpuff"></div>
+        </td>
+        <td class="color-hex"><code>#ffdab9</code></td>
+    </tr>
+    <tr>
+        <td class="color-name">peru</td>
+        <td class="color-color">
+            <div class="color-cell" style="background:peru"></div>
+        </td>
+        <td class="color-hex"><code>#cd853f</code></td>
+    </tr>
+    <tr>
+        <td class="color-name">pink</td>
+        <td class="color-color">
+            <div class="color-cell" style="background:pink"></div>
+        </td>
+        <td class="color-hex"><code>#ffc0cb</code></td>
+    </tr>
+    <tr>
+        <td class="color-name">plum</td>
+        <td class="color-color">
+            <div class="color-cell" style="background:plum"></div>
+        </td>
+        <td class="color-hex"><code>#dda0dd</code></td>
+    </tr>
+    <tr>
+        <td class="color-name">powderblue</td>
+        <td class="color-color">
+            <div class="color-cell" style="background:powderblue"></div>
+        </td>
+        <td class="color-hex"><code>#b0e0e6</code></td>
+    </tr>
+    <tr>
+        <td class="color-name">purple</td>
+        <td class="color-color">
+            <div class="color-cell" style="background:purple"></div>
+        </td>
+        <td class="color-hex"><code>#800080</code></td>
+    </tr>
+    <tr>
+        <td class="color-name">random</td>
+        <td class="color-color">
+            <div class="color-cell" style="background:transparent"></div>
+        </td>
+        <td class="color-hex"><code>???</code></td>
+    </tr>
+    <tr>
+        <td class="color-name">red</td>
+        <td class="color-color">
+            <div class="color-cell" style="background:red"></div>
+        </td>
+        <td class="color-hex"><code>#ff0000</code></td>
+    </tr>
+    <tr>
+        <td class="color-name">rosybrown</td>
+        <td class="color-color">
+            <div class="color-cell" style="background:rosybrown"></div>
+        </td>
+        <td class="color-hex"><code>#bc8f8f</code></td>
+    </tr>
+    <tr>
+        <td class="color-name">royalblue</td>
+        <td class="color-color">
+            <div class="color-cell" style="background:royalblue"></div>
+        </td>
+        <td class="color-hex"><code>#4169e1</code></td>
+    </tr>
+    <tr>
+        <td class="color-name">saddlebrown</td>
+        <td class="color-color">
+            <div class="color-cell" style="background:saddlebrown"></div>
+        </td>
+        <td class="color-hex"><code>#8b4513</code></td>
+    </tr>
+    <tr>
+        <td class="color-name">salmon</td>
+        <td class="color-color">
+            <div class="color-cell" style="background:salmon"></div>
+        </td>
+        <td class="color-hex"><code>#fa8072</code></td>
+    </tr>
+    <tr>
+        <td class="color-name">sandybrown</td>
+        <td class="color-color">
+            <div class="color-cell" style="background:sandybrown"></div>
+        </td>
+        <td class="color-hex"><code>#f4a460</code></td>
+    </tr>
+    <tr>
+        <td class="color-name">seagreen</td>
+        <td class="color-color">
+            <div class="color-cell" style="background:seagreen"></div>
+        </td>
+        <td class="color-hex"><code>#2e8b57</code></td>
+    </tr>
+    <tr>
+        <td class="color-name">seashell</td>
+        <td class="color-color">
+            <div class="color-cell" style="background:seashell"></div>
+        </td>
+        <td class="color-hex"><code>#fff5ee</code></td>
+    </tr>
+    <tr>
+        <td class="color-name">sienna</td>
+        <td class="color-color">
+            <div class="color-cell" style="background:sienna"></div>
+        </td>
+        <td class="color-hex"><code>#a0522d</code></td>
+    </tr>
+    <tr>
+        <td class="color-name">silver</td>
+        <td class="color-color">
+            <div class="color-cell" style="background:silver"></div>
+        </td>
+        <td class="color-hex"><code>#c0c0c0</code></td>
+    </tr>
+    <tr>
+        <td class="color-name">skyblue</td>
+        <td class="color-color">
+            <div class="color-cell" style="background:skyblue"></div>
+        </td>
+        <td class="color-hex"><code>#87ceeb</code></td>
+    </tr>
+    <tr>
+        <td class="color-name">slateblue</td>
+        <td class="color-color">
+            <div class="color-cell" style="background:slateblue"></div>
+        </td>
+        <td class="color-hex"><code>#6a5acd</code></td>
+    </tr>
+    <tr>
+        <td class="color-name">slategray</td>
+        <td class="color-color">
+            <div class="color-cell" style="background:slategray"></div>
+        </td>
+        <td class="color-hex"><code>#708090</code></td>
+    </tr>
+    <tr>
+        <td class="color-name">slategrey</td>
+        <td class="color-color">
+            <div class="color-cell" style="background:slategrey"></div>
+        </td>
+        <td class="color-hex"><code>#708090</code></td>
+    </tr>
+    <tr>
+        <td class="color-name">snow</td>
+        <td class="color-color">
+            <div class="color-cell" style="background:snow"></div>
+        </td>
+        <td class="color-hex"><code>#fffafa</code></td>
+    </tr>
+    <tr>
+        <td class="color-name">springgreen</td>
+        <td class="color-color">
+            <div class="color-cell" style="background:springgreen"></div>
+        </td>
+        <td class="color-hex"><code>#00ff7f</code></td>
+    </tr>
+    <tr>
+        <td class="color-name">steelblue</td>
+        <td class="color-color">
+            <div class="color-cell" style="background:steelblue"></div>
+        </td>
+        <td class="color-hex"><code>#4682b4</code></td>
+    </tr>
+    <tr>
+        <td class="color-name">tan</td>
+        <td class="color-color">
+            <div class="color-cell" style="background:tan"></div>
+        </td>
+        <td class="color-hex"><code>#d2b48c</code></td>
+    </tr>
+    <tr>
+        <td class="color-name">teal</td>
+        <td class="color-color">
+            <div class="color-cell" style="background:teal"></div>
+        </td>
+        <td class="color-hex"><code>#008080</code></td>
+    </tr>
+    <tr>
+        <td class="color-name">thistle</td>
+        <td class="color-color">
+            <div class="color-cell" style="background:thistle"></div>
+        </td>
+        <td class="color-hex"><code>#d8bfd8</code></td>
+    </tr>
+    <tr>
+        <td class="color-name">tomato</td>
+        <td class="color-color">
+            <div class="color-cell" style="background:tomato"></div>
+        </td>
+        <td class="color-hex"><code>#ff6347</code></td>
+    </tr>
+    <tr>
+        <td class="color-name">transparent</td>
+        <td class="color-color">
+            <div class="color-cell" style="background:transparent"></div>
+        </td>
+        <td class="color-hex"><code>#00000000</code></td>
+    </tr>
+    <tr>
+        <td class="color-name">turquoise</td>
+        <td class="color-color">
+            <div class="color-cell" style="background:turquoise"></div>
+        </td>
+        <td class="color-hex"><code>#40e0d0</code></td>
+    </tr>
+    <tr>
+        <td class="color-name">violet</td>
+        <td class="color-color">
+            <div class="color-cell" style="background:violet"></div>
+        </td>
+        <td class="color-hex"><code>#ee82ee</code></td>
+    </tr>
+    <tr>
+        <td class="color-name">wheat</td>
+        <td class="color-color">
+            <div class="color-cell" style="background:wheat"></div>
+        </td>
+        <td class="color-hex"><code>#f5deb3</code></td>
+    </tr>
+    <tr>
+        <td class="color-name">white</td>
+        <td class="color-color">
+            <div class="color-cell" style="background:white"></div>
+        </td>
+        <td class="color-hex"><code>#ffffff</code></td>
+    </tr>
+    <tr>
+        <td class="color-name">whitesmoke</td>
+        <td class="color-color">
+            <div class="color-cell" style="background:whitesmoke"></div>
+        </td>
+        <td class="color-hex"><code>#f5f5f5</code></td>
+    </tr>
+    <tr>
+        <td class="color-name">yellow</td>
+        <td class="color-color">
+            <div class="color-cell" style="background:yellow"></div>
+        </td>
+        <td class="color-hex"><code>#ffff00</code></td>
+    </tr>
+    <tr>
+        <td class="color-name">yellowgreen</td>
+        <td class="color-color">
+            <div class="color-cell" style="background:yellowgreen"></div>
+        </td>
+        <td class="color-hex"><code>#9acd32</code></td>
+    </tr>
+</table></p>
+</details>
+</dd>
+</dl>
+<h4 id="color-literal"><code>color-literal</code><a class="headerlink" href="#color-literal" title="Permanent link">&para;</a></h4>
+<dl>
+<dd>
+<p>A string in either form:</p>
+<ul>
+<li><code class="highlight"><span class="s1">&#39;#rgb&#39;</span><span class="w"></span></code></li>
+<li><code class="highlight"><span class="s1">&#39;#argb&#39;</span><span class="w"></span></code></li>
+<li><code class="highlight"><span class="s1">&#39;#rrggbb&#39;</span><span class="w"></span></code></li>
+<li><code class="highlight"><span class="s1">&#39;#aarrggbb&#39;</span><span class="w"></span></code></li>
+</ul>
+<p>Every <code>a</code>, <code>r</code>, <code>g</code>, or <code>b</code> is a <a href="https://en.wikipedia.org/wiki/Hexadecimal">hex-digit</a>, i.e. a value <em>0–9</em> or <em>A–F</em> (or <em>a–f</em>). They represent <em>alpha, red, green,</em> and <em>blue</em> correspondingly.</p>
+<details class="info">
+<summary>Expanding rules</summary>
+<p>The <code>#aarrggbb</code> is a full form and all other forms are expanded to it with the following rules:</p>
+<ul>
+<li>If alpha is omitted, it equals to FF<sub>16</sub> (= 255<sub>10</sub>).</li>
+<li>In short form, every digit is doubled.</li>
+</ul>
+</details>
+<details class="example" open="open">
+<summary>Examples</summary>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="s1">&#39;#70f&#39;</span><span class="w">       </span><span class="c1">// ⇒ #ff7700ff</span><span class="w"></span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="s1">&#39;#a789&#39;</span><span class="w">      </span><span class="c1">// ⇒ #aa778899</span><span class="w"></span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="s1">&#39;#8000ff&#39;</span><span class="w">    </span><span class="c1">// ⇒ #ff8000ff</span><span class="w"></span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="s1">&#39;#c0ff79bf&#39;</span><span class="w">  </span><span class="c1">// ⇒ #c0ff79bf</span><span class="w"></span>
+</code></pre></div>
+</details>
+</dd>
+</dl>
+<h4 id="qt-color-qolor">Qt color (<code>qolor</code>)<a class="headerlink" href="#qt-color-qolor" title="Permanent link">&para;</a></h4>
+<dl>
+<dd>
+<p>Qt Quick's <a href="https://doc.qt.io/qt-5/qml-color.html"><code>color</code></a> basic type. In this documentation I usually refer to it as <a href="#qt-color-qolor"><code>qolor</code></a> to distinguish from the <code>Color</code> class.</p>
+<p>Read more about <a href="#"><code>qolor</code> vs <code>color</code></a> in the next chapter.</p>
+</dd>
+</dl>
+<h4 id="the-color-class-color">The Color class (<code>color</code>)<a class="headerlink" href="#the-color-class-color" title="Permanent link">&para;</a></h4>
+<dl>
+<dd>
+<p>The bread-and-butter of this library is the <code>Color</code> class which provides all the interesting <a href="../../reference/color/#methods">methods</a>. Essentially, it's just a thin wrapper around <a href="#qt-color-qolor"><code>qolor</code></a> which provides some additional properties and methods.</p>
+<p>Read more about <a href="#"><code>qolor</code> vs <code>color</code></a> in the next chapter.</p>
+</dd>
+</dl>
+<h4 id="any-type-of-color-any-color">Any type of color (<code>any-color</code>)<a class="headerlink" href="#any-type-of-color-any-color" title="Permanent link">&para;</a></h4>
+<dl>
+<dd>
+<p>This is a union type that allows using any suitable way of constructing a color object.</p>
+<p>Can be substituted with: <a href="#color-name"><code>color-name</code></a>|<a href="#color-literal"><code>color-literal</code></a>|<a href="#qt-color-qolor"><code>qolor</code></a>|<a href="#the-color-class-color"><code>color</code></a>.</p>
+</dd>
+</dl>
+<h3 id="auxiliary-types">Auxiliary types<a class="headerlink" href="#auxiliary-types" title="Permanent link">&para;</a></h3>
+<h4 id="change-object"><code>change-object</code><a class="headerlink" href="#change-object" title="Permanent link">&para;</a></h4>
+<dl>
+<dd>
+<p>This type is used only as a parameter of a single method <a href="../../reference/color/#change"><code>change</code></a> and corresponding function.</p>
+<p>Every individual component of this object is of type <a href="#normalized-real-interval-norm"><code>norm</code></a>.</p>
+<p>The default value of each component is <code>null</code> (i.e. no change). This makes every component – <strong>optional!</strong></p>
+<p>The object itself contains:</p>
+<ul>
+<li><code>alpha</code> or <code>a</code></li>
+<li>one of the following:<ul>
+<li>{<code>rgb</code>: {<code>red</code>, <code>green</code>, <code>blue</code>}}<br/>or {<code>rgb</code>: {<code>r</code>, <code>g</code>, <code>b</code>}}</li>
+<li>{<code>hsl</code>: {<code>hue</code>, <code>saturation</code>, <code>lightness</code>}}<br/>or {<code>hsl</code>: {<code>h</code>, <code>s</code>, <code>l</code>}}</li>
+<li>{<code>hsv</code>: {<code>hue</code>, <code>saturation</code>, <code>value</code>}}<br/>or {<code>hsv</code>: {<code>h</code>, <code>s</code>, <code>v</code>}}</li>
+<li>{<code>hwb</code>: {<code>hue</code>, <code>whiteness</code>, <code>blackness</code>}}<br/>or {<code>hwb</code>: {<code>h</code>, <code>w</code>, <code>b</code>}}</li>
+</ul>
+</li>
+</ul>
+<details class="example" open="open">
+<summary>Valid examples</summary>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="p">{</span><span class="nx">alpha</span><span class="o">:</span><span class="w"> </span><span class="mf">0.5</span><span class="p">,</span><span class="w"> </span><span class="nx">rgb</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="nx">r</span><span class="o">:</span><span class="w"> </span><span class="mf">0.5</span><span class="p">,</span><span class="w"> </span><span class="nx">b</span><span class="o">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">}}</span><span class="w"></span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="p">{</span><span class="nx">hsl</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="nx">hue</span><span class="o">:</span><span class="w"> </span><span class="mf">270</span><span class="w"> </span><span class="p">.</span><span class="nx">deg</span><span class="p">,</span><span class="w"> </span><span class="nx">saturation</span><span class="o">:</span><span class="w"> </span><span class="mf">100</span><span class="w"> </span><span class="p">.</span><span class="nx">percent</span><span class="p">}}</span><span class="w"></span>
+</code></pre></div></p>
+</details>
+<details class="example" open="open">
+<summary>Invalid examples</summary>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1">// alpha is within rgb, but must be on the top level</span><span class="w"></span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="p">{</span><span class="nx">rgb</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="nx">r</span><span class="o">:</span><span class="w"> </span><span class="mf">0.5</span><span class="p">,</span><span class="w"> </span><span class="nx">b</span><span class="o">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w"> </span><span class="nx">a</span><span class="o">:</span><span class="w"> </span><span class="mf">0.5</span><span class="p">}}</span><span class="w"></span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">    </span><span class="c1">// rgb and hsl can&#39;t be mixed within one object</span><span class="w"></span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">    </span><span class="nx">rgb</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="nx">red</span><span class="o">:</span><span class="w"> </span><span class="mf">128</span><span class="w"> </span><span class="p">.</span><span class="kr">int</span><span class="p">,</span><span class="w"> </span><span class="nx">blue</span><span class="o">:</span><span class="w"> </span><span class="mf">255</span><span class="w"> </span><span class="p">.</span><span class="kr">int</span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">    </span><span class="nx">hsl</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="nx">hue</span><span class="o">:</span><span class="w"> </span><span class="mf">270</span><span class="w"> </span><span class="p">.</span><span class="nx">deg</span><span class="p">,</span><span class="w"> </span><span class="nx">saturation</span><span class="o">:</span><span class="w"> </span><span class="mf">100</span><span class="w"> </span><span class="p">.</span><span class="nx">percent</span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="p">}</span><span class="w"></span>
+</code></pre></div></p>
+</details>
+</dd>
+</dl>
+<h4 id="offset-object"><code>offset-object</code><a class="headerlink" href="#offset-object" title="Permanent link">&para;</a></h4>
+<dl>
+<dd>
+<p>This type is used only as a parameter of two methods: <a href="../../reference/color/#adjust"><code>adjust</code></a> and <a href="../../reference/color/#scale"><code>scale</code></a> and corresponding functions.</p>
+<p>Essentially, it's the same as <a href="#change-object"><code>change-object</code></a> but every individual component of this object is of type <a href="#normalized-real-offset-interval-offset"><code>offset</code></a> instead of <code>norm</code>.</p>
+<p>The default value of each component is <code>0.0</code> (i.e. no change). This makes every component – <strong>optional!</strong></p>
+<p>The object itself contains:</p>
+<ul>
+<li><code>alpha</code> or <code>a</code></li>
+<li>one of the following:<ul>
+<li>{<code>rgb</code>: {<code>red</code>, <code>green</code>, <code>blue</code>}}<br/>or {<code>rgb</code>: {<code>r</code>, <code>g</code>, <code>b</code>}}</li>
+<li>{<code>hsl</code>: {<code>hue</code>, <code>saturation</code>, <code>lightness</code>}}<br/>or {<code>hsl</code>: {<code>h</code>, <code>s</code>, <code>l</code>}}</li>
+<li>{<code>hsv</code>: {<code>hue</code>, <code>saturation</code>, <code>value</code>}}<br/>or {<code>hsv</code>: {<code>h</code>, <code>s</code>, <code>v</code>}}</li>
+<li>{<code>hwb</code>: {<code>hue</code>, <code>whiteness</code>, <code>blackness</code>}}<br/>or {<code>hwb</code>: {<code>h</code>, <code>w</code>, <code>b</code>}}</li>
+</ul>
+</li>
+</ul>
+<details class="example" open="open">
+<summary>Valid examples</summary>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="p">{</span><span class="nx">alpha</span><span class="o">:</span><span class="w"> </span><span class="o">+</span><span class="mf">0.5</span><span class="p">,</span><span class="w"> </span><span class="nx">rgb</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="nx">r</span><span class="o">:</span><span class="w"> </span><span class="o">+</span><span class="mf">0.3</span><span class="p">,</span><span class="w"> </span><span class="nx">b</span><span class="o">:</span><span class="w"> </span><span class="o">-</span><span class="mf">0.2</span><span class="p">}}</span><span class="w"></span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="p">{</span><span class="nx">hsl</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="nx">hue</span><span class="o">:</span><span class="w"> </span><span class="o">+</span><span class="mf">30</span><span class="w"> </span><span class="p">.</span><span class="nx">deg</span><span class="p">,</span><span class="w"> </span><span class="nx">saturation</span><span class="o">:</span><span class="w"> </span><span class="o">-</span><span class="mf">20</span><span class="w"> </span><span class="p">.</span><span class="nx">percent</span><span class="p">}}</span><span class="w"></span>
+</code></pre></div></p>
+</details>
+<details class="example" open="open">
+<summary>Invalid examples</summary>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="c1">// alpha is within rgb, but must be on the top level</span><span class="w"></span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="p">{</span><span class="nx">rgb</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="nx">r</span><span class="o">:</span><span class="w"> </span><span class="o">+</span><span class="mf">0.5</span><span class="p">,</span><span class="w"> </span><span class="nx">b</span><span class="o">:</span><span class="w"> </span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span><span class="w"> </span><span class="nx">a</span><span class="o">:</span><span class="w"> </span><span class="o">+</span><span class="mf">0.5</span><span class="p">}}</span><span class="w"></span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="w">    </span><span class="c1">// rgb and hsl can&#39;t be mixed within one object</span><span class="w"></span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">    </span><span class="nx">rgb</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="nx">red</span><span class="o">:</span><span class="w"> </span><span class="o">+</span><span class="mf">128</span><span class="w"> </span><span class="p">.</span><span class="kr">int</span><span class="p">,</span><span class="w"> </span><span class="nx">blue</span><span class="o">:</span><span class="w"> </span><span class="o">-</span><span class="mf">128</span><span class="w"> </span><span class="p">.</span><span class="kr">int</span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="w">    </span><span class="nx">hsl</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="nx">hue</span><span class="o">:</span><span class="w"> </span><span class="o">-</span><span class="mf">45</span><span class="w"> </span><span class="p">.</span><span class="nx">deg</span><span class="p">,</span><span class="w"> </span><span class="nx">saturation</span><span class="o">:</span><span class="w"> </span><span class="o">-</span><span class="mf">15</span><span class="w"> </span><span class="p">.</span><span class="nx">percent</span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="p">}</span><span class="w"></span>
+</code></pre></div></p>
+</details>
+</dd>
+</dl>
+<h2 id="value-ranges">Value ranges<a class="headerlink" href="#value-ranges" title="Permanent link">&para;</a></h2>
+<h3 id="normalized-real-interval-norm">Normalized real interval (<code>norm</code>)<a class="headerlink" href="#normalized-real-interval-norm" title="Permanent link">&para;</a></h3>
+<p>$$
+n \in [0, 1]
+$$
+Almost all functions work with arguments that belong to the normalized interval. Also, all color components' values are stored internally as normalized real values.</p>
+<p>For example, <code class="highlight"><span class="nx">rgba</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="mf">1</span><span class="p">)</span><span class="w"></span></code>.</p>
+<h3 id="normalized-real-offset-interval-offset">Normalized real offset interval (<code>offset</code>)<a class="headerlink" href="#normalized-real-offset-interval-offset" title="Permanent link">&para;</a></h3>
+<p>$$
+r \in [-1, 1]
+$$
+This one is mainly used to denote an offset/change of a normalized value.</p>
+<p>For instance, <code class="highlight"><span class="p">{</span><span class="nx">hsl</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="nx">saturation</span><span class="o">:</span><span class="w"> </span><span class="o">-</span><span class="mf">0.3</span><span class="p">}}</span><span class="w"></span></code>.</p>
+<h3 id="integer-interval-8bit">Integer interval (<code>8bit</code>)<a class="headerlink" href="#integer-interval-8bit" title="Permanent link">&para;</a></h3>
+<p>$$
+u \in [0, 255]
+$$
+This should be quite familiar for those coming from CSS where color components are specified using integers. Usually, functions, that work with such values, have suffix <code>24</code> or <code>32</code>.</p>
+<p>For example, <code class="highlight"><span class="nx">rgb24</span><span class="p">(</span><span class="mf">128</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">255</span><span class="p">)</span><span class="w"></span></code>.</p>
+<h3 id="integer-offset-interval-9bit">Integer offset interval (<code>9bit</code>)<a class="headerlink" href="#integer-offset-interval-9bit" title="Permanent link">&para;</a></h3>
+<p>$$
+s \in [-255, 255]
+$$
+<abbr title="As Far As I Remember">AFAIR</abbr>, there are no functions that work with this interval, however, you can use such values, for instance, together with <a href="../../reference/units/#int">units</a>.</p>
+<p>Example: <code class="highlight"><span class="p">{</span><span class="nx">alpha</span><span class="o">:</span><span class="w"> </span><span class="o">-</span><span class="mf">128</span><span class="w"> </span><span class="p">.</span><span class="kr">int</span><span class="p">}</span><span class="w"></span></code>.</p>
+
+              
+            </article>
+            
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+          </div>
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            Back to top
+          </a>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      
+        
+        <a href="../installation/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Installation" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Installation
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../qolor-vs-color/" class="md-footer__link md-footer__link--next" aria-label="Next: qolor vs color" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              qolor vs color
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.tabs.link", "navigation.indexes", "navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.top"], "search": "../../assets/javascripts/workers/search.b97dbffb.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.6c7ad80a.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
